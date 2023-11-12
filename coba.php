@@ -10,7 +10,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: antiquewhite;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -22,13 +22,13 @@
             border: 1px solid #000;
             border-radius: 5px;
             padding: 20px;
-            background-color: #fff;
+            background-color: black;
         }
 
         .display {
             width: 100%;
             height: 40px;
-            background-color: #f0f0f0;
+            background-color: darkgray;
             margin-bottom: 20px;
             padding: 10px;
             text-align: right;
@@ -44,7 +44,7 @@
         button {
             width: 100%;
             height: 40px;
-            background-color: #eee;
+            background-color: darkgray;
             border: 1px solid #000;
             border-radius: 5px;
             cursor: pointer;
@@ -79,6 +79,7 @@
         <button>0</button>
         <button>.</button>
         <button>+</button>
+        <button>=</button>
     </div>
 </div>
 </body>
