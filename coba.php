@@ -4,61 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: antiquewhite;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .calculator {
-            width: 220px;
-            height: 320px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            padding: 20px;
-            background-color: black;
-        }
-
-        .display {
-            width: 100%;
-            height: 40px;
-            background-color: darkgray;
-            margin-bottom: 20px;
-            padding: 10px;
-            text-align: right;
-            font-size: 20px;
-        }
-
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        button {
-            width: 100%;
-            height: 40px;
-            background-color: darkgray;
-            border: 1px solid #000;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        button:hover {
-            background-color: #e0e0e0;
-        }
-
-        button:active {
-            background-color: #d0d0d0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="calculator">
@@ -79,8 +25,16 @@
         <button>0</button>
         <button>.</button>
         <button>+</button>
-        <button>=</button>
     </div>
 </div>
+<script>
+    document.querySelector('.calculator').addEventListener('click', function(e) {
+        if (e.target.tagName === 'BUTTON') {
+            const display = document.querySelector('.display');
+            const buttonValue = e.target.textContent;
+            display.textContent += buttonValue;
+        }
+    });
+</script>
 </body>
 </html>
