@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.calculator {
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1px;
+}
+
+.display {
+    grid-column: 1 / span 4;
+    background-color: yellow;
+    padding: 5px;
+    border: none;
+    text-align: right;
+    font-size: 1.5em;
+}
+
+button {
+    background-color: yellow;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+button:active {
+    background-color: #d0d0d0;
+}
+
+.operator, .number, .calculate, .clear, .sign, .percent {
+    background-color: #e8e8e8;
+}
+
+.operator:hover, .number:hover, .calculate:hover, .clear:hover, .sign:hover, .percent:hover {
+    background-color: #d8d8d8;
+}
+
+.operator:active, .number:active, .calculate:active, .clear:active, .sign:active, .percent:active {
+    background-color: #c8c8c8;
+}
