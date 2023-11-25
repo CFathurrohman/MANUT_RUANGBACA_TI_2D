@@ -2,9 +2,9 @@
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-require_once "config/koneksi.php";
-include "fungsi/pesan_kilat.php";
-include "fungsi/anti_injection.php";
+require_once "../models/config/connection.php";
+include "../models/function/pesan_kilat.php";
+include "../models/function/anti_injection.php";
 
 $username = antiinjection($koneksi, $_POST['username']);
 $password = antiinjection($koneksi, $_POST['password']);
@@ -22,12 +22,12 @@ if ($salt != null && $hashed_password !== null) {
     if (password_verify($combined_password, $hashed_password)) {
         $_SESSION['username'] = $row['username'];
         $_SESSION['level'] = $row['level'];
-        header("Location: index.php");
+        header("Location: app/models/home/index.php");
     } else {
         pesan('danger', "Login gagal. Password Anda Salah.");
-        header("Location: login.php");
+        header("Location: app/models/home/index.php");
     }
 } else {
     pesan('warning', "Username tidak ditemukan.");
-    header("Location: login.php");
+    header("Location: app/models/home/index.php");
 }
