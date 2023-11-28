@@ -11,7 +11,7 @@
 <body>
 <main>
     <div class="container a-container" id="a-container">
-        <form method="post" action="cek_login.php">
+        <form method="post" action="../../core/cek_login.php">
             <h2 class="form_title title">Ruang Baca JTI</h2>
             <span class="form__span">Input your username and password</span>
             <div>
@@ -27,11 +27,7 @@
         <div class="side__circle"></div>
         <div class="side__circle side__circle--t"></div>
         <div class="side__container">
-<<<<<<< HEAD:login.php
-            <img class="side__logo logo" src="img/bulat%20putih.png" alt="">
-=======
-            <img class="side__logo logo" src="../../../public/img/Logo Polinema (Politeknik Negeri Malang).png" alt="">
->>>>>>> 2342faa856c78582a53eebd5935a8f2f6d00e58b:app/views/login/index.php
+            <img class="side__logo logo" src="../../../public/img/bulat%20putih.png" alt="">
             <h2 class="side__title title">Welcome Back !</h2>
             <p class="side__description description">*Mahasiswa menggunakan akun siakad
                 <br> *Dosen/Pegawai menggunakan akun Polinema</p>
