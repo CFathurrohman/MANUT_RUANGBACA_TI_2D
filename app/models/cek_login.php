@@ -1,7 +1,6 @@
 <?php
-session_start();
 
-require_once 'config/connection.php';
+
 require_once 'anti_injection.php';
 
 class UserAuthentication {
