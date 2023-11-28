@@ -6,7 +6,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="css/loginStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/css/loginStyle.css">
 </head>
 <body>
 <main>
@@ -27,7 +27,11 @@
         <div class="side__circle"></div>
         <div class="side__circle side__circle--t"></div>
         <div class="side__container">
+<<<<<<< HEAD:login.php
             <img class="side__logo logo" src="img/bulat%20putih.png" alt="">
+=======
+            <img class="side__logo logo" src="../../../public/img/Logo Polinema (Politeknik Negeri Malang).png" alt="">
+>>>>>>> 2342faa856c78582a53eebd5935a8f2f6d00e58b:app/views/login/index.php
             <h2 class="side__title title">Welcome Back !</h2>
             <p class="side__description description">*Mahasiswa menggunakan akun siakad
                 <br> *Dosen/Pegawai menggunakan akun Polinema</p>
