@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter-Bold", Helvetica;
+}
+
+.content-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.text-wrapper, .text-wrapper-2 {
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.text-wrapper {
+    font-size: 32px;
+}
+
+.text-wrapper-2 {
+    font-size: 20px;
+}
+
+.button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.button {
+    background-color: #0D6EFD;
+    width: 173px;
+    height: 32px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 30px;
+}
+.button2{
+    background-color: #fd0d0d;
+    width: 173px;
+    height: 32px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 30px;
+}
+#changePassword {
+    color: #ffffff;
+}
+
+#logout {
+    color: #ffffff;
+}
