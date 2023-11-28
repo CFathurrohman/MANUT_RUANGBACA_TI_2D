@@ -2,7 +2,9 @@
 if (session_status() === PHP_SESSION_NONE)
     session_start();
 
-require_once "config/koneksi.php";
+global $koneksi;
+
+include "config/connection.php";
 include "fungsi/pesan_kilat.php";
 include "fungsi/anti_injection.php";
 

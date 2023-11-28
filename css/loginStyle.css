@@ -1,4 +1,4 @@
-*, *::after, *::before {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -44,7 +44,8 @@ main {
 }
 
 
-.form {
+
+form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,8 +66,11 @@ main {
     font-family: "Montserrat", sans-serif;
     background-color: skyblue;
     transition: 0.25s ease;
-    border-radius: 8px;
-    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
+    border-radius: 10px;
+}
+
+.form__input::placeholder {
+    color: #f9f9f9;
 }
 
 .form__input:focus {
@@ -93,9 +97,9 @@ main {
 }
 
 .button {
-    width: 180px;
-    height: 50px;
-    border-radius: 25px;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
     margin-top: 50px;
     font-weight: 700;
     font-size: 14px;
@@ -104,6 +108,10 @@ main {
     color: #f9f9f9;
     border: none;
     outline: none;
+}
+
+.button:hover {
+    background-color: steelblue;
 }
 
 .a-container {
@@ -120,9 +128,6 @@ main {
     left: 0;
     height: 100%;
     width: 400px;
-    padding: 50px;
-    z-index: 200;
-    transition: 1.25s;
     background-color: #1d6693;
     overflow: hidden;
     box-shadow: 4px 4px 10px skyblue, -4px -4px 10px dodgerblue;
@@ -132,8 +137,8 @@ main {
     position: page;
     top: -200px;
     left: -10px;
-    width: 300px;
-    height: 230px;
+    width: fit-content(250px);
+    height: 250px;
 }
 
 .side__circle {
@@ -169,10 +174,7 @@ main {
 .side__description {
     width: 350px;
     height: 50px;
-    /*margin-top: 5px;*/
     font-weight: 500;
     font-size: 14px;
     color: #f9f9f9;
-    border: white;
-    outline: #ffffff;
 }

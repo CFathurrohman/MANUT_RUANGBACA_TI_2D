@@ -1,21 +1,38 @@
 <?php
+class Connection {
+    private $host = 'localhost';
+    private $user = 'root';
+    private $password = "";
+    private $database = 'sistem_ruang_baca';
+    private $conn;
 
-class Database {
-    public $connection;
-    public function __construct()
-    {
-        try {
-            $conn = new PDO("mysql:host=localhost;dbname=sistem_ruang_baca", "root", "");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            // echo "Connected successfully";
-            if($conn)
-            {
+    public function __construct($host, $user, $password, $database) {
+        $this->host = $host;
+        $this->user = $user;
+        $this->password = $password;
+        $this->database = $database;
+    }
 
-            }
-            $this->connection = $conn;
-        } catch(PDOException $e) {
-            echo "Connection failed: " . $e->getMessage();
+    public function connect() {
+        $this->conn = new mysqli($this->host, $this->user, $this->password, $this->database);
+
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
+    }
+
+    public function close() {
+        $this->conn->close();
+    }
+
+    public function query($sql) {
+        $result = $this->conn->query($sql);
+
+        if (!$result) {
+            die("Query failed: " . $this->conn->error);
+        }
+
+        return $result;
     }
 }
 ?>
