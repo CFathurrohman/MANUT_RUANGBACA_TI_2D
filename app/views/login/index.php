@@ -6,12 +6,13 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../../../public/css/loginStyle.css">
+core    <link rel="stylesheet" type="text/css" href="../../../public/css/loginStyle.css">
 </head>
 <body>
 <main>
     <div class="container a-container" id="a-container">
-        <form method="post" action="../../core/cek_login.php">
+        // Path belum bener
+        <form method="post" action="../../models/cek_login.php">
             <h2 class="form_title title">Ruang Baca JTI</h2>
             <span class="form__span">Input your username and password</span>
             <div>

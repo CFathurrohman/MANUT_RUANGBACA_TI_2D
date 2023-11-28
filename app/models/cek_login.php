@@ -1,27 +1,24 @@
 <?php
-require_once 'anti_injection';
+session_start();
+
+require_once 'config/connection.php';
+require_once 'anti_injection.php';
+
 class UserAuthentication {
-    private $koneksi;
+    private $connection;
 
     public function __construct($connection) {
-        $this->koneksi = $connection;
+        $this->connection = $connection;
     }
 
     public function loginUser($username, $password) {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        include '../config/connection.php';
-        include '../models/anti_injection.php';
-
-        $username = anti_injection($this->koneksi, $username);
-        $password = anti_injection($this->koneksi, $password);
+        $antiInjection = new anti_injection($this->connection);
+        $username = $antiInjection->anti_injection($this->connection, $username);
+        $password = $antiInjection->anti_injection($this->connection, $password);
 
         $query = "SELECT username, level, salt, password as hashed_password FROM user WHERE username = '$username'";
-        $result = mysqli_query($this->koneksi, $query);
+        $result = mysqli_query($this->connection, $query);
         $row = mysqli_fetch_assoc($result);
-        mysqli_close($this->koneksi);
 
         if ($row) {
             $salt = $row['salt'];
@@ -34,26 +31,19 @@ class UserAuthentication {
                     $_SESSION['username'] = $row['username'];
                     $_SESSION['level'] = $row['level'];
                     header("Location: index.php");
-                    exit(); // Always exit after a header redirect
+                    exit(); 
                 } else {
-                    pesan('danger', "Login gagal. Password Anda Salah.");
-                    header("Location: login.php");
-                    exit(); // Always exit after a header redirect
+                    header("Location: login.php?error=password");
+                    exit();
                 }
             } else {
-                flash('warning', "Username tidak ditemukan.");
-                header("Location: login.php");
-                exit(); // Always exit after a header redirect
+                header("Location: login.php?error=credentials");
+                exit();
             }
         } else {
-            flash('warning', "Username tidak ditemukan.");
-            header("Location: login.php");
-            exit(); // Always exit after a header redirect
+            header("Location: login.php?error=user_not_found");
+            exit();
         }
     }
 }
-
-// Usage example:
-$userAuth = new UserAuthentication($koneksi); // Pass your database connection to the class
-$userAuth->loginUser($_POST['username'], $_POST['password']);
 ?>
