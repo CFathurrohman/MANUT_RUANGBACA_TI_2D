@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col">
                 <div class="button-container">
-                    <button class="btn btn-primary" id="changePassword" style="margin-right: 20px;">Ganti Password</button>
+                    <button class="btn btn-primary" id="changePassword" style="margin-right: 20px;" onclick="window.location.href='edit_password/index.php'">Ganti Password</button>
                     <button class="btn btn-danger" id="logout">Keluar</button>
                 </div>
             </div>
