@@ -1,58 +1,27 @@
-* {
+body {
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0444A3;
 }
 
-/*body {*/
-/*    width: 100%;*/
-/*    height: 100vh;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    font-family: "Montserrat", sans-serif;*/
-/*    font-size: 12px;*/
-/*    background-color: #d1fff8;*/
-/*    color: #ffffff;*/
-/*}*/
+.card-container {
+    width: 669px;
+    height: 521px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0444A3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    border: 1px #0444A3 solid;
+}
 
-/*main {*/
-/*    position: relative;*/
-/*    width: 1000px;*/
-/*    min-width: 1000px;*/
-/*    min-height: 600px;*/
-/*    height: 600px;*/
-/*    padding: 25px;*/
-/*    background-color: skyblue;*/
-/*    border-radius: 12px;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.container {*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    width: 600px;*/
-/*    height: 100%;*/
-/*    padding: 25px;*/
-/*    background-color: #1d6693;*/
-/*    transition: 1.25s;*/
-/*    backdrop-filter: blur(20px);*/
-/*}*/
-
-/*.a-container {*/
-/*    left: calc(100% - 600px);*/
-/*    z-index: 0;*/
-/*}*/
-
-.ruang_baca {
-    font-size: 40px;
-    font-family: "Inter";
-    font-weight: 700;
-    color: rgba(255, 255, 255, 1);
-    width: 313px;
-    height: 37px;
+.logo {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
 }
