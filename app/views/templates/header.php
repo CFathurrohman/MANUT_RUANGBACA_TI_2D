@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman <?= $data['judul']; ?></title>
-    <link rel="stylesheet" type="text/css" href="css/headerStyle.css">
+    <link rel="stylesheet" type="text/css" href="../../../public/css/headerStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 <header>
-    <a href="#"><img class="logo" src="img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
+    <a href="#"><img class="logo" src="../../../public/img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
     <nav>
         <ul class="nav__links">
             <li class="active"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
