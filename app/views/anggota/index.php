@@ -1,8 +1,3 @@
-<?php
-$anggotaModel = new Anggota_model();
-$anggotaList = $anggotaModel->getAllAnggota();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +15,10 @@ $anggotaList = $anggotaModel->getAllAnggota();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($anggotaList as $anggota) : ?>
+            <?php foreach ($data['anggotaList'] as $anggota) : ?>
                 <tr>
                     <td><?php echo $anggota['nama']; ?></td>
-                    <td><?php echo $anggota['No_Telp']; ?></td>
+                    <td><?php echo $anggota['no_telp']; ?></td>
                     <td><?php echo $anggota['id']; ?></td>
                     <td><?php echo $anggota['status']; ?></td>
                 </tr>
