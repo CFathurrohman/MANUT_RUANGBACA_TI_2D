@@ -1,5 +1,5 @@
 <?php
-    define('BASEURL', 'http://localhost/ruangbaca/public');
+    define('BASEURL', 'http://localhost/manut_ruangbaca_ti_2d/public');
 
     //DB
     define('DB_HOST', 'localhost');
