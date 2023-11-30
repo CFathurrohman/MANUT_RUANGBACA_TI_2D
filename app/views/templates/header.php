@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman <?= $data['judul']; ?></title>
     <link rel="stylesheet" type="text/css" href="../../../public/css/headerStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../../../public/css/footerStyle.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- 
+
 </head>
 
 <body>
@@ -29,18 +29,18 @@
             <li class="search-box">
                 <input type="text" placeholder="Search">
             </li>
-                <li id="dark-mode-toggle"><a href="#"><i class="fa fa-sun"></i></a></li>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <script>
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const body = document.body;
+            <li id="dark-mode-toggle"><a href="#"><i class="fa fa-sun"></i></a></li>
+            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+            <li><a href="#"><i class="fa fa-user"></i></a></li>
+        </ul>
+    </nav>
+</header>
 
-        darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-        });
-    </script>
+<script>
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+    });
+</script>
