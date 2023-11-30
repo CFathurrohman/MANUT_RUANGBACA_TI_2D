@@ -1,12 +1,4 @@
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Footer</title>
-    <link rel="stylesheet" href="../../../public/css/footerStyle.css">
-</head>
-
-<body>
     <footer>
         <ul class="icon">
             <li><a href="#"><ion-icon name="library-outline" /a></li>
