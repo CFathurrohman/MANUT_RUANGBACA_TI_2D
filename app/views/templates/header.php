@@ -13,16 +13,16 @@
 <header>
     <nav>
         <div class="container">
-            <a href="#"><img class="logo" src="<?= BASEURL;?>/img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
+            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><img class="logo" src="<?= BASEURL;?>/img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
             <ul class="nav__links">
-                <li class="active"><a href="<?= BASEURL; ?>"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li class="active"><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><i class="fa fa-home"></i> Dashboard</a></li>
                 <li><a href="#"><i class="fa fa-book"></i> Buku</a></li>
-                <li><a href="#"><i class="fa fa-users"></i> Anggota</a></li>
+                <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota"><i class="fa fa-users"></i> Anggota</a></li>
                 <li class="dropdown">
                     <a href="#"><i class="fa fa-key"></i> Akses &#x25BE;</a>
                     <ul class="dropdown-content">
-                        <li><a href="#">Peminjaman</a></li>
-                        <li><a href="#">Riwayat</a></li>
+                        <li><a href="http://localhost:3000/app/views/peminjaman/index.php">Peminjaman</a></li>
+                        <li><a href="http://localhost:3000/app/views/riwayat/index.php">Riwayat</a></li>
                     </ul>
                 </li>
                 <li class="search-box">
