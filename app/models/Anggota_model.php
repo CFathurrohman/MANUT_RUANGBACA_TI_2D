@@ -8,7 +8,6 @@ class Anggota_model
 
     public function __construct()
     {
-        // data source name
         $this->db = new Database();
     }
 
@@ -16,6 +15,13 @@ class Anggota_model
     {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
+    }
+
+    public function getAnggotaById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id = :id');
+        $this->db->bind(':id', $id);
+        return $this->db->single();
     }
 
     public function tambahDataAnggota($data)
@@ -52,7 +58,7 @@ class Anggota_model
 
         return $this->db->rowCount();
     }
-    
+
     public function hapusDataAnggota($id)
     {
         $anggotaQuery = "DELETE FROM anggota WHERE id = :id";
@@ -67,4 +73,26 @@ class Anggota_model
 
         return $this->db->rowCount();
     }
+
+    public function ubahDataAnggota($data)
+    {
+        // Update user table
+        $userQuery = "UPDATE user SET username = :username WHERE id = :id";
+        $this->db->query($userQuery);
+        $this->db->bind(':username', $data['id']);
+        $this->db->bind(':id', $data['id_user']);
+        $this->db->execute();
+    
+        // Update anggota details
+        $anggotaQuery = "UPDATE anggota SET nama = :nama, no_telp = :no_telp, status = :status WHERE id = :id";
+        $this->db->query($anggotaQuery);
+        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':nama', $data['nama']);
+        $this->db->bind(':no_telp', $data['no_telp']);
+        $this->db->bind(':status', $data['status']);
+        $this->db->execute();
+    
+        return $this->db->rowCount();
+    }
+    
 }
