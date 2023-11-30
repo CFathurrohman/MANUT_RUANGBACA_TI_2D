@@ -6,22 +6,24 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  display: flex;
+  display: block;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
   justify-content: flex-end;
   align-items: flex-end;
   background: #333;
 }
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   background: #3586ff;
   min-height: 100px;
   padding: 2px 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: column; 
+  bottom: 0;
 }
 footer .icon,
 .menu {

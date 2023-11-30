@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../public/css/footerStyle.css">
+<link rel="stylesheet" type="text/css" href="<?= BASEURL;?>/css/footerStyle.css">
 <footer>
     <ul class="icon">
         <li><a href="#">

@@ -15,6 +15,7 @@ header {
     align-items: center;
     padding: 20px;
     background-color: #0D6EFD;
+    flex-direction: row;
 }
 
 .logo {
@@ -27,6 +28,7 @@ header {
     list-style: none;
     display: flex;
     align-items: center;
+
 }
 
 .nav__links li {
