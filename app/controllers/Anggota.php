@@ -5,9 +5,9 @@ class Anggota extends Controller
     {
         $data['judul'] = 'List Anggota';
         $data['anggota'] = $this->model('Anggota_model')->getAllAnggota();
-        // $this->view('templates/header', $data);
+        $this->view('templates/header', $data);
         $this->view('anggota/index', $data);
-        // $this->view('templates/footer');
+        $this->view('templates/footer');
     }
 
     public function tambah()
