@@ -17,7 +17,7 @@ class Home extends Controller
         $data['buku'] = $this->model('Home_model')->getAllBuku();
         $this->view('templates/header', $data);
         $this->view('home/index', $data);
-//        $this->view('templates/footer');
+     $this->view('templates/footer');
     }
 
 //    public function read($id)
