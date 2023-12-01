@@ -12,7 +12,7 @@ class Home_model
 
     public function getAllBuku()
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' a, kategori k WHERE a.id_kategori=k.id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' a, kategori k WHERE a.id_kategori=k.id_ktgr');
         return $this->db->resultSet();
     }
 }

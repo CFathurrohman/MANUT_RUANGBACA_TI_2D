@@ -12,7 +12,7 @@
 
     public function getAllBuku()
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' a, kategori k WHERE a.id_kategori=k.id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' a, kategori k WHERE a.id_kategori=k.id_ktgr');
         return $this->db->resultSet();
     }
 
@@ -20,12 +20,12 @@
     {
 //        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
         $this->db->query('
-        SELECT b.*, k.*
+        SELECT b.*, k.nama_kategori
         FROM ' . $this->table . ' b
-        INNER JOIN kategori k ON b.id_kategori = k.id
-        WHERE b.id_kategori=:id        
+        INNER JOIN kategori k ON b.id_kategori = k.id_ktgr
+        WHERE b.id=:id_b        
     ');
-        $this->db->bind('id', $id);
+        $this->db->bind(':id_b', $id);
         return $this->db->single();
     }
 
@@ -37,7 +37,7 @@
 //            $level = 'admin';
 //        }
 
-        $kategoriInsertQuery = "INSERT INTO kategori (id, nama_kategori) 
+        $kategoriInsertQuery = "INSERT INTO kategori (id_ktgr, nama_kategori) 
                     VALUES ('', :nama_kategori)";
         $this->db->query($kategoriInsertQuery);
         $this->db->bind(':nama_kategori', $data['nama_kategori']);
