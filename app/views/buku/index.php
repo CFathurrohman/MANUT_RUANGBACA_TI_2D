@@ -29,7 +29,7 @@
                     <td><?= $buku['nama_buku']; ?></td>
                     <td><?= $buku['penulis']; ?></td>
                     <td><?= $buku['tahun_terbit']; ?></td>
-                    <td style="text-align: left"><?= strcspn($buku['deskripsi'], 0, 500); ?></td>
+                    <td style="text-align: left"><?= substr($buku['deskripsi'], 0, 42); ?></td>
                     <td><?= $buku['nama_kategori']; ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info btn-xs">
