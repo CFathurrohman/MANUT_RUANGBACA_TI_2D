@@ -33,3 +33,5 @@
 </main>
 </body>
 </html>
+
+<form class="form" id="b-form" method="post" action="<?= BASEURL ?>/home/index.php">
