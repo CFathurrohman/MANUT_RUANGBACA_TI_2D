@@ -3,7 +3,7 @@
         <?php foreach ($data['buku'] as $buku) : ?>
             <div class="col">
                 <div class="card">
-                    <img src="<?= BASEURL; ?>/img/c++.jpg" class="card-img-top" alt="" style="width: 195px; height: 300px">
+                    <img src="<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px">
                     <div class="card-body">
                         <h5 class="card-title"><?= $buku['nama_buku']; ?></h5>
                         <ul class="list-group list-group-flush">

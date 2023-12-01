@@ -3,7 +3,7 @@
     ">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="../../../public/img/poltekkk-removebg-preview.png" class="img-fluid rounded-start" alt="...">
+            <img src="<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">

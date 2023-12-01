@@ -25,19 +25,23 @@
                 </thead>
                 <tbody>
                 <?php foreach ($data['buku'] as $buku) : ?>
-                <tr style="text-align: center;">
+                <tr style="text-align: left;">
                     <td><?= $buku['nama_buku']; ?></td>
                     <td><?= $buku['penulis']; ?></td>
-                    <td><?= $buku['tahun_terbit']; ?></td>
-                    <td style="text-align: left"><?= substr($buku['deskripsi'], 0, 42); ?></td>
-                    <td><?= $buku['nama_kategori']; ?></td>
-                    <td>
-                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info btn-xs">
+                    <td style="text-align: center;"><?= $buku['tahun_terbit']; ?></td>
+                    <td style="text-align: left"><?php if (substr($buku['deskripsi'], 0, 42)) {
+                            echo substr($buku['deskripsi'], 0, 42) . '...';
+                        } else {
+                            echo $buku['deskripsi'];
+                        } ?></td>
+                    <td style="text-align: center;"><?= $buku['nama_kategori']; ?></td>
+                    <td style="text-align: right;">
+                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Buka</a>
-                        <a href="#" class="btn btn-outline-warning btn-xs">
+                        <a href="#" class="btn btn-outline-warning">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                         <a href="#" onclick="javascript:return confirm('Hapus Data Jabatan ?');"
-                           class="btn btn-outline-danger btn-xs">
+                           class="btn btn-outline-danger">
                             <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
                     </td>
                     <?php endforeach; ?>
