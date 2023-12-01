@@ -15,7 +15,7 @@
                             </li>
                         </ul>
                         <div class="card-body text-end">
-                            <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info">View</a>
+                            <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info">Lihat</a>
                         </div>
                     </div>
                 </div>

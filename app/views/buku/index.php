@@ -33,7 +33,7 @@
                     <td><?= $buku['nama_kategori']; ?></td>
                     <td>
                         <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info btn-xs">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Read</a>
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Buka</a>
                         <a href="#" class="btn btn-outline-warning btn-xs">
                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Edit</a>
                         <a href="#" onclick="javascript:return confirm('Hapus Data Jabatan ?');"

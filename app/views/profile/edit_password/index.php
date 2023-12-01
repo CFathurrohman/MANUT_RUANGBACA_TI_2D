@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Change Password</title>
+    <title>Ganti Kata Sandi</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
               <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
             </div>
           
-            <button type="submit" class="btn btn-primary">Change Password</button>
+            <button type="submit" class="btn btn-primary">Ganti Kata Sandi</button>
             <button type="button" class="btn btn-secondary" onclick="window.history.back();">Back</button>
                         </form>
                     </div>

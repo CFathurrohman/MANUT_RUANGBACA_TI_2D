@@ -24,7 +24,7 @@
         <div class="side__circle side__circle--t"></div>
         <div class="side__container">
             <img class="side__logo logo" src="<?= BASEURL ?>/img/Logo Ruang Baca.png" alt="">
-            <h2 class="side__title title">Welcome Back !</h2>
+            <h2 class="side__title title">Selamat Datang!</h2>
             <p class="side__description description">Mahasiswa menggunakan akun siakad
                 <br> Dosen/Pegawai menggunakan akun Polinema</p>
 

@@ -16,7 +16,7 @@
         <div class="container">
             <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><img class="logo" src="<?= BASEURL; ?>/img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
             <ul class="nav__links">
-                <li class="active"><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li class="active"><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><i class="fa fa-home"></i> Katalog</a></li>
                 <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku"><i class="fa fa-book"></i> Buku</a></li>
                 <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota"><i class="fa fa-users"></i> Anggota</a></li>
                 <li class="dropdown">
