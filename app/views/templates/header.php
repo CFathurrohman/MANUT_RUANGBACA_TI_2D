@@ -50,3 +50,4 @@
 </script>
 
 <body>
+    <button onclick="backTop()" id ="topBtn" title = "Kembali ke atas">Kembali Ke Atas</button>
