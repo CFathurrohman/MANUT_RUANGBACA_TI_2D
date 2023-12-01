@@ -45,23 +45,4 @@ class Flasher
             exit;
         }
     }
-
-    public function login($username, $password)
-    {
-        global $con;
-
-        $sql   = "SELECT * FROM user WHERE username ='$username'";
-        $query = mysqli_query($con, $sql);
-        $rows  = mysqli_num_rows($query);
-        $assoc = mysqli_fetch_assoc($query);
-        if ($rows > 0) {
-            if (password_verify($password, $assoc['password'])) {
-                return ['response' => 'positive', 'alert' => 'Berhasil Login', 'level' => $assoc['level']];
-            } else {
-                return ['response' => 'negative', 'alert' => 'Password Salah'];
-            }
-        } else {
-            return ['response' => 'negative', 'alert' => 'Username atau Password Salah'];
-        }
-    }
 }
