@@ -31,7 +31,6 @@
         </div>
     </div>
 </main>
+<form class="form" id="b-form" method="post" action="<?= BASEURL ?>/home/index.php">
 </body>
 </html>
-
-<form class="form" id="b-form" method="post" action="<?= BASEURL ?>/home/index.php">

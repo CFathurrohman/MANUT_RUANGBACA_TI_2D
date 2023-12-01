@@ -19,7 +19,7 @@ body {
 }
 
 main {
-    position: relative;
+    position: fixed;
     width: 1000px;
     min-width: 1000px;
     min-height: 600px;

@@ -10,11 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="<?= BASEURL; ?>/js/script.js"></script>
 
-<footer>
-    <ul class="icon">
-        <li><a href="#">
-                <ion-icon name="library-outline" /a></li>
-    </ul>
+<footer>    
     <ul class="menu">
         <li><a href="#">HOME</a></li>
     </ul>
