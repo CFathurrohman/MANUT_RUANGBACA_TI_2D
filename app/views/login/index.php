@@ -14,9 +14,9 @@
         <form class="form" id="b-form" method="post" action="index.html">
             <h2 class="form_title title">Ruang Baca JTI</h2>
             <span class="form__span">Masukkan nama pengguna dan kata sandi</span>
-            <input class="form__input" type="text" placeholder="Username" name="Username">
-            <input class="form__input" type="password" placeholder="Password" name="password">
-            <button class="form__button button switch-btn" name="signin">SIGN IN</button>
+            <input class="form__input" type="text" placeholder="Nama Pengguna" name="Username">
+            <input class="form__input" type="password" placeholder="Kata Sandi" name="password">
+            <button class="form__button button switch-btn" name="signin">Masuk</button>
         </form>
     </div>
     <div class="side">

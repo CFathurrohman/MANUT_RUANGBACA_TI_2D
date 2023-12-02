@@ -14,7 +14,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 12px;
-    background-color: #242D40;
+    background-color: #ffffff;
     color: #ffffff;
 }
 
@@ -138,7 +138,7 @@ main {
 .side__circle {
     position: absolute;
     width: 500px;
-    height: 500px;
+    height: 477px;
     border-radius: 50%;
     background-color: #75ffff;
     box-shadow: inset 8px 8px 12px skyblue, inset -8px -8px 12px dodgerblue;

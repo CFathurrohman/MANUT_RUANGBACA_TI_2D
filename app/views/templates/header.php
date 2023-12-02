@@ -16,23 +16,24 @@
         <div class="container">
             <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><img class="logo" src="<?= BASEURL; ?>/img/Logo Bibliophile.png" alt="logo" width="198" height="48"></a>
             <ul class="nav__links">
-                <li class="active"><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><i class="fa fa-home"></i> Katalog</a></li>
-                <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku"><i class="fa fa-book"></i> Buku</a></li>
-                <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota"><i class="fa fa-users"></i> Anggota</a></li>
+           
+                <li class="active"><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"><ion-icon name="home"></ion-icon> &nbsp; Katalog</a></li>
+                <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku"><i class="fa fa-book"></i> &nbsp; Buku</a></li>
+                <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota"><ion-icon name="people"></ion-icon> &nbsp; Anggota</a></li>
                 <li class="dropdown">
-                    <a href="#"><i class="fa fa-key"></i> Akses &#x25BE;</a>
+                    <a href="#"><i class="fa fa-key"></i> &nbsp; Akses &#x25BE;</a>
                     <ul class="dropdown-content">
                         <li><a href="http://localhost:3000/app/views/peminjaman/index.php">Peminjaman</a></li>
                         <li><a href="http://localhost:3000/app/views/riwayat/index.php">Riwayat</a></li>
                     </ul>
                 </li>
-                <li class="search-box">
-                    <input type="text" placeholder="Search">
-                </li>
-
-                <li id="dark-mode-toggle"><a href="#"><i class="fa fa-sun"></i></a></li>
-                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                <li><a href="#"><i class="fa fa-user"></i></a></li>
+                   
+              
+                      
+                    <li id="dark-mode-toggle"><a href="#"><ion-icon name="sunny"></ion-icon></a></li>
+                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="#"><i class="fa fa-user"></i></a></li>
+               
 
             </ul>
         </div>
@@ -47,7 +48,10 @@
         body.classList.toggle('dark-mode');
 
     });
+    
 </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 <body>
     <button onclick="backTop()" id ="topBtn" title = "Kembali ke atas">Kembali Ke Atas</button>

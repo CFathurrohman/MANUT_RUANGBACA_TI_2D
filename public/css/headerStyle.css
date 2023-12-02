@@ -31,8 +31,10 @@ header {
 .nav__links {
   list-style: none;
   display: flex;
-  align-items: center;
+
+
 }
+
 
 .nav__links li {
   margin-right: 20px;

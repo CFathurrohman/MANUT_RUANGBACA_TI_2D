@@ -12,7 +12,7 @@
 
 <footer>    
     <ul class="menu">
-        <li><a href="#">HOME</a></li>
+        <li><a href="#">KATALOG</a></li>
     </ul>
     <div class="waves">
         <div class="wave" id="wave1"></div>
