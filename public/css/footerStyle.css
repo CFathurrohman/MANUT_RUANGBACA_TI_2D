@@ -4,9 +4,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  
+  
 }
 body {
-  display: block;
+  display: flex;
+  position: relative;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -17,14 +20,14 @@ body {
   background: #fff;
 }
 footer {
-  position: relative;
+  position: absolute;
   width: 100%;
   background: #3586ff;
   min-height: 100px;
   padding: 2px 20px 50px;
   flex-direction: column; 
   bottom: 0;
-  margin-top: 100px;
+  margin-top: auto;
   justify-content: center;
   align-items: center;
 }
@@ -116,4 +119,11 @@ footer .wave#wave4 {
   100% {
     background-position-x: 1000px;
   }
+}
+.footer-break {
+  border: none;
+  border-top: 1px solid #3586ff; 
+  margin: 0;
+  color: transparent;
+  background-color: transparent;
 }

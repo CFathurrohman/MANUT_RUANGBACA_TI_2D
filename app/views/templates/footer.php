@@ -11,8 +11,10 @@
 <script src="<?= BASEURL; ?>/js/script.js"></script>
 
 <footer>    
+<hr class="footer-break">
+
     <ul class="menu">
-        <li><a href="#">KATALOG</a></li>
+        <li><a href="http://localhost/manut_ruangbaca_ti_2d/public/Home">KATALOG</a></li>
     </ul>
     <div class="waves">
         <div class="wave" id="wave1"></div>
@@ -21,8 +23,9 @@
         <div class="wave" id="wave4"></div>
 
     </div>
-
+<hr>
     <p>Kelompok 2 | All Rights Reserved</p>
+  
 </footer>
 
 </body>
