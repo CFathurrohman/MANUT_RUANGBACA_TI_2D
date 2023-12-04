@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
+<div class="transition">
 <div class="container mt-5">
     <div class="card mb-3"
     ">
@@ -69,6 +71,6 @@
 </div>
 </div>
 </div>
-
+</div>
 
 

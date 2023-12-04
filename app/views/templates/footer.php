@@ -11,27 +11,17 @@
 <script src="<?= BASEURL; ?>/js/script.js"></script>
 
 <footer>    
-<div class="footer">
-    <p>&copy; 2023 Your Company</p>
-</div>
-</footer>
+<section>
+  <div class="wave wave1"></div>
+  <!-- <div class="wave wave2"></div> -->
+  <div class="wave wave3"></div>
+  <div class="wave wave4"></div>
+</section>
 
+
+</footer>
 </body>
 <script>
-    
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    document.getElementById("topBtn").style.display = "block";
-  } else {
-    document.getElementById("topBtn").style.display = "none";
-  }
-}
-
-function backTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
 </script>
 </html>
