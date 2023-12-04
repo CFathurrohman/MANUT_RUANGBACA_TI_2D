@@ -1,9 +1,10 @@
-<body>
-<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
-<div class="transition">
 <div class="container mt-5">
-    <h3>Daftar Anggota</h3><br>
-
+    <div class="row">
+        <div class="col-12">
+            <h3>Daftar Anggota</h3><br>
+            <hr style="height: 1px;color: black;background-color: black;">
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <?php Flasher::flash(); ?>
@@ -16,36 +17,33 @@
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="thead-white">
-            <tr>
-                <th>No.</th>
-                <th>Photo Profil</th>
-                <th>Nama</th>
-                <th>No. Telepon</th>
-                <th>NIM/NIP</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
+                <tr>
+                    <th>No.</th>
+                    <th>Photo Profil</th>
+                    <th>Nama</th>
+                    <th>No. Telepon</th>
+                    <th>NIM/NIP</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            <?php $number = 1 ?>
-            <?php foreach ($data['anggota'] as $anggota) : ?>
-                <tr>
-                    <td><?php echo $number;
-                        $number++ ?></td>
-                    <td><?php echo 'Photo Profil' ?></td>
-                    <td><?php echo $anggota['nama']; ?></td>
-                    <td><?php echo $anggota['no_telp']; ?></td>
-                    <td><?php echo $anggota['id']; ?></td>
-                    <td><?php echo $anggota['status']; ?></td>
-                    <td>
-                        <a href="<?= BASEURL; ?>/anggota/ubah/<?= $anggota['id']; ?>"
-                           class="badge btn btn-success float-right tampilModalUbah" data-bs-toggle="modal"
-                           data-bs-target="#tambahModal" data-id="<?= $anggota['id'] ?>">Edit</a>
-                        <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id']; ?>"
-                           class="badge btn btn-danger float-right" onclick="return confirm('Konfirmasi');">hapus</a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
+                <?php $number = 1 ?>
+                <?php foreach ($data['anggota'] as $anggota) : ?>
+                    <tr>
+                        <td><?php echo $number;
+                            $number++ ?></td>
+                        <td><?php echo 'Photo Profil' ?></td>
+                        <td><?php echo $anggota['nama']; ?></td>
+                        <td><?php echo $anggota['no_telp']; ?></td>
+                        <td><?php echo $anggota['id']; ?></td>
+                        <td><?php echo $anggota['status']; ?></td>
+                        <td>
+                            <a href="<?= BASEURL; ?>/anggota/ubah/<?= $anggota['id']; ?>" class="badge btn btn-success float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#tambahModal" data-id="<?= $anggota['id'] ?>">Ubah</a>
+                            <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id']; ?>" class="badge btn btn-danger float-right" onclick="return confirm('Konfirmasi');">hapus</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -89,5 +87,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
