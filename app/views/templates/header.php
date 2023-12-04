@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -8,9 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/headerStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+  
     <header class="menu__wrapper">
         <div class="menu__bar">
             <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Home" aria-label="home" class="logo">
@@ -19,13 +21,13 @@
             <nav>
                 <ul class="navigation hide">
                     <li>
-                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Customers">Katalog</a>
+                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Customers"><i class="fa fa-home"></i>&nbsp;Katalog</a>
                     </li>
                     <li>
-                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Docs">Buku</a>
+                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Docs"><i class="fa fa-book"></i>&nbsp;Buku</a>
                     </li>
                     <li>
-                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Templates">Anggota</a>
+                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Templates"><i class="fa fa-user"></i>&nbsp;Anggota</a>
                     </li>
                     <li>
                         <button>Akses<i class="material-icons">expand_more</i>
@@ -52,10 +54,13 @@
                 </ul>
             </nav>
         </div>
+      
         <div class="action-buttons hide">
             <a href="http://localhost/manut_ruangbaca_ti_2d/public/Login" title="Log in" class="login">Masuk</a>
         </div>
+     
     </header>
-</body>
+
+    
+
 <br>
-</html>

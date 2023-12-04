@@ -1,6 +1,8 @@
+<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-6 g-4">
         <?php foreach ($data['buku'] as $buku) : ?>
+            <div class="transition">
             <div class="col">
                 <div class="card">
                     <img src="<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px">
@@ -19,6 +21,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         <?php endforeach; ?>
     </div>

@@ -1,4 +1,6 @@
 <body>
+<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
+<div class="transition">
 <div class="container mt-5">
     <h3>Daftar Anggota</h3><br>
 
@@ -87,4 +89,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>
