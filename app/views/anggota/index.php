@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
+<div class="transition">
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>

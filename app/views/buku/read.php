@@ -2,7 +2,7 @@
 <div class="transition">
 <div class="container mt-5">
     <br><div class="card-body text-start">
-        <a href="#" class="btn btn-primary col-1"">Kembali</a>
+        <a href="#" onclick="history.go(-1)" class="btn btn-primary col-1"">Kembali</a>
     </div><br>
     <div class="card mb-3">
     <div class="row g-0">
