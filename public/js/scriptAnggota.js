@@ -1,13 +1,19 @@
-$(function () {
-  //Tambah Data
+$(document).ready(function () {
+  // Tambah Data
   $(".tombolTambahData").on("click", function () {
     $("#formModalLabel").html("Tambah Data Anggota");
     $(".modal-footer button[type=submit]").html("Tambah Data");
     $("#id").show();
     $("#label_id").show();
+
+    $("#nama").val('');
+    $("#id").val('');
+    $("#no_telp").val('');
+    $("#status").val('');
+    $("#id_user").val('');
   });
 
-  //Ubah Data
+  // Ubah Data
   $(".tampilModalUbah").on("click", function () {
     $("#formModalLabel").html("Ubah Data Anggota");
     $(".modal-footer button[type=submit]").html("Ubah Data");

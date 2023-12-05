@@ -2,6 +2,13 @@ $(function () {
   $(".tombolBukuTambahData").on("click", function () {
     $("#formBukuModalLabel").html("Tambah Data Buku");
     $(".modal-footer button[type=submit]").html("Tambah Data");
+    
+    $("#penulis").val('');
+    $("#nama_buku").val('');
+    $("#tahun_terbit").val('');
+    $("#gambar_buku").val('');
+    $("#id_kategori").val('');
+    $("#deskripsi").val('');
   });
 
   $(".tampilBukuModalUbah").on("click", function () {
