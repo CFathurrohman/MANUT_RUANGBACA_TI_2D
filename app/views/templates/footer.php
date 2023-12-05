@@ -9,18 +9,17 @@
 <!-- // Jquery & js -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<footer>    
-<section>
-  <div class="wave wave1"></div>
-  <!-- <div class="wave wave2"></div> -->
-  <div class="wave wave3"></div>
-  <div class="wave wave4"></div>
-</section>
+<footer>
+  <section>
+    <div class="wave wave1"></div>
+    <!-- <div class="wave wave2"></div> -->
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+  </section>
 
 
 </footer>
 </body>
 <script>
-
 </script>
 </html>

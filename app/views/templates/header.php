@@ -55,7 +55,6 @@
             </ul>
         </nav>
     </div>
-
     <div class="action-buttons hide">
         <a href="http://localhost/manut_ruangbaca_ti_2d/public/Login" title="Log in" class="login">Masuk</a>
     </div>

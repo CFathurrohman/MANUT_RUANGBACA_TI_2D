@@ -23,7 +23,7 @@
         <div class="col-lg-6 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/buku/cari" method="post" class="d-flex">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nama buku" name="keyword" id="keyword" autocomplete="off">
+                    <input type="text" class="form-control" placeholder="Nama Buku" name="keyword" id="keyword" autocomplete="off">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
                     </div>
