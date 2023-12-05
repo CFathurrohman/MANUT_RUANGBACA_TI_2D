@@ -1,0 +1,27 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0444A3;
+}
+
+.card-container {
+    width: 669px;
+    height: 521px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #0444A3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    border: 1px #0444A3 solid;
+}
+
+.logo {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+}
