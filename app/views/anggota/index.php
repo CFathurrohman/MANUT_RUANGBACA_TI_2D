@@ -17,7 +17,7 @@
                 Tambah
             </button>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/anggota/cari" method="post" class="d-flex">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nama Anggota" name="keyword" id="keyword" autocomplete="off">

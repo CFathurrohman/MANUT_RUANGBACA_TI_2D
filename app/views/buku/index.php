@@ -13,12 +13,12 @@
     </div>
 
     <div class="row mb-3">
-        <div class="col-lg-6">
+        <div class="col-lg-6  d-flex justify-content-start">
             <button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal" data-bs-target="#tambahBukuModal">
                 Tambah
             </button>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/buku/cari" method="post" class="d-flex">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nama buku" name="keyword" id="keyword" autocomplete="off">
