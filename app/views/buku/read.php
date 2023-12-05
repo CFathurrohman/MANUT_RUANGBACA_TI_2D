@@ -1,8 +1,10 @@
 <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
 <div class="transition">
 <div class="container mt-5">
-    <div class="card mb-3"
-    ">
+    <br><div class="card-body text-start">
+        <a href="#" class="btn btn-primary col-1"">Kembali</a>
+    </div><br>
+    <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
             <img src="<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
