@@ -35,6 +35,31 @@ class Buku extends Controller
         }
     }
 
+    public function hapus($id)
+    {
+        if ($this->model('Buku_model')->hapusDataBuku($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . '/buku');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/buku');
+            exit;
+        }
+    }
+
+    public function ubah(){
+        if ($this->model('Buku_model')->ubahDataBuku($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/buku');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/buku');
+            exit;
+        }
+    }
+
     public function cari()
     {
         $data['judul'] = 'List Buku';
@@ -43,5 +68,9 @@ class Buku extends Controller
         $this->view('buku/index', $data);
         $this->view('templates/footer');
 
+    }
+
+    public function getUbah(){
+        echo json_encode($this->model('Buku_model')->getBukuById($_POST['id']));
     }
 }

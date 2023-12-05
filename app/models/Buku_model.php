@@ -74,4 +74,39 @@
 
         return $this->db->resultSet();
     }
+
+    public function hapusDataBuku($id)
+    {
+        $deleteQuery = "DELETE buku, kategori FROM buku
+                        INNER JOIN kategori ON buku.id_kategori = kategori.id_ktgr
+                        WHERE buku.id = :id_buku";
+
+        $this->db->query($deleteQuery);
+        $this->db->bind(":id_buku", $id);
+        $this->db->execute();
+
+        return $this->db->resultSet();
+    }
+
+    public function ubahDataBuku($data)
+    {
+        $updateQuery = "UPDATE buku 
+                    SET nama_buku = :nama_buku, 
+                        penulis = :penulis, 
+                        tahun_terbit = :tahun_terbit, 
+                        gambar_buku = :gambar_buku,
+                        id_kategori = :id_kategori
+                    WHERE id = :id_buku";
+
+        $this->db->query($updateQuery);
+        $this->db->bind(':nama_buku', $data['nama_buku']);
+        $this->db->bind(':penulis', $data['penulis']);
+        $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
+        $this->db->bind(':gambar_buku', $data['gambar_buku']);
+        $this->db->bind(':id_kategori', $data['id_kategori']);
+        $this->db->bind(':id_buku', $data['id_buku']);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

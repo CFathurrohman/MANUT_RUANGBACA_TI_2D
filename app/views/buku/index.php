@@ -6,6 +6,12 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <?php Flasher::flash(); ?>
+        </div>
+    </div>
+
     <div class="row mb-3">
         <div class="col-lg-6">
             <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#tambahModal">
@@ -58,7 +64,7 @@
                                             <i class="fa " aria-hidden="true"></i>Buka</a>
                                         <a href="#" class="badge btn btn-warning">
                                             <i class="fa " aria-hidden="true"></i>Ubah</a>
-                                        <a href="#" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
+                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
                                     </div>
                                 </td>
