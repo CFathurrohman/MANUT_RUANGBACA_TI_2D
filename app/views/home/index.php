@@ -1,6 +1,14 @@
 <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
 
 <div class="container mt-5">
+
+    <div class="row">
+        <div class="col-12"><br>
+            <h3>Katalog buku</h3><br>
+            <hr style="height: 1px;color: black;background-color: black;">
+        </div>
+    </div>
+
     <div class="row mb-3">
         <div class="col-lg-6">
             <form action="<?= BASEURL; ?>/home/cari" method="post" class="d-flex">
