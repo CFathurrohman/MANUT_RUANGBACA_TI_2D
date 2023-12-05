@@ -9,6 +9,7 @@
 <!-- // Jquery & js -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <footer>
   <section>
     <div class="wave wave1"></div>
@@ -20,6 +21,4 @@
 
 </footer>
 </body>
-<script>
-</script>
 </html>
