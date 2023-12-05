@@ -29,6 +29,13 @@
         return $this->db->single();
     }
 
+    public function getBukuById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
+        $this->db->bind(':id', $id);
+        return $this->db->single();
+    }
+
     public function tambahDataBuku($data)
     {
         //        if ($data['nama_kategori'] == 'fiksi' || $data['nama_kategori'] == 'ilmiah') {
@@ -90,21 +97,25 @@
 
     public function ubahDataBuku($data)
     {
-        $updateQuery = "UPDATE buku 
-                    SET nama_buku = :nama_buku, 
-                        penulis = :penulis, 
-                        tahun_terbit = :tahun_terbit, 
-                        gambar_buku = :gambar_buku,
-                        id_kategori = :id_kategori
-                    WHERE id = :id_buku";
+        $updateQuery = "
+        UPDATE buku b
+        JOIN kategori k ON k.id_ktgr = b.id_kategori
+        SET k.nama_kategori = :nama_kategori,
+            b.nama_buku = :nama_buku,
+            b.tahun_terbit = :tahun_terbit,
+            b.deskripsi = :deskripsi,
+            b.penulis = :penulis
+        WHERE k.id_ktgr = :id_kategori
+    ";
 
         $this->db->query($updateQuery);
+        $this->db->bind(':nama_kategori', $data['nama_kategori']);
         $this->db->bind(':nama_buku', $data['nama_buku']);
         $this->db->bind(':penulis', $data['penulis']);
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
-        $this->db->bind(':gambar_buku', $data['gambar_buku']);
+        $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
-        $this->db->bind(':id_buku', $data['id_buku']);
+
         $this->db->execute();
 
         return $this->db->rowCount();

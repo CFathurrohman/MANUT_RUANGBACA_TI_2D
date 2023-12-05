@@ -14,7 +14,7 @@
 
     <div class="row mb-3">
         <div class="col-lg-6">
-            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#tambahModal">
+            <button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal" data-bs-target="#tambahBukuModal">
                 Tambah
             </button>
         </div>
@@ -49,7 +49,7 @@
                             <tr style="text-align: left;">
                                 <td><?php echo $number;
                                     $number++ ?></td>
-                                <td     style="max-width: 240px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['nama_buku']; ?></td>
+                                <td style="max-width: 240px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['nama_buku']; ?></td>
                                 <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['penulis']; ?></td>
                                 <td style="text-align: center;"><?= $buku['tahun_terbit']; ?></td>
                                 <td style="text-align: left"><?php if (substr($buku['deskripsi'], 0, 42)) {
@@ -60,9 +60,9 @@
                                 <td style="text-align: center;"><?= $buku['nama_kategori']; ?></td>
                                 <td style="text-align: center;">
                                     <div class="d-flex justify-content-between">
-                                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="badge btn btn-success">
+                                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="badge btn btn-primary">
                                             <i class="fa " aria-hidden="true"></i>Buka</a>
-                                        <a href="#" class="badge btn btn-warning">
+                                            <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id'] ?>">
                                             <i class="fa " aria-hidden="true"></i>Ubah</a>
                                         <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
@@ -76,16 +76,18 @@
         </div>
     </div>
 </div>
-    <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+    <div class="modal fade" id="tambahBukuModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="tambahBukuLabel">Tambahkan Buku</h4>
+                    <h4 class="modal-title" id="formBukuModalLabel">Tambahkan Buku</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Your modal content here  -->
                     <form action="<?= BASEURL; ?>/buku/tambah" method="post">
+                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="id_kategori" id="id_kategori">
                         <div class="mb-3">
                             <label for="nama_buku" class="form-label">Nama Buku</label>
                             <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
@@ -117,3 +119,4 @@
             </div>
         </div>
     </div>
+    <script src="<?= BASEURL; ?>/js/scriptBuku.js"></script>
