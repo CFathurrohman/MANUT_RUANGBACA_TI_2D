@@ -18,7 +18,7 @@
 
     public function getReadBukuById($id)
     {
-//        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
+        //        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
         $this->db->query('
         SELECT b.*, k.nama_kategori
         FROM ' . $this->table . ' b
@@ -31,11 +31,11 @@
 
     public function tambahDataBuku($data)
     {
-//        if ($data['nama_kategori'] == 'fiksi' || $data['nama_kategori'] == 'ilmiah') {
-//            $level = 'anggota';
-//        } else {
-//            $level = 'admin';
-//        }
+        //        if ($data['nama_kategori'] == 'fiksi' || $data['nama_kategori'] == 'ilmiah') {
+        //            $level = 'anggota';
+        //        } else {
+        //            $level = 'admin';
+        //        }
 
         $kategoriInsertQuery = "INSERT INTO kategori (id_ktgr, nama_kategori) 
                     VALUES ('', :nama_kategori)";
@@ -53,10 +53,25 @@
         $this->db->bind(':penulis', $data['penulis']);
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
-        $this->db->bind(':id_kategori',$id_kategori);
+        $this->db->bind(':id_kategori', $id_kategori);
 
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function cariDataBuku()
+    {
+        $keyword = $_POST['keyword'];
+
+        $query = "SELECT b.*, k.nama_kategori 
+              FROM buku b 
+              INNER JOIN kategori k ON b.id_kategori = k.id_ktgr 
+              WHERE b.nama_buku LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind(':keyword', "%$keyword%");
+
+        return $this->db->resultSet();
     }
 }

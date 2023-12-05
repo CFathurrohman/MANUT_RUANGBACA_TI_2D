@@ -5,12 +5,27 @@
             <hr style="height: 1px;color: black;background-color: black;">
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
             <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#tambahModal">
                 Tambah
             </button>
-            <br><br>
+        </div>
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/buku/cari" method="post" class="d-flex">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nama buku" name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <th>No.</th>

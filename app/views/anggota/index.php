@@ -10,10 +10,25 @@
             <?php Flasher::flash(); ?>
         </div>
     </div>
-    <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#tambahModal">
-        Tambah
-    </button>
-    <br><br>
+
+    <div class="row mb-3">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#tambahModal">
+                Tambah
+            </button>
+        </div>
+        <div class="col-lg-6">
+            <form action="<?= BASEURL; ?>/anggota/cari" method="post" class="d-flex">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nama Anggota" name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="thead-white">

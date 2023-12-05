@@ -24,11 +24,6 @@ class Buku extends Controller
 
     public function tambah()
     {
-//        if ($this->model('Buku_model')->tambahDataBuku($_POST) > 0) {
-//            header('Location: ' . BASEURL . '/buku');
-//            exit;
-//        }
-
         if ($this->model('Buku_model')->tambahDataBuku($_POST) > 0) {
             Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/buku');
@@ -38,5 +33,15 @@ class Buku extends Controller
             header('Location: ' . BASEURL . '/buku');
             exit;
         }
+    }
+
+    public function cari()
+    {
+        $data['judul'] = 'List Buku';
+        $data['buku'] = $this->model('Buku_model')->cariDataBuku();
+        $this->view('templates/header', $data);
+        $this->view('buku/index', $data);
+        $this->view('templates/footer');
+
     }
 }

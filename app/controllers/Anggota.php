@@ -51,4 +51,13 @@ class Anggota extends Controller
     public function getUbah(){
         echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id']));
     }
+
+    public function cari()
+    {
+        $data['judul'] = 'List Anggota';
+        $data['anggota'] = $this->model('Anggota_model')->cariDataAnggota();
+        $this->view('templates/header', $data);
+        $this->view('anggota/index', $data);
+        $this->view('templates/footer');
+    }
 }
