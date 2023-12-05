@@ -103,3 +103,4 @@
         </div>
     </div>
 </div>
+<script src="<?= BASEURL; ?>/js/scriptAnggota.js"></script>
