@@ -93,11 +93,15 @@
                 </div>
                 <div class="modal-body">
                     <!-- Your modal content here  -->
-                    <form action="<?= BASEURL; ?>/buku/tambah" method="post">
+                    <form id="upload-form" action="<?= BASEURL; ?>/buku/tambah" method="post">
                         <input type="hidden" name="id_buku" id="id_buku">
                         <div class="mb-3">
                             <label for="nama_buku" class="form-label">Nama Buku</label>
                             <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nama_buku" class="form-label">Gambar Buku</label>
+                            <input type="file" name="gambar_buku" class="form-control" id="gambar_buku" required>
                         </div>
                         <div class="mb-3">
                             <label for="penulis" class="form-label">Penulis</label>
@@ -113,7 +117,7 @@
                         </div>
                         <div class="form-group col-xl-3">
                             <label for="id_kategori" class="form-label">Kategori</label>
-                            <select class="form-control" id="id_kategori" name="id_kategori">
+                            <select class="form-control" id="id_kategori" name="id_kategori" required>
                                 <option value="1">Fiksi</option>
                                 <option value="2">Ilmiah</option>
                             </select>
@@ -121,7 +125,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
                 </div>
             </div>
         </div>

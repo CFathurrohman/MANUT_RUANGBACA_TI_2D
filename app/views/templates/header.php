@@ -37,10 +37,8 @@
                 echo '                <ul class="list-items-with-description">';
                 echo '                    <li>';
                 echo '                        <div class="item-title">';
-                echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/peminjaman">';
-                echo '                                <h3>Peminjaman</h3>';
+echo '                                <h3>Peminjaman</h3>';
                 echo '                                <p>Akses Peminjaman</p>';
-                echo '                            </a>';
                 echo '                        </div>';
                 echo '                    </li>';
                 echo '                    <li>';

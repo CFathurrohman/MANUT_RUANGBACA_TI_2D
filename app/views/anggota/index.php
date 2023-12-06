@@ -1,3 +1,10 @@
+<div class="transition-group">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
 <div class="objtransition">
     <div class="container mt-5">
         <div class="row">
