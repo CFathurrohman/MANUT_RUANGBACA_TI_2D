@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/headerStyle.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="../../../public/js/activePage.js"></script>
 </head>
 
 <body>
@@ -20,15 +21,18 @@
         <nav>
             <?php
                 echo '<ul class="navigation hide">';
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
-                echo '    </li>';
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
-                echo '    </li>';
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Menuju Ke Daftar Anggota"><i class="fa fa-user"></i>&nbsp;Anggota</a>';
-                echo '    </li>';
+                $currentPage = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                $pages = [
+                    ['url' => 'http://localhost/manut_ruangbaca_ti_2d/public/Home', 'icon' => 'fa fa-home', 'text' => 'Katalog'],
+                    ['url' => 'http://localhost/manut_ruangbaca_ti_2d/public/Buku', 'icon' => 'fa fa-book', 'text' => 'Buku'],
+                    ['url' => 'http://localhost/manut_ruangbaca_ti_2d/public/Anggota', 'icon' => 'fa fa-user', 'text' => 'Anggota']
+                ];
+
+                foreach ($pages as $page) {
+                    echo '<li>';
+                    echo '<a class="nav-link" href="' . $page['url'] . '" ' . ($currentPage == $page['url'] ? 'aria-current="page"' : '') . ' title="Menuju Ke ' . $page['text'] . '"><i class="' . $page['icon'] . '"></i>&nbsp;' . $page['text'] . '</a>';
+                    echo '</li>';
+                }
                 echo '    <li>';
                 echo '        <button>Akses<i class="material-icons">expand_more</i>';
                 echo '        </button>';
@@ -37,7 +41,7 @@
                 echo '                <ul class="list-items-with-description">';
                 echo '                    <li>';
                 echo '                        <div class="item-title">';
-echo '                                <h3>Peminjaman</h3>';
+                echo '                                <h3>Peminjaman</h3>';
                 echo '                                <p>Akses Peminjaman</p>';
                 echo '                        </div>';
                 echo '                    </li>';
@@ -52,7 +56,6 @@ echo '                                <h3>Peminjaman</h3>';
                 echo '        </div>';
                 echo '    </li>';
                 echo '</ul>';
-
             ?>
         </nav>
     </div>

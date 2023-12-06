@@ -206,3 +206,7 @@ margin-top: 16px;
 .login:hover {
   background-color: #c0c0c0;
 }
+.nav-link[aria-current="page"] {
+  text-decoration: underline  #f8c348 0.15rem;
+  text-underline-offset: 0.5rem;
+}
