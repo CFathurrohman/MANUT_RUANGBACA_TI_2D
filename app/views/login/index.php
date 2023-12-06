@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href= "<?= BASEURL ?>/css/loginStyle.css">
 </head>
 <body>
-<?php Flasher::flash(); ?>
+<?php Flasher::flashLogin(); ?>
 <main class="main">
     <div class="container a-container" id="a-container" >
         <form class="form" id="b-form" method="post" action="<?= BASEURL ?>/Login/cek_login">
