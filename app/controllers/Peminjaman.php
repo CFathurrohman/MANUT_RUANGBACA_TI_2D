@@ -1,6 +1,6 @@
 <?php
 
-class Anggota extends Controller
+class Peminjaman extends Controller
 {
     public function index()
     {
