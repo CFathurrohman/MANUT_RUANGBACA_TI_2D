@@ -6,7 +6,6 @@ $(function () {
     $("#penulis").val("");
     $("#nama_buku").val("");
     $("#tahun_terbit").val("");
-    $("#gambar_buku").val("");
     $("#id_kategori").val("");
     $("#deskripsi").val("");
   });
@@ -30,7 +29,6 @@ $(function () {
           $("#penulis").val(data.penulis);
           $("#nama_buku").val(data.nama_buku);
           $("#tahun_terbit").val(data.tahun_terbit);
-          $("#gambar_buku").val(data.gambar_buku);
           $("#id_kategori").val(data.id_kategori);
           $("#deskripsi").val(data.deskripsi);
       }

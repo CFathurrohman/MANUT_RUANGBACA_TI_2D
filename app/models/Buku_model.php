@@ -12,13 +12,12 @@
 
     public function getAllBuku()
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' a, kategori k WHERE a.id_kategori=k.id_ktgr');
+        $this->db->query('SELECT a.*, k.nama_kategori FROM ' . $this->table . ' a INNER JOIN kategori k ON a.id_kategori=k.id_ktgr');
         return $this->db->resultSet();
     }
 
     public function getReadBukuById($id)
     {
-        //        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
         $this->db->query('
         SELECT b.*, k.nama_kategori
         FROM buku b
@@ -49,7 +48,6 @@
         $this->db->bind(':gambar_buku', $data['gambar_buku']);
 
         $this->db->execute();
-
         return $this->db->rowCount();
     }
 
@@ -71,7 +69,7 @@
     public function hapusDataBuku($id)
     {
         $deleteQuery = " DELETE FROM buku
-                        WHERE buku.id_buku = :id_buku";
+                        WHERE id_buku = :id_buku";
 
         $this->db->query($deleteQuery);
         $this->db->bind(":id_buku", $id);
