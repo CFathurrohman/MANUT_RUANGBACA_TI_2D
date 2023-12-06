@@ -8,24 +8,34 @@ class Login_model
         $this->db = new Database;
     }
 
-    public function validateUser($username, $password)
+    public function validateUser($username, $pwd)
     {
-        $this->db->query('SELECT * FROM user WHERE username = :username AND password = :password');
-        $this->db->bind(':username', $username);
-        $this->db->bind(':password', md5($password));
+        $result = $this->getUserByUsername($username);
 
-        $user = $this->db->single();
+        if ($result != null) {
+            $salt = $result['salt'];
+            $password = $result['password'];
 
-        return $user;
+            if ($salt != null && $password != null) {
+                $combined_password = $salt . $pwd;
+                if (password_verify($combined_password, $password)) {
+                    return $result;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
-    public function getUserLevel($userId)
+    public function getUserByUsername($username)
     {
-        $this->db->query('SELECT level FROM user WHERE id = :id');
-        $this->db->bind(':id', $userId);
+        $this->db->query('SELECT * FROM user WHERE username = :username');
+        $this->db->bind(':username', $username);
 
-        $level = $this->db->single();
-
-        return $level['level'];
+        return $this->db->single();
     }
 }

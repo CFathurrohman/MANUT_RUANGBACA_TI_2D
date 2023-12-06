@@ -12,7 +12,7 @@
 <?php Flasher::flash(); ?>
 <main class="main">
     <div class="container a-container" id="a-container" >
-        <form class="form" id="b-form" method="post" action="<?= BASEURL ?>/Login/login">
+        <form class="form" id="b-form" method="post" action="<?= BASEURL ?>/Login/cek_login">
             <h2 class="form_title title">Ruang Baca JTI</h2>
             <span class="form__span">Masukkan nama pengguna dan kata sandi</span>
             <input class="form__input" type="text" placeholder="Nama Pengguna" name="username" required>
