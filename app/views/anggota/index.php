@@ -54,13 +54,13 @@
                         <td><?php echo 'Photo Profil' ?></td>
                         <td><?php echo $anggota['nama']; ?></td>
                         <td><?php echo $anggota['no_telp']; ?></td>
-                        <td><?php echo $anggota['id']; ?></td>
+                        <td><?php echo $anggota['id_anggota']; ?></td>
                         <td><?php echo $anggota['status']; ?></td>
                         <td>
-                            <a href="<?= BASEURL; ?>/anggota/ubah/<?= $anggota['id']; ?>"
+                            <a href="<?= BASEURL; ?>/anggota/ubah/<?= $anggota['id_anggota']; ?>"
                                class="badge btn btn-success float-right tampilModalUbah" data-bs-toggle="modal"
-                               data-bs-target="#tambahModal" data-id="<?= $anggota['id'] ?>">Ubah</a>
-                            <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id']; ?>"
+                               data-bs-target="#tambahModal" data-id="<?= $anggota['id_anggota'] ?>">Ubah</a>
+                            <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id_anggota']; ?>"
                                class="badge btn btn-danger float-right"
                                onclick="return confirm('Konfirmasi');">hapus</a>
                         </td>
@@ -92,7 +92,7 @@
                         </div>
                         <div class="mb-3">
                             <label id="label_id" for="id" class="form-label">NIM/NIP</label>
-                            <input type="text" name="id" class="form-control" id="id" required>
+                            <input type="text" name="id_anggota" class="form-control" id="id_anggota" required>
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>

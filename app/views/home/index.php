@@ -37,12 +37,11 @@
                             <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
                         </ul>
                         <div class="card-body text-end">
-                            <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="btn btn-outline-info">Lihat</a>
+                            <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-outline-info">Lihat</a>
                         </div>
                     </div>
                 </div>
             </div>
-
         <?php endforeach; ?>
     </div>
 </div>

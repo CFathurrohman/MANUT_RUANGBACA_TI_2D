@@ -68,11 +68,11 @@
                                 <td style="text-align: center;"><?= $buku['nama_kategori']; ?></td>
                                 <td style="text-align: center;">
                                     <div class="d-flex justify-content-between">
-                                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id']; ?>" class="badge btn btn-primary">
+                                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary">
                                             <i class="fa " aria-hidden="true"></i>Buka</a>
-                                            <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id'] ?>">
+                                            <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
                                             <i class="fa " aria-hidden="true"></i>Ubah</a>
-                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
+                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
                                     </div>
                                 </td>
@@ -94,8 +94,7 @@
                 <div class="modal-body">
                     <!-- Your modal content here  -->
                     <form action="<?= BASEURL; ?>/buku/tambah" method="post">
-                    <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="id_kategori" id="id_kategori">
+                        <input type="hidden" name="id_buku" id="id_buku">
                         <div class="mb-3">
                             <label for="nama_buku" class="form-label">Nama Buku</label>
                             <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
@@ -113,10 +112,10 @@
                             <input type="text" name="deskripsi" class="form-control" id="deskripsi" required>
                         </div>
                         <div class="form-group col-xl-3">
-                            <label for="nama_kategori" class="form-label">Kategori</label>
-                            <select class="form-control" id="nama_kategori" name="nama_kategori">
-                                <option value="fiksi">Fiksi</option>
-                                <option value="ilmiah">Ilmiah</option>
+                            <label for="id_kategori" class="form-label">Kategori</label>
+                            <select class="form-control" id="id_kategori" name="id_kategori">
+                                <option value="1">Fiksi</option>
+                                <option value="2">Ilmiah</option>
                             </select>
                         </div>
                 </div>

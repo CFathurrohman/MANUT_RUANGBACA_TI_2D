@@ -49,7 +49,7 @@ class Anggota extends Controller
     }
 
     public function getUbah(){
-        echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id']));
+        echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id_anggota']));
     }
 
     public function cari()

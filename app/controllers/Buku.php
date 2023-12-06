@@ -71,6 +71,6 @@ class Buku extends Controller
     }
 
     public function getUbah(){
-        echo json_encode($this->model('Buku_model')->getBukuById($_POST['id']));
+        echo json_encode($this->model('Buku_model')->getBukuById($_POST['id_buku']));
     }
 }

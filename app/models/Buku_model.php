@@ -21,46 +21,31 @@
         //        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
         $this->db->query('
         SELECT b.*, k.nama_kategori
-        FROM ' . $this->table . ' b
+        FROM buku b
         INNER JOIN kategori k ON b.id_kategori = k.id_ktgr
-        WHERE b.id=:id_b        
+        WHERE b.id_buku=:id_buku        
     ');
-        $this->db->bind(':id_b', $id);
+        $this->db->bind(':id_buku', $id);
         return $this->db->single();
     }
 
     public function getBukuById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id=:id');
-        $this->db->bind(':id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' kategori WHERE id_buku=:id_buku');
+        $this->db->bind(':id_buku', $id);
         return $this->db->single();
     }
 
     public function tambahDataBuku($data)
     {
-        //        if ($data['nama_kategori'] == 'fiksi' || $data['nama_kategori'] == 'ilmiah') {
-        //            $level = 'anggota';
-        //        } else {
-        //            $level = 'admin';
-        //        }
-
-        $kategoriInsertQuery = "INSERT INTO kategori (id_ktgr, nama_kategori) 
-                    VALUES ('', :nama_kategori)";
-        $this->db->query($kategoriInsertQuery);
-        $this->db->bind(':nama_kategori', $data['nama_kategori']);
-
-        $this->db->execute();
-
-        $id_kategori = $this->db->lastInsertId();
-
-        $bukuInsertQuery = "INSERT INTO buku (id, nama_buku, penulis, tahun_terbit, deskripsi, id_kategori) 
+        $bukuInsertQuery = "INSERT INTO buku (id_buku, nama_buku, penulis, tahun_terbit, deskripsi, id_kategori) 
                     VALUES ('', :nama_buku, :penulis, :tahun_terbit, :deskripsi, :id_kategori)";
         $this->db->query($bukuInsertQuery);
         $this->db->bind(':nama_buku', $data['nama_buku']);
         $this->db->bind(':penulis', $data['penulis']);
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
-        $this->db->bind(':id_kategori', $id_kategori);
+        $this->db->bind(':id_kategori', $data['id_kategori']);
 
         $this->db->execute();
 
@@ -84,9 +69,8 @@
 
     public function hapusDataBuku($id)
     {
-        $deleteQuery = "DELETE buku, kategori FROM buku
-                        INNER JOIN kategori ON buku.id_kategori = kategori.id_ktgr
-                        WHERE buku.id = :id_buku";
+        $deleteQuery = " DELETE FROM buku
+                        WHERE buku.id_buku = :id_buku";
 
         $this->db->query($deleteQuery);
         $this->db->bind(":id_buku", $id);
@@ -98,18 +82,17 @@
     public function ubahDataBuku($data)
     {
         $updateQuery = "
-        UPDATE buku b
-        JOIN kategori k ON k.id_ktgr = b.id_kategori
-        SET k.nama_kategori = :nama_kategori,
-            b.nama_buku = :nama_buku,
-            b.tahun_terbit = :tahun_terbit,
-            b.deskripsi = :deskripsi,
-            b.penulis = :penulis
-        WHERE k.id_ktgr = :id_kategori
+        UPDATE buku
+        SET nama_buku = :nama_buku,
+            tahun_terbit = :tahun_terbit,
+            deskripsi = :deskripsi,
+            penulis = :penulis,
+            id_kategori = :id_kategori
+        WHERE id_buku = :id_buku
     ";
 
         $this->db->query($updateQuery);
-        $this->db->bind(':nama_kategori', $data['nama_kategori']);
+        $this->db->bind(':id_buku', $data['id_buku']);
         $this->db->bind(':nama_buku', $data['nama_buku']);
         $this->db->bind(':penulis', $data['penulis']);
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
