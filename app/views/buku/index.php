@@ -100,8 +100,8 @@
                             <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
                         </div>
                         <div class="mb-3">
-                            <label for="nama_buku" class="form-label">Gambar Buku</label>
-                            <input type="file" name="gambar_buku" class="form-control" id="gambar_buku" required>
+                            <label for="gambar_buku" class="form-label">Gambar Buku</label>
+                            <input type="file" name="gambar_buku" class="form-control" id="gambar_buku">
                         </div>
                         <div class="mb-3">
                             <label for="penulis" class="form-label">Penulis</label>

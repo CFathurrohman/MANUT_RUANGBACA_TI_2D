@@ -38,15 +38,15 @@
 
     public function tambahDataBuku($data)
     {
-        $bukuInsertQuery = "INSERT INTO buku (id_buku, nama_buku, gambar_buku, penulis, tahun_terbit, deskripsi, id_kategori) 
-                    VALUES ('', :nama_buku, :gambar_buku, :penulis, :tahun_terbit, :deskripsi, :id_kategori)";
+        $bukuInsertQuery = "INSERT INTO buku (id_buku, gambar_buku, nama_buku, penulis, tahun_terbit, deskripsi, id_kategori) 
+                    VALUES ('', :gambar_buku, :nama_buku, :penulis, :tahun_terbit, :deskripsi, :id_kategori)";
         $this->db->query($bukuInsertQuery);
         $this->db->bind(':nama_buku', $data['nama_buku']);
-        $this->db->bind(':gambar_buku', BASEURL . "/img/" . $data['gambar_buku']);
         $this->db->bind(':penulis', $data['penulis']);
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
+        $this->db->bind(':gambar_buku', $data['gambar_buku']);
 
         $this->db->execute();
 
@@ -88,7 +88,8 @@
             tahun_terbit = :tahun_terbit,
             deskripsi = :deskripsi,
             penulis = :penulis,
-            id_kategori = :id_kategori
+            id_kategori = :id_kategori,
+            gambar_buku = :gambar_buku
         WHERE id_buku = :id_buku
     ";
 
@@ -99,6 +100,7 @@
         $this->db->bind(':tahun_terbit', $data['tahun_terbit']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
+        $this->db->bind(':gambar_buku', $data['gambar_buku']);
 
         $this->db->execute();
 
