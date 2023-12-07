@@ -1,5 +1,5 @@
 <?php
-    class Login extends Controller{
+    class Log extends Controller{
         public function index()
         {
             $data['judul'] = 'Login';
@@ -15,29 +15,40 @@
                 $loginModel = $this->model('Login_model');
                 $user = $loginModel->validateUser($username, $password);
     
-                if ($user =! null) {
+                if ($user) {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
     
                     $userLevel = $user['level'];
     
                     if ($userLevel === 'admin') {
-                        header('Location: ' . BASEURL . '/Home');
+                        header('Location: ' . BASEURL . '/Admin');
                     } elseif ($userLevel === 'anggota') {
-                        header('Location: ' . BASEURL . '/Home');
+                        header('Location: ' . BASEURL . '/Anggota');
                     } else {
                         header('Location: ' . BASEURL . '/Home');
                     }
                     exit();
                 } else {
                     Flasher::setFlash('Login failed. Invalid username or password.', 'danger', 'danger');
-                    header('Location: ' . BASEURL . '/Login');
+                    header('Location: ' . BASEURL . '/Log');
                     exit();
                 }
             } else {
-                header('Location: ' . BASEURL . '/Login');
+                header('Location: ' . BASEURL . '/Log');
                 exit();
             }
+        }
+
+        public function logout()
+        {
+            // Hapus semua data sesi
+            session_unset();
+            session_destroy();
+
+            // Redirect ke halaman login setelah logout
+            header('Location: ' . BASEURL . '/Log');
+            exit;
         }
     }
 ?>
