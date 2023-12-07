@@ -61,7 +61,7 @@
     </div>
     <?php
         echo '<div class="action-buttons hide">';
-        echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Login" title="Log in" class="login">Masuk</a>';
+        echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
         echo '</div>';
     ?>
 </header>
