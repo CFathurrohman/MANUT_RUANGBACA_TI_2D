@@ -22,9 +22,9 @@
                     $userLevel = $user['level'];
     
                     if ($userLevel === 'admin') {
-                        header('Location: ' . BASEURL . '/Admin');
+                        header('Location: ' . BASEURL . '/Home');
                     } elseif ($userLevel === 'anggota') {
-                        header('Location: ' . BASEURL . '/Anggota');
+                        header('Location: ' . BASEURL . '/Home');
                     } else {
                         header('Location: ' . BASEURL . '/Home');
                     }
