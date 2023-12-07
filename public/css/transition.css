@@ -11,27 +11,27 @@
   }
 
   .transition-group > div:nth-child(1) {
-    animation: curtainAnimation 0.6s ease-out forwards;
+    animation: curtainAnimation 0.2s ease-out forwards;
   }
 
   .transition-group > div:nth-child(2) {
     margin-top: 20vh;
-    animation: curtainAnimation 0.7s ease-out forwards;
+    animation: curtainAnimation 0.3s ease-out forwards;
   }
 
   .transition-group > div:nth-child(3) {
     margin-top: 40vh;
-    animation: curtainAnimation 0.85s ease-out forwards;
+    animation: curtainAnimation 0.4s ease-out forwards;
   }
 
   .transition-group > div:nth-child(4) {
     margin-top: 60vh;
-    animation: curtainAnimation 0.9s ease-out forwards;
+    animation: curtainAnimation 0.5s ease-out forwards;
   }
 
   .transition-group > div:nth-child(5) {
     margin-top: 80vh;
-    animation: curtainAnimation 1s ease-out forwards;
+    animation: curtainAnimation 0.6s ease-out forwards;
   }
 
   @keyframes curtainAnimation{

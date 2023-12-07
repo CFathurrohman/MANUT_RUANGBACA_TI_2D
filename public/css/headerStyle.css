@@ -19,7 +19,7 @@ body {
   width: 100vw;
   z-index: 999;
   gap: 24px;
-  background-color: #0d6efd;
+  background-color: #444eff;
   height: 64px;
   padding: 0 16px;
   align-items: center;
@@ -47,7 +47,7 @@ margin-top: 16px;
   list-style-type: none;
   align-items: center;
   gap: 16px;
-  background-color: #0d6efd;
+  background-color: #444eff;
 
 }
 
@@ -63,10 +63,16 @@ margin-top: 16px;
   color: #ffffff;
   font-size: 14px;
   text-decoration: none;
+ padding: 10px;
 }
 
 .navigation > li > a:hover {
-  color: #171717;
+  color: #4c67ff;
+  background-color: #E1E1E1;
+  
+border-radius: 10px;
+padding: 10px ;
+
 }
 
 .navigation > li > button {
@@ -101,11 +107,13 @@ margin-top: 16px;
 .navigation > li:hover > button i {
   fill: #171717;
   rotate: 180deg;
+
 }
 
 .navigation > li:hover > button {
-  color: #171717;
+  color: #0d6efd;
   background-color: #E1E1E1;
+  
 }
 
 .navigation > li:hover .dropdown {
@@ -205,8 +213,9 @@ margin-top: 16px;
 
 .login:hover {
   background-color: #c0c0c0;
+  color: #0d6efd;
 }
 .nav-link[aria-current="page"] {
-  text-decoration: underline  #f8c348 0.15rem;
+  text-decoration: underline  #ffffff 0.15rem;
   text-underline-offset: 0.5rem;
 }
