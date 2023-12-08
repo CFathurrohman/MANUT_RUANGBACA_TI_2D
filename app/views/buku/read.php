@@ -22,9 +22,15 @@
                 <li class="list-group-item"><small
                             class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
             </ul>
-            <div class="card-body text-end">
-                <a href="#" class="btn btn-warning col-1"">Edit</a>
-            </div>
+            <?php
+            if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
+                if ($_SESSION['level'] == 'anggota') {
+                    echo '<div class="card-body text-end">
+                            <a href="#" class="btn btn-warning col-2">Pinjam</a>
+                            </div>';
+                }
+            }
+            ?>
         </div>
     </div>
 </div>
