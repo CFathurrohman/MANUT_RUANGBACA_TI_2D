@@ -18,12 +18,12 @@
                 if ($user) {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
+
+                    $_SESSION['level'] = $user['level'];
     
-                    $userLevel = $user['level'];
-    
-                    if ($userLevel === 'admin') {
+                    if ($_SESSION['level'] === 'admin') {
                         header('Location: ' . BASEURL . '/Home');
-                    } elseif ($userLevel === 'anggota') {
+                    } elseif ($_SESSION['level'] === 'anggota') {
                         header('Location: ' . BASEURL . '/Home');
                     } else {
                         header('Location: ' . BASEURL . '/Home');
