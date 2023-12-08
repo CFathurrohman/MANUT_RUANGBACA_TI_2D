@@ -67,9 +67,6 @@
             echo '    <li>';
             echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
             echo '    </li>';
-            echo '    <li>';
-            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
-            echo '    </li>';
             echo '</ul>';
             echo '</nav>';
             echo '</div>';
