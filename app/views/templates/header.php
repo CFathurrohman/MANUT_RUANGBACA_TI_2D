@@ -42,13 +42,13 @@
             echo '                <ul class="list-items-with-description">';
             echo '                    <li>';
             echo '                        <div class="item-title">';
-            echo '                                <h3>Peminjaman</h3>';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><h3>Peminjaman</h3></a>';
             echo '                                <p>Akses Peminjaman</p>';
             echo '                        </div>';
             echo '                    </li>';
             echo '                    <li>';
             echo '                        <div class="item-title">';
-            echo '                            <h3>Riwayat</h3>';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><h3>Riwayat</h3></a>';
             echo '                            <p>Akses Riwayat</p>';
             echo '                        </div>';
             echo '                    </li>';
