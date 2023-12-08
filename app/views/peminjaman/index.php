@@ -1,33 +1,78 @@
-<div class="objtransition">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12"><br><br>
-                <h3>Daftar Peminjaman</h3><br>
-                <hr style="height: 1px;color: black;background-color: black;">
-            </div>
+<div class="transition-group">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12"><br>
+            <h3>Daftar Pengajuan Peminjaman</h3><br>
+            <hr style="height: 1px;color: black;background-color: black;">
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <?php Flasher::flash(); ?>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?php //Flasher::flashPeminjaman(); 
+            ?>
         </div>
-        <table>
-            <thead>
-            <tr>
-                <th>status</th>
-                <th>Telepon</th>
-                <th>status</th>
-            </tr>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-lg-12 d-flex justify-content-end">
+            <form action="<?= BASEURL; ?>/peminjaman/cari" method="post" class="d-flex">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Nama Anggota" name="keyword" id="keyword" autocomplete="off">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-white">
+                <tr>
+                    <th>No.</th>
+                    <th>Nama</th>
+                    <th>No. Telepon</th>
+                    <th>NIM/NIP</th>
+                    <th>Judul Buku</th>
+                    <th>Jumlah</th>
+                    <th>Tanggal Pengajuan</th>
+                    <th>Tanggal Peminjaman</th>
+                    <th>Batas Pengembalian</th>
+                    <th>Tanggal Pengembalian</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
             </thead>
             <tbody>
-            <?php foreach ($data['peminjaman_buku'] as $peminjaman) : ?>
-                <tr>
-                    <td><?= $peminjaman['id']; ?></td>
-                    <td><?= $peminjaman['status']; ?></td>
-                    <td><?= $peminjaman['tgl_pinjam']; ?></td>
-                    <td><?= $peminjaman['tgl_kembali']; ?></td>
-                </tr>
-            <?php endforeach; ?>
+                <?php $number = 1 ?>
+                <?php foreach ($data['peminjaman_buku'] as $peminjaman) : ?>
+                    <tr>
+                        <td><?php echo $number;
+                            $number++ ?></td>
+                        <td><?php echo $peminjaman['nama']; ?></td>
+                        <td><?php echo $peminjaman['no_telp']; ?></td>
+                        <td><?php echo $peminjaman['id_anggota']; ?></td>
+                        <td><?php echo $peminjaman['nama_buku']; ?></td>
+                        <td><?php echo $peminjaman['jumlah']; ?></td>
+                        <td><?php echo $peminjaman['tgl_pengajuan']; ?></td>
+                        <td><?php echo $peminjaman['tgl_pinjam']; ?></td>
+                        <td><?php echo $peminjaman['tgl_batas_kembali']; ?></td>
+                        <td><?php echo $peminjaman['tgl_kembali']; ?></td>
+                        <td><?php echo $peminjaman['status']; ?></td>
+                        <td>
+                            <a href="<?= BASEURL; ?>/peminjaman/terima/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-success float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Terima</a>
+                            <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Tolak</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
