@@ -23,11 +23,11 @@
     echo '<ul class="navigation hide">';
 
     if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
-        echo '    <li>';
-        echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
-        echo '    </li>';
 
         if ($_SESSION['level'] == 'admin') {
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+            echo '    </li>';
             echo '    <li>';
             echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
             echo '    </li>';
@@ -60,10 +60,13 @@
             echo '</nav>';
             echo '</div>';
             echo '<div class="action-buttons hide">';
-            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log" title="Log out" class="login">Keluar</a>';
+            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Keluar</a>';
             echo '</div>';
 
         } elseif ($_SESSION['level'] == 'anggota') {
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+            echo '    </li>';
             echo '    <li>';
             echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
             echo '    </li>';
@@ -71,16 +74,19 @@
             echo '</nav>';
             echo '</div>';
             echo '<div class="action-buttons hide">';
-            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log" title="Log out" class="login">Keluar</a>';
-            echo '</div>';
-        } else {
-            echo '</ul>';
-            echo '</nav>';
-            echo '</div>';
-            echo '<div class="action-buttons hide">';
-            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
+            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Keluar</a>';
             echo '</div>';
         }
+    } else {
+        echo '    <li>';
+        echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+        echo '    </li>';
+        echo '</ul>';
+        echo '</nav>';
+        echo '</div>';
+        echo '<div class="action-buttons hide">';
+        echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
+        echo '</div>';
     }
     ?>
 </header>
