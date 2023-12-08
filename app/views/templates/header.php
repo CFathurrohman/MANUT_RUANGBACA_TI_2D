@@ -59,6 +59,9 @@
             echo '</ul>';
             echo '</nav>';
             echo '</div>';
+            echo '<div class="action-buttons hide">';
+            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log" title="Log out" class="login">Keluar</a>';
+            echo '</div>';
 
         } elseif ($_SESSION['level'] == 'anggota') {
             echo '    <li>';
@@ -66,6 +69,9 @@
             echo '    </li>';
             echo '</ul>';
             echo '</nav>';
+            echo '</div>';
+            echo '<div class="action-buttons hide">';
+            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log" title="Log out" class="login">Keluar</a>';
             echo '</div>';
         } else {
             echo '</ul>';
