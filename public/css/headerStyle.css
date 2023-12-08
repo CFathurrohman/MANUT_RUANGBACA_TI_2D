@@ -65,6 +65,12 @@ margin-top: 16px;
   text-decoration: none;
  padding: 10px;
 }
+.navigation > li > a.active {
+
+  text-decoration: underline #ffffff 0.15rem;
+  text-underline-offset: 0.5rem;
+}
+
 
 .navigation > li > a:hover {
   color: #4c67ff;

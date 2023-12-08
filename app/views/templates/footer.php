@@ -20,5 +20,14 @@
 
 
 </footer>
+<script type="text/javascript">
+        const currentLocation = location.pathname;
+        const menuItems = document.querySelectorAll('.navigation > li > a');
+        menuItems.forEach((menuItem) => {
+            if (menuItem.pathname === currentLocation) {
+                menuItem.classList.add('active');
+            }
+        });
+    </script>
 </body>
 </html>
