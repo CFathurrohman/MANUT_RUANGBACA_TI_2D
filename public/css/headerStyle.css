@@ -69,6 +69,7 @@ margin-top: 16px;
 
   text-decoration: underline #ffffff 0.15rem;
   text-underline-offset: 0.5rem;
+  transition: color 0.4s ease-in-out, border-bottom 0.4s ease-in-out; 
 }
 
 
@@ -78,6 +79,8 @@ margin-top: 16px;
   
 border-radius: 10px;
 padding: 10px ;
+transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+text-decoration: none;
 
 }
 
