@@ -69,7 +69,7 @@
                                     <div class="d-flex justify-content-between">
                                         <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary">
                                             <i class="fa " aria-hidden="true"></i>Buka</a>
-                                            <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
+                                        <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
                                             <i class="fa " aria-hidden="true"></i>Ubah</a>
                                         <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
