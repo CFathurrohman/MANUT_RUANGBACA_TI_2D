@@ -198,7 +198,7 @@ text-decoration: none;
 
 .action-buttons {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   align-items: center;
   flex-wrap: nowrap;
 }

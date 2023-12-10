@@ -86,12 +86,6 @@
         echo '</ul>';
         echo '</nav>';
         echo '</div>';
-        echo '    <li>';
-        echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
-        echo '    </li>';
-        echo '</ul>';
-        echo '</nav>';
-        echo '</div>';
         echo '<div class="action-buttons hide">';
         echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
         echo '</div>';
