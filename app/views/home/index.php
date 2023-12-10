@@ -36,11 +36,11 @@
                     <img src="<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px">
                     <div class="card-body">
                         <h5 class="card-title"><?= $buku['nama_buku']; ?></h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><small class="text-muted"><?= $buku['nama_kategori']; ?></small></li>
-                            <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li>
+<!--                        <ul class="list-group list-group-flush">-->
+<!--                            <li class="list-group-item"><small class="text-muted">--><?php //= $buku['nama_kategori']; ?><!--</small></li>-->
+                            <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li><br>
                             <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
-                        </ul>
+<!--                        </ul>-->
                         <div class="card-body text-end">
                             <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-outline-info">Lihat</a>
                         </div>

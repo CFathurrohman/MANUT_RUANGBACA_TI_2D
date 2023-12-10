@@ -146,8 +146,8 @@ text-decoration: none;
 /* dropdown menu */
 .dropdown__wrapper {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   padding-top: 60px;
 }
 
@@ -198,7 +198,7 @@ text-decoration: none;
 
 .action-buttons {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
   flex-wrap: nowrap;
 }
@@ -224,6 +224,19 @@ text-decoration: none;
   background-color: #c0c0c0;
   color: #0d6efd;
 }
+
+.keranjang {
+  background: none;
+  color: #171717;
+  outline: none;
+  border: 1px solid #E6E6E6;
+  border-radius: 6px;
+}
+
+.keranjang:hover {
+  background: #F2F2F2;
+}
+
 .nav-link[aria-current="page"] {
   text-decoration: underline  #ffffff 0.15rem;
   text-underline-offset: 0.5rem;
