@@ -1,49 +1,31 @@
-*, *::after, *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    user-select: none;
-}
-
 body {
-    width: 100%;
-    height: 100vh;
+    background-image: url(../img/gambar_LT6.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f8f9fa;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: "Montserrat", sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    background-color: #ffffff;
-    color: #ffffff;
-}
-
-main {
-    position: fixed;
-    width: 1000px;
-    min-width: 1000px;
-    min-height: 600px;
-    height: 600px;
-    padding: 25px;
-    background-color: skyblue;
-    border-radius: 12px;
-    overflow: hidden;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    width: 600px;
-    height: 100%;
-    padding: 25px;
-    background-color: #1d6693;
-    transition: 1.25s;
-    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    text-align: center;
 }
 
+.logo {
+    max-width: 200px; 
+    max-height: 200px;
+    margin-bottom: 20px;
+   
+    right: 100px;
+}
 
 .form {
     display: flex;
@@ -54,6 +36,9 @@ main {
     height: 100%;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
 .form__input {
     width: 350px;
     height: 40px;
@@ -64,114 +49,36 @@ main {
     border: none;
     outline: none;
     font-family: "Montserrat", sans-serif;
-    background-color: skyblue;
     transition: 0.25s ease;
     border-radius: 8px;
     box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;
 }
-
 .form__input:focus {
     box-shadow: inset 4px 4px 4px #d1d9e6, inset -4px -4px 4px #f9f9f9;
 }
-
 .form__span {
     margin-top: 30px;
     margin-bottom: 12px;
 }
-
-.title {
-    font-size: 34px;
-    font-weight: 700;
-    line-height: 3;
-    color: #ffffff;
-}
-
-.description {
-    font-size: 14px;
-    letter-spacing: 0.25px;
-    text-align: center;
-    line-height: 1.6;
-}
-
-.button {
-    width: 180px;
-    height: 50px;
-    border-radius: 25px;
-    margin-top: 50px;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 1.15px;
-    background-color: #75b6ff;
-    color: #f9f9f9;
-    border: none;
-    outline: none;
-}
-
-.a-container {
-    left: calc(100% - 600px);
-    z-index: 0;
-}
-
-.side {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 400px;
-    padding: 50px;
-    z-index: 200;
-    transition: 1.25s;
-    background-color: #1d6693;
-    overflow: hidden;
-    box-shadow: 4px 4px 10px skyblue, -4px -4px 10px dodgerblue;
-}
-
-.side__logo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.side__circle {
-    position: absolute;
-    width: 500px;
-    height: 477px;
-    border-radius: 50%;
-    background-color: #75ffff;
-    box-shadow: inset 8px 8px 12px skyblue, inset -8px -8px 12px dodgerblue;
-    bottom: -65%;
-    left: -60%;
-    transition: 1.25s;
-}
-
-.side__circle--t {
-    top: -30%;
-    left: 60%;
-    width: 300px;
-    height: 300px;
-}
-
-.side__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: absolute;
-    width: 400px;
-    padding: 50px 55px;
-    transition: 1.25s;
-}
-
-.side__description {
-    width: 350px;
-    height: 50px;
-  
+label {
     font-weight: bold;
-    font-size: 14px;
-    color: #f9f9f9;
-    border: white;
-    outline: #ffffff;
+}
+
+.btn-primary {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-secondary {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #0056b3;
 }
