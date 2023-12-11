@@ -61,7 +61,8 @@
             echo '</nav>';
             echo '</div>';
             echo '<div class="action-buttons hide">';
-            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
+            // echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
+            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Keluar</a>';
             echo '</div>';
 
         } elseif ($_SESSION['level'] == 'anggota') {
@@ -86,13 +87,13 @@
             echo '                <ul class="list-items-with-description">';
             echo '                    <li>';
             echo '                        <div class="item-title">';
-            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><h3>Nama Buku</h3></a>';
+            echo '                                <a href="#"><h3>Nama Buku</h3></a>';
 //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
             echo '                        </div>';
             echo '                    </li>';
             echo '                    <li>';
             echo '                        <div class="item-title">';
-            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><h3>Nama Buku</h3></a>';
+            echo '                            <a href="#"><h3>Nama Buku</h3></a>';
 //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
             echo '                        </div>';
             echo '                    </li>';
@@ -117,7 +118,7 @@
             echo '                    </li>';
             echo '                    <li>';
             echo '                        <div class="item-title">';
-            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><h3>Log Out</h3></a>';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout"><h3>Log Out</h3></a>';
 //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
             echo '                        </div>';
             echo '                    </li>';

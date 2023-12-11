@@ -22,7 +22,7 @@
                         <input class="form__input" type="text" placeholder="Nama Pengguna" name="username" required>
                         <input class="form__input" type="password" placeholder="Kata Sandi" name="password" required>
                         <button type="submit" class="btn btn-primary">Masuk</button>
-   <button type="button" class="btn btn-secondary back-button" onclick="window.history.back();">Kembali</button>
+                        <button type="button" class="btn btn-secondary back-button" onclick="window.history.back();">Kembali</button>
                     </form>
                 </div>
             </div>
