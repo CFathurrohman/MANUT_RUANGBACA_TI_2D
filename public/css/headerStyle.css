@@ -152,6 +152,14 @@ body {
     padding-top: 60px;
 }
 
+.dropdown__wrapper__keranjang {
+    position: absolute;
+    top: 0;
+    /*left: 0;*/
+    right: 0;
+    padding-top: 60px;
+}
+
 .dropdown {
     border-radius: 8px;
     background-color: #FCFCFC;
@@ -168,7 +176,8 @@ body {
 
 .list-items-with-description {
     list-style-type: none;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     grid-template-columns: 1fr 1fr;
 }
