@@ -226,7 +226,7 @@ text-decoration: none;
 }
 
 .keranjang {
-  background: none;
+  background-color: #ffffff;
   color: #171717;
   outline: none;
   border: 1px solid #E6E6E6;
@@ -235,11 +235,15 @@ text-decoration: none;
 
 
 .keranjang:hover {
-  background: #F2F2F2;
+  background-color: #c0c0c0;
   color: #0d6efd;
 
 }
-
-#keranjang-link:hover {
-  color: #171717; 
+.keranjang .icon-path {
+  fill: #000000; 
 }
+
+.keranjang:hover .icon-path {
+  fill:  #0d6efd;
+}
+
