@@ -19,18 +19,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="button-container">
-                    <button class="btn btn-primary" id="changePassword" style="margin-right: 20px;" onclick="window.location.href='edit_password/index.php'">Ganti Password</button>
-                    <button class="btn btn-danger" id="logout">Keluar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
