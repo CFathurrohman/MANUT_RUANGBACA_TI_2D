@@ -26,15 +26,15 @@
                 <li class="list-group-item"><small
                             class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
             </ul>
-            <?php
-            if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
-                if ($_SESSION['level'] == 'anggota') {
-                    echo '<div class="card-body text-end">
-                            <a href="#" class="btn btn-warning col-2">Pinjam</a>
-                            </div>';
-                }
-            }
-            ?>
+            <?php if ($_SESSION['level'] == 'admin') : ?>
+                <div class="card-body text-end">
+                    <a href="#" class="btn btn-warning col-1">Edit</a>
+                </div>
+            <?php else : ?>
+                <div class="card-body text-end">
+                    <a href=<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning col-1">Pinjam</a>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
