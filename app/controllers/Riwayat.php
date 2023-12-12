@@ -33,4 +33,13 @@ class Riwayat extends Controller
         $this->view('riwayat/index', $data);
         $this->view('templates/footer');
     }
+
+    public function read($id)
+    {
+        $data['judul'] = 'Riwayat Peminjaman';
+        $data['buku'] = $this->model('Riwayat_model')->readMulti($id);
+        $this->view('templates/header', $data);
+        $this->view('riwayat/read/index', $data);
+        $this->view('templates/footer');
+    }
 }

@@ -11,7 +11,8 @@ class Peminjaman extends Controller
         $this->view('templates/footer');
     }
 
-    public function terima($idPeminjaman){
+    public function terima($idPeminjaman)
+    {
         $data = ['id_peminjaman' => $idPeminjaman];
 
         if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
@@ -24,7 +25,8 @@ class Peminjaman extends Controller
         exit;
     }
 
-    public function tolak($idPeminjaman){
+    public function tolak($idPeminjaman)
+    {
         $data = ['id_peminjaman' => $idPeminjaman];
 
         if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
@@ -47,9 +49,9 @@ class Peminjaman extends Controller
     }
 
     public function read($id)
-    {   
+    {
         $data['judul'] = 'Peminjaman Buku';
-        $data['buku'] = $this->model('Keranjang_model')->readMulti($id);
+        $data['buku'] = $this->model('Peminjaman_model')->readMulti($id);
         $this->view('templates/header', $data);
         $this->view('peminjaman/read/index', $data);
         $this->view('templates/footer');

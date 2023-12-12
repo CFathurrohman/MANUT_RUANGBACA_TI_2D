@@ -35,4 +35,15 @@ class Riwayat_model
         $this->db->bind(':keyword', "%$keyword%");
         return $this->db->resultSet();
     }
+
+    public function readMulti($id)
+    {        
+        $this->db->query("SELECT b.nama_buku, b.penulis, b.tahun_terbit, b.deskripsi, b.gambar_buku, k.nama_kategori
+                        FROM buku b 
+                        JOIN detail_peminjaman d ON b.id_buku = d.id_buku 
+                        JOIN kategori k ON b.id_kategori = k.id_ktgr
+                        WHERE d.id_peminjaman IN ($id)
+                        GROUP BY b.id_buku");
+        return $this->db->resultSet();
+    }
 }
