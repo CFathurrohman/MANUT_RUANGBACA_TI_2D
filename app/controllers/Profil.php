@@ -2,8 +2,9 @@
 class Profil extends Controller{
     public function index()
     {
-        $this->view('templates/header');
-        $this->view('profil/index');
+        $data['judul'] = 'Profil';
+        $this->view('templates/header',$data);
+        $this->view('profil/index',$data);
         $this->view('templates/footer');
     }
 }
