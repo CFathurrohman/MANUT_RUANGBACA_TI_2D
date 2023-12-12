@@ -12,7 +12,6 @@ class Peminjaman extends Controller
     }
 
     public function terima($idPeminjaman){
-        // Assuming the ID is passed in the URL
         $data = ['id_peminjaman' => $idPeminjaman];
 
         if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
@@ -44,6 +43,15 @@ class Peminjaman extends Controller
         $data['peminjaman_buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
         $this->view('templates/header', $data);
         $this->view('peminjaman/index', $data);
+        $this->view('templates/footer');
+    }
+
+    public function read($id)
+    {   
+        $data['judul'] = 'Peminjaman Buku';
+        $data['buku'] = $this->model('Keranjang_model')->readMulti($id);
+        $this->view('templates/header', $data);
+        $this->view('peminjaman/read/index', $data);
         $this->view('templates/footer');
     }
 }
