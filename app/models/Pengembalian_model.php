@@ -1,5 +1,5 @@
 <?php
-class Peminjaman_model
+class Pengembalian_model
 {
     private $table = 'peminjaman_buku';
     private $db;
@@ -11,40 +11,25 @@ class Peminjaman_model
         $this->db = new Database();
     }
 
-    public function getAllPeminjaman()
+    public function getAllPengembalian()
     {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
-    public function getPeminjamanDiajukan()
+    public function getPengembalian()
     {
         $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
         FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
-        WHERE p.status = 'diajukan' AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota
+        WHERE p.status = 'dipinjam' AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota
         GROUP BY p.id_peminjaman");
         return $this->db->resultSet();
     }
 
-    public function terimaPeminjaman($data)
-    {
-        $tgl_pinjam = date('Y-m-d');
-        $tgl_batas_kembali = date('Y-m-d', strtotime($tgl_pinjam . ' + 7 days'));
-
-        $this->db->query("UPDATE peminjaman_buku SET status='dipinjam', tgl_pinjam = :tgl_pinjam, tgl_batas_kembali = :tgl_batas_kembali WHERE id_peminjaman = :id_peminjaman");
+    public function terimaPengembalian($data){
+        $this->db->query("UPDATE peminjaman_buku SET status='dikembalikan', tgl_kembali=CURDATE() WHERE id_peminjaman = :id_peminjaman");
         $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
-        $this->db->bind(':tgl_pinjam', $tgl_pinjam);
-        $this->db->bind(':tgl_batas_kembali', $tgl_batas_kembali);
-
-        return $this->db->execute();
-    }
-
-
-    public function tolakPeminjaman($data)
-    {
-        $this->db->query("UPDATE peminjaman_buku SET status='ditolak', tgl_kembali=NULL WHERE id_peminjaman = :id_peminjaman");
-        $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
-        return $this->db->execute();
+        return $this->db->execute(); 
     }
 
     public function readMulti($id)
@@ -55,7 +40,6 @@ class Peminjaman_model
                         JOIN kategori k ON b.id_kategori = k.id_ktgr
                         WHERE d.id_peminjaman IN ($id)
                         GROUP BY b.id_buku");
-        
         return $this->db->resultSet();
     }
 }

@@ -8,20 +8,27 @@
 
 <!-- // Jquery & js -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="<?= BASEURL; ?>/js/script.js"></script>
 
-<footer>    
-<section>
-  <div class="wave wave1"></div>
-  <!-- <div class="wave wave2"></div> -->
-  <div class="wave wave3"></div>
-  <div class="wave wave4"></div>
-</section>
+
+<footer>
+  <section>
+    <div class="wave wave1"></div>
+    <!-- <div class="wave wave2"></div> -->
+    <div class="wave wave3"></div>
+    <div class="wave wave4"></div>
+  </section>
 
 
 </footer>
+<script type="text/javascript">
+        const currentLocation = location.pathname;
+        const menuItems = document.querySelectorAll('.navigation > li > a');
+        menuItems.forEach((menuItem) => {
+            if (menuItem.pathname === currentLocation) {
+                menuItem.classList.add('active');
+            }
+        });
+    </script>
+    
 </body>
-<script>
-
-</script>
 </html>

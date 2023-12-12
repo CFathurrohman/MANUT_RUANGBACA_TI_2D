@@ -25,7 +25,7 @@ class Anggota extends Controller
 
     public function hapus($id)
     {
-        if ($this->model('Anggota_model')->hapusDataAnggota($id) > 0) {
+        if ($this->model('Anggota_model')->hapusDataAnggota($id)) {
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/anggota');
             exit;
@@ -49,7 +49,7 @@ class Anggota extends Controller
     }
 
     public function getUbah(){
-        echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id']));
+        echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id_anggota']));
     }
 
     public function cari()
