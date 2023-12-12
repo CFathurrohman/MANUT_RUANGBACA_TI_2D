@@ -18,11 +18,12 @@ class Peminjaman_model
     }
 
     public function getPeminjamanDiajukan(){
-        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, d.jumlah, p.status
+        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
         FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
-        WHERE p.status = 'diajukan' AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota");
+        WHERE p.status = 'diajukan' AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota
+        GROUP BY p.id_peminjaman");
         return $this->db->resultSet();
-    }
+    }    
 
     public function terimaPeminjaman($data){
         $tgl_pinjam = date('Y-m-d');
@@ -42,4 +43,10 @@ class Peminjaman_model
         $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
         return $this->db->execute(); 
     }
+
+    public function readMulti($detailIds)
+    {
+        
+    }
+    
 }

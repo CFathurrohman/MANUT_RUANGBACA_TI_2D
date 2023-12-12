@@ -41,12 +41,7 @@
                     <th>Nama</th>
                     <th>No. Telepon</th>
                     <th>NIM/NIP</th>
-                    <th>Judul Buku</th>
-                    <th>Jumlah</th>
                     <th>Tanggal Pengajuan</th>
-                    <th>Tanggal Peminjaman</th>
-                    <th>Batas Pengembalian</th>
-                    <th>Tanggal Pengembalian</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -60,14 +55,10 @@
                         <td><?php echo $peminjaman['nama']; ?></td>
                         <td><?php echo $peminjaman['no_telp']; ?></td>
                         <td><?php echo $peminjaman['id_anggota']; ?></td>
-                        <td><?php echo $peminjaman['nama_buku']; ?></td>
-                        <td><?php echo $peminjaman['jumlah']; ?></td>
                         <td><?php echo $peminjaman['tgl_pengajuan']; ?></td>
-                        <td><?php echo $peminjaman['tgl_pinjam']; ?></td>
-                        <td><?php echo $peminjaman['tgl_batas_kembali']; ?></td>
-                        <td><?php echo $peminjaman['tgl_kembali']; ?></td>
                         <td><?php echo $peminjaman['status']; ?></td>
                         <td>
+                            <a href="<?= BASEURL; ?>/peminjaman/read/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Detail</a>
                             <a href="<?= BASEURL; ?>/peminjaman/terima/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-success float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Terima</a>
                             <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Tolak</a>
                         </td>
