@@ -41,8 +41,6 @@
                     <th>Nama</th>
                     <th>No. Telepon</th>
                     <th>NIM/NIP</th>
-                    <th>Judul Buku</th> 
-                    <th>Jumlah</th>
                     <th>Tanggal Pengajuan</th>
                     <th>Tanggal Peminjaman</th>
                     <th>Batas Pengembalian</th>
@@ -60,8 +58,6 @@
                         <td><?php echo $riwayat['nama']; ?></td>
                         <td><?php echo $riwayat['no_telp']; ?></td>
                         <td><?php echo $riwayat['id_anggota']; ?></td>
-                        <td><?php echo $riwayat['nama_buku']; ?></td>
-                        <td><?php echo $riwayat['jumlah']; ?></td>
                         <td><?php echo $riwayat['tgl_pengajuan']; ?></td>
                         <td><?php echo $riwayat['tgl_pinjam']; ?></td>
                         <td><?php echo $riwayat['tgl_batas_kembali']; ?></td>

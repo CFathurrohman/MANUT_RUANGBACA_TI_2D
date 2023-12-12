@@ -13,9 +13,10 @@ class Riwayat_model
 
     public function getRiwayatAll()
     {
-        $this->db->query("SELECT p.tgl_batas_kembali, p.tgl_pengajuan, p.id_peminjaman, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, d.jumlah, p.status
+        $this->db->query("SELECT DISTINCT p.tgl_batas_kembali, p.tgl_pengajuan, p.id_peminjaman, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
         FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
-        WHERE (p.status = 'dipinjam' OR p.status = 'dikembalikan' OR p.status = 'ditolak') AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota");
+        WHERE (p.status = 'dipinjam' OR p.status = 'dikembalikan' OR p.status = 'ditolak') AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota 
+        GROUP BY p.id_peminjaman");
         return $this->db->resultSet();
     }
 
@@ -28,7 +29,7 @@ class Riwayat_model
     public function cariDataAnggota()
     {
         $keyword = $_POST['keyword'];
-        $this->db->query("SELECT p.tgl_batas_kembali, p.tgl_pengajuan, p.id_peminjaman, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, d.jumlah, p.status
+        $this->db->query("SELECT p.tgl_batas_kembali, p.tgl_pengajuan, p.id_peminjaman, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
         FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
         WHERE (p.status = 'dipinjam' OR p.status = 'dikembalikan' OR p.status = 'ditolak') AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota AND a.nama LIKE :keyword");
         $this->db->bind(':keyword', "%$keyword%");
