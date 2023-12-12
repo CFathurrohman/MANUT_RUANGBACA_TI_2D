@@ -5,7 +5,7 @@ class Peminjaman extends Controller
     public function index()
     {
         $data['judul'] = 'peminjaman buku';
-        $data['peminjaman_buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
+        $data['buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
         $this->view('templates/header', $data);
         $this->view('peminjaman/index', $data);
         $this->view('templates/footer');
@@ -42,7 +42,7 @@ class Peminjaman extends Controller
     public function cari()
     {
         $data['judul'] = 'peminjaman buku';
-        $data['peminjaman_buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
+        $data['buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
         $this->view('templates/header', $data);
         $this->view('peminjaman/index', $data);
         $this->view('templates/footer');
