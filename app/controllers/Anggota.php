@@ -25,7 +25,7 @@ class Anggota extends Controller
 
     public function hapus($id)
     {
-        if ($this->model('Anggota_model')->hapusDataAnggota($id) > 0) {
+        if ($this->model('Anggota_model')->hapusDataAnggota($id)) {
             Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/anggota');
             exit;
