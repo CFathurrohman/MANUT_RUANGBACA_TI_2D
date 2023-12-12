@@ -48,7 +48,7 @@
             </thead>
             <tbody>
                 <?php $number = 1 ?>
-                <?php foreach ($data['peminjaman_buku'] as $peminjaman) : ?>
+                <?php foreach ($data['buku'] as $peminjaman) : ?>
                     <tr>
                         <td><?php echo $number;
                             $number++ ?></td>

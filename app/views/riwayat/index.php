@@ -65,7 +65,6 @@
                         <td><?php echo $riwayat['status']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/riwayat/read/<?= $riwayat['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $riwayat['id_peminjaman'] ?>">Detail</a>
-                            <a href="<?= BASEURL; ?>/riwayat/pengembalian/<?= $riwayat['id_peminjaman']; ?>" class="badge btn btn-success float-right" data-id="<?= $riwayat['id_peminjaman'] ?>">Terima</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
