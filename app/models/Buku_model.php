@@ -35,7 +35,7 @@
         return $this->db->single();
     }
 
-    public function tambahDataBuku($data)
+    public function tambahDataBuku($data, $gambar)
     {
         $bukuInsertQuery = "INSERT INTO buku (id_buku, gambar_buku, nama_buku, penulis, tahun_terbit, deskripsi, id_kategori) 
                     VALUES ('', :gambar_buku, :nama_buku, :penulis, :tahun_terbit, :deskripsi, :id_kategori)";
@@ -78,7 +78,7 @@
         return $this->db->resultSet();
     }
 
-    public function ubahDataBuku($data)
+    public function ubahDataBuku($data, $gambar)
     {
         $updateQuery = "
         UPDATE buku
