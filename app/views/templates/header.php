@@ -84,16 +84,11 @@
                 echo '                <ul class="list-items-with-description">';
                 echo '                    <li>';
                 echo '                        <div class="item-title">';
-                echo '                                <a href="#"><h3>Nama Buku</h3></a>';
+                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Keranjang"><h3>Nama Buku</h3></a>';
                 //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
                 echo '                        </div>';
                 echo '                    </li>';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                            <a href="#"><h3>Nama Buku</h3></a>';
-                //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
-                echo '                        </div>';
-                echo '                    </li>';
+
                 echo '                </ul>';
                 echo '            </div>';
                 echo '        </div>';
@@ -115,7 +110,7 @@
                 echo '                    </li>';
                 echo '                    <li>';
                 echo '                        <div class="item-title">';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><h3>Ganti Password</h3></a>';
+                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/edit_password"><h3>Ganti Kata Sandi</h3></a>';
                 //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
                 echo '                        </div>';
                 echo '                    </li>';
