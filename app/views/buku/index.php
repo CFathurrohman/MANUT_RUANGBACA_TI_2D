@@ -47,9 +47,11 @@
                     <th>Judul</th>
                     <th>Penulis</th>
                     <th>Tahun Terbit</th>
+                    <th>Jumlah Total</th>
+                    <th>Jumlah Tersedia</th>
                     <th>Deskripsi</th>
                     <th>Kategori</th>
-                    <th colspan="3">Action</th>
+                    <th colspan="3">Aksi</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -61,6 +63,8 @@
                         <td style="max-width: 240px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['nama_buku']; ?></td>
                         <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['penulis']; ?></td>
                         <td style="text-align: center;"><?= $buku['tahun_terbit']; ?></td>
+                        <td style="text-align: center;"><?= $buku['jumlah_total']; ?></td>
+                        <td style="text-align: center;"><?= $buku['jumlah_tersedia']; ?></td>
                         <td style="text-align: left"><?php if (substr($buku['deskripsi'], 0, 42)) {
                                 echo substr($buku['deskripsi'], 0, 42) . '...';
                             } else {
@@ -98,7 +102,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- Your modal content here  -->
                 <form id="upload-form" action="<?= BASEURL; ?>/buku/tambah" method="post">
                     <input type="hidden" name="id_buku" id="id_buku">
                     <div class="mb-3">
@@ -117,6 +120,14 @@
                     <div class="mb-3">
                         <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
                         <input type="text" name="tahun_terbit" class="form-control" id="tahun_terbit" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah_total" class="form-label">Jumlah total</label>
+                        <input type="text" name="jumlah_total" class="form-control" id="jumlah_total" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah_tersedia" class="form-label">Jumlah tersedia</label>
+                        <input type="text" name="jumlah_tersedia" class="form-control" id="jumlah_tersedia" required>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
