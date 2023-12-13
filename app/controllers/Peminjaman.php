@@ -14,16 +14,28 @@ class Peminjaman extends Controller
     public function terima($idPeminjaman)
     {
         $data = ['id_peminjaman' => $idPeminjaman];
+    
+        try {
+            if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+            } else {
+                Flasher::setFlash('gagal', 'diubah', 'danger');
+            }
+    
+            header('Location: ' . BASEURL . '/peminjaman');
+            exit;
+        } catch (PDOException $e) {
+            if ($e->getCode() == '45000') {
+                echo '<script>';
+                echo 'alert("Buku tidak tersedia");';
+                echo 'window.location.href = "' . BASEURL . '/peminjaman";';
+                echo '</script>';
+                exit;
+            } else {
 
-        if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
-        } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            }
         }
-
-        header('Location: ' . BASEURL . '/peminjaman');
-        exit;
-    }
+    }    
 
     public function tolak($idPeminjaman)
     {
