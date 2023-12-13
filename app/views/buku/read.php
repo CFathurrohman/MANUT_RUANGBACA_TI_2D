@@ -2,12 +2,17 @@
     <div class="container mt-5">
         <br>
         <div class="card-body text-start">
-            <a href="#" onclick="history.go(-1)" class="btn btn-primary col-1 bi bi-arrow-left">
+            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" class="btn btn-primary col-1 bi bi-arrow-left">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                 </svg>
                 Kembali</a>
         </div><br>
+        <style>
+    .pinjamButton {
+        margin-top: 39vh;
+    }
+</style>
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -27,11 +32,11 @@
                         <li class="list-group-item"><small class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
                     <?php if ($_SESSION['level'] == 'anggota') : ?>
-                        <div class="card-body  flex-column justify-content-end text-end">
-
-                            <a href=<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning col-1">Pinjam</a>
+                        <div class="pinjamButton">
+                        <div class="card-body d-flex justify-content-end">
+                            <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
                         </div>
-                    <?php else : ?>
+                        </div>
 
                     <?php endif; ?>
                 </div>
