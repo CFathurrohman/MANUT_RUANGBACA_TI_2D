@@ -252,10 +252,11 @@ body {
 }
 
 .keranjang .icon-path {
-    fill: #ffffff;
+  
+    background-color: #0d6efd;
 }
 
 .keranjang:hover .icon-path {
     fill: #000000;
+ 
 }
-
