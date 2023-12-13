@@ -9,10 +9,10 @@
                 Kembali</a>
         </div><br>
         <style>
-    .pinjamButton {
-        margin-top: 39vh;
-    }
-</style>
+            .pinjamButton {
+                margin-top: 39vh;
+            }
+        </style>
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-4">
@@ -31,13 +31,19 @@
                                 : <?= $data['buku']['tahun_terbit']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
-                    <?php if ($_SESSION['level'] == 'anggota') : ?>
+                    <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
+                        <!-- <div class="card-body text-end">
+        <a href="#" class="btn btn-warning col-1">Edit</a>
+    </div> -->
+                    <?php elseif (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="pinjamButton">
-                        <div class="card-body d-flex justify-content-end">
-                            <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
+                            <div class="card-body d-flex justify-content-end">
+                                <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
+                            </div>
                         </div>
-                        </div>
-
+                    <?php else : ?>
+                        <!-- user belum login
+                     -->
                     <?php endif; ?>
                 </div>
             </div>
@@ -85,5 +91,5 @@
             </div>
         </div>
     </div> -->
-</div>
+    </div>
 </div>
