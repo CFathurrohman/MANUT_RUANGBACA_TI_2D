@@ -152,13 +152,7 @@ body {
     padding-top: 60px;
 }
 
-.dropdown__wrapper__keranjang {
-    position: absolute;
-    top: 0;
-    /*left: 0;*/
-    right: 0;
-    padding-top: 60px;
-}
+
 
 .dropdown__wrapper__akun {
     position: absolute;
