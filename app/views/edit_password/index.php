@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Ganti Kata Sandi</title>
+    <title><?= $data['judul'] ?></title>
 </head>
 
 <body>
@@ -17,10 +17,10 @@
                         <h4>Ganti Kata Sandi</h4>
                     </div>
                     <div class="card-body">
-                        <form id="changePasswordForm">
+                        <form id="changePasswordForm" action="<?= BASEURL ?>/Edit_password/simpanPassword" method="post">
                             <div class="form-group">
-                                <label for="currentPassword">Kata Sandi Saat Ini</label>
-                                <input type="password" name="currentPassword" id="currentPassword" class="form-control" required>
+                                <label for="pastPassword">Kata Sandi Saat Ini</label>
+                                <input type="password" name="pastPassword" id="pastPassword" class="form-control" required>
 
                             </div>
                             <div class="form-group">
@@ -28,12 +28,11 @@
                                 <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                             </div>
                             <div class="form-group">
-              <label for="confirmPassword">Konfirmasi Kata Sandi Baru</label>
-              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
-            </div>
-          
-            <button type="submit" class="btn btn-primary">Ganti Kata Sandi</button>
-            <button type="button" class="btn btn-secondary" onclick="window.history.back();">Back</button>
+                                <label for="confirmPassword">Konfirmasi Kata Sandi Baru</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                                <a href="<?= BASEURL; ?>" class="btn btn-secondary">Kembali</a>
+                                <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
                         </form>
                     </div>
                 </div>
@@ -42,8 +41,8 @@
 
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 
