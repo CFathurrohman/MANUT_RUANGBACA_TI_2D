@@ -44,12 +44,11 @@
                 <thead class="thead-white">
                 <tr>
                     <th>No.</th>
-                    <th>Photo Profil</th>
                     <th>Nama</th>
                     <th>No. Telepon</th>
                     <th>NIM/NIP</th>
                     <th>Status</th>
-                    <th></th>
+                    <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,7 +57,6 @@
                     <tr>
                         <td><?php echo $number;
                             $number++ ?></td>
-                        <td><?php echo 'Photo Profil' ?></td>
                         <td><?php echo $anggota['nama']; ?></td>
                         <td><?php echo $anggota['no_telp']; ?></td>
                         <td><?php echo $anggota['id_anggota']; ?></td>
