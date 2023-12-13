@@ -13,7 +13,7 @@ class Anggota_model
 
     public function getAllAnggota()
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query('SELECT * FROM anggota ORDER BY nama');
         return $this->db->resultSet();
     }
 
