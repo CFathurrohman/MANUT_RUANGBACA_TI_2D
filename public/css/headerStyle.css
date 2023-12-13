@@ -238,10 +238,9 @@ body {
 }
 
 .keranjang {
-    background-color: #ffffff;
+    background-color:  #444eff;
     color: #171717;
     outline: none;
-    border: 1px solid #E6E6E6;
     border-radius: 6px;
 }
 
@@ -253,10 +252,10 @@ body {
 }
 
 .keranjang .icon-path {
-    fill: #000000;
+    fill: #ffffff;
 }
 
 .keranjang:hover .icon-path {
-    fill: #0d6efd;
+    fill: #000000;
 }
 

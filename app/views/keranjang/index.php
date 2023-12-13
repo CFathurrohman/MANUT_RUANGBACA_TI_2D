@@ -1,3 +1,10 @@
+<div class="transition-group">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
 <form action="<?= BASEURL; ?>/keranjang/multiPinjam" method="post">
     <div class="container mt-5">
         <div class="row">
