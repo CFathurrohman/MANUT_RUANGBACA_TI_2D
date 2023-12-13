@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<div class="transition-group">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
