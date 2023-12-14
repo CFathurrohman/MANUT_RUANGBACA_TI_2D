@@ -26,13 +26,13 @@
         </ol> -->
             <div class="carousel-inner">
                 <div class="carousel-item active fade-in">
-                    <img class="d-block w-100" src="https://source.unsplash.com/78A265wPiO4" alt="First slide">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel1.png" alt="First slide">
                 </div>
                 <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="https://source.unsplash.com/eOpewngf68w" alt="Second slide">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel2.png" alt="Second slide">
                 </div>
                 <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="https://source.unsplash.com/ndN00KmbJ1c" alt="Third slide">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel3.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -47,8 +47,7 @@
     </div>
 
 
-
-    <hr style="height: 1px;color: black;background-color: black;">
+<br><hr style="height: 1px;color: black;background-color: black;">
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/home/cari" method="post" class="d-flex">
@@ -77,10 +76,11 @@
                                                                                                                     ?><!--</small></li>-->
                         <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li><br>
                         <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
+
                         <?php if ($buku['jumlah_tersedia'] == 0) : ?>
-                            <li class="list-group-item"><small class="text-muted">Tidak Tersedia</small></li>
+                            <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>
                         <?php else : ?>
-                            <li class="list-group-item"><small class="text-muted">Tersedia</small></li>
+                            <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>
                         <?php endif; ?>
                         <!--                        </ul>-->
                         <div class="card-body text-end">
