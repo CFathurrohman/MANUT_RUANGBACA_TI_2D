@@ -42,8 +42,11 @@
                             </div>
                         </div>
                     <?php else : ?>
-                        <!-- user belum login
-                     -->
+                        <div class="pinjamButton">
+                            <div class="card-body d-flex justify-content-end">
+                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
