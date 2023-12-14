@@ -52,6 +52,7 @@
         <div class="row">
             <div class="col-md-12 text-right">
                 <button type="submit" class="btn btn-primary">Pinjam Terpilih</button>
+                <button type="button" class="btn btn-secondary back-button" onclick="window.history.back();">Kembali</button>
             </div>
         </div>
     </div>

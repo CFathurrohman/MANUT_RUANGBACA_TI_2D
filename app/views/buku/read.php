@@ -38,7 +38,7 @@
                     <?php elseif (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">
-                                <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
+                                <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
                             </div>
                         </div>
                     <?php else : ?>
@@ -93,3 +93,17 @@
     </div> -->
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+    document.getElementById('pinjamBtn').addEventListener('click', function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Buku berhasil dimasukkan ke keranjang.',
+            showConfirmButton: false,
+            timer: 3000 
+        });
+    });
+</script>

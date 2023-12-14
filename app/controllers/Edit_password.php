@@ -41,11 +41,11 @@ class Edit_password extends Controller
                 // Setelah password diubah, arahkan kembali ke halaman home
                 header('Location: ' . BASEURL . '/Home');
                 exit;
-            } else {
+            } else  {
                 echo "Password lama tidak sesuai!";
             }
         } else {
-            echo "User tidak ditemukan!";
+            $data['error_message'] = "User tidak ditemukan!";
         }
     }
 }
