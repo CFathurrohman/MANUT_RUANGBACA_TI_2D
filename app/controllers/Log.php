@@ -1,5 +1,6 @@
 <?php
     class Log extends Controller{
+
         public function index()
         {
             $data['judul'] = 'Login';
@@ -11,15 +12,18 @@
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-    
+
                 $loginModel = $this->model('Login_model');
                 $user = $loginModel->validateUser($username, $password);
-    
+
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id'];
+//                    $id_user = null;
+                    $_SESSION['id_user'] = $user['id_user'];
                     $_SESSION['username'] = $user['username'];
 
                     $_SESSION['level'] = $user['level'];
+
+                    $this->model('Login_model')->log_login($username, $user['id_user']);
     
                     if ($_SESSION['level'] === 'admin') {
                         header('Location: ' . BASEURL . '/Home');
