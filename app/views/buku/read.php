@@ -29,6 +29,8 @@
                                 : <?= $data['buku']['penulis']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted">Tahun Terbit
                                 : <?= $data['buku']['tahun_terbit']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted">Stock Tersedia
+                                : <?= $data['buku']['jumlah_tersedia']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
