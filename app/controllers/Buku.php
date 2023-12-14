@@ -42,31 +42,31 @@ class Buku extends Controller
     {
         $namaFile = $_FILES['gambar_buku']['name'];
         $ukuranFile = $_FILES['gambar_buku']['size'];
-        $error = $_FILES['gambar_buku']['error'];
+//        $error = $_FILES['gambar_buku']['error'];
         $tmpName = $_FILES['gambar_buku']['tmp_name'];
 
-        if ($error === 4) {
-            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
-            return false;
-        }
+//        if ($error === 4) {
+//            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
+//            return false;
+//        }
 
         $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            echo "<script> alert('yang anda upload bukan gambar')</script>";
+//            echo "<script> alert('yang anda upload bukan gambar')</script>";
             return false;
         }
 
         if ($ukuranFile > 10000000) {
-            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
+//            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
             return false;
         }
 
         $namaFileBaru = uniqid();
         $namaFileBaru .= '.';
         $namaFileBaru .= $ekstensiGambar;
-        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/puhsepuh_inventory_2d/public/img/' . $namaFileBaru;
+        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/MANUT_RUANGBACA_TI_2D/public/img/' . $namaFileBaru;
         //gambar siap diupload
         exec("find /opt/lampp/htdocs/MANUT_RUANGBACA_TI_2D/public/img -type d -exec chmod 0755 {} +");
         move_uploaded_file($tmpName, $dirUpload);

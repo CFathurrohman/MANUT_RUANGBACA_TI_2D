@@ -47,7 +47,7 @@
         $this->db->bind(':jumlah_tersedia', $data['jumlah_tersedia']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
-        $this->db->bind(':gambar_buku', $data['gambar_buku']);
+        $this->db->bind(':gambar_buku', $gambar);
     
         $this->db->execute();
         return $this->db->rowCount();
@@ -104,7 +104,7 @@
         $this->db->bind(':jumlah_tersedia', $data['jumlah_tersedia']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
-        $this->db->bind(':gambar_buku', $data['gambar_buku']);
+        $this->db->bind(':gambar_buku', $gambar);
 
         $this->db->execute();
 

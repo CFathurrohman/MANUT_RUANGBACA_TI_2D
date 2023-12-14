@@ -102,7 +102,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="upload-form" action="<?= BASEURL; ?>/buku/tambah" method="post">
+                <form id="upload-form" action="<?= BASEURL; ?>/buku/tambah" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_buku" id="id_buku">
                     <div class="mb-3">
                         <label for="nama_buku" class="form-label">Nama Buku</label>
