@@ -22,7 +22,8 @@
                         <input class="form__input" type="text" placeholder="Nama Pengguna" name="username" required>
                         <input class="form__input" type="password" placeholder="Kata Sandi" name="password" required>
                         <button type="submit" class="btn btn-primary">Masuk</button>
-                        <button type="button" class="btn btn-secondary back-button" onclick="window.history.back();">Kembali</button>
+                        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home"
+                        <button type="button" class="btn btn-secondary back-button" >Ke Katalog</button> </a>
                     </form>
                 </div>
             </div>

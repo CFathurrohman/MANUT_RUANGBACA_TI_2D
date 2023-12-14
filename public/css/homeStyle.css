@@ -33,10 +33,11 @@
     height: 180px;
 }
 .carousel{
-    width: 87vw;
+    width: 84.5vw;
     height: 40vh;
    
     aspect-ratio: 16/9;
+    
 }
 
 .carousel-item img {

@@ -29,6 +29,8 @@
                                 : <?= $data['buku']['penulis']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted">Tahun Terbit
                                 : <?= $data['buku']['tahun_terbit']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted">Stock Tersedia
+                                : <?= $data['buku']['jumlah_tersedia']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
@@ -42,8 +44,11 @@
                             </div>
                         </div>
                     <?php else : ?>
-                        <!-- user belum login
-                     -->
+                        <div class="pinjamButton">
+                            <div class="card-body d-flex justify-content-end">
+                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
+                            </div>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
