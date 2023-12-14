@@ -36,12 +36,11 @@
                             <td><img src="<?= BASEURL; ?>/img/<?= $keranjang['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px"></td>
                             <td><?php echo $keranjang['nama_buku']; ?></td>
                             <td>
-                                <input type="checkbox" name="selected_books[]" value="<?= $keranjang['id_detail']; ?>">
+                                <input type="checkbox" name="selected_books[]" value="<?= $keranjang['id_keranjang']; ?>">
                             </td>
                             <td>
-                                <a href="<?= BASEURL; ?>/keranjang/pinjam/<?= $keranjang['id_detail']; ?>" class="badge btn btn-warning float-right" data-id="<?= $keranjang['id_detail'] ?>">Pinjam</a>
                                 <a href="<?= BASEURL; ?>/keranjang/read/<?= $keranjang['id_buku']; ?>" class="badge btn btn-primary float-right" data-id="<?= $keranjang['id_buku'] ?>">Detail</a>
-                                <a href="<?= BASEURL; ?>/keranjang/hapus/<?= $keranjang['id_detail']; ?>" class="badge btn btn-danger float-right" data-id="<?= $keranjang['id_detail'] ?>">Hapus</a>
+                                <a href="<?= BASEURL; ?>/keranjang/hapus/<?= $keranjang['id_keranjang']; ?>" class="badge btn btn-danger float-right" data-id="<?= $keranjang['id_keranjang'] ?>">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -51,7 +50,7 @@
 
         <div class="row">
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">Pinjam Terpilih</button>
+                <button type="submit" class="btn btn-primary">Pinjam</button>
                 <button type="button" class="btn btn-secondary back-button" onclick="window.history.back();">Kembali</button>
             </div>
         </div>

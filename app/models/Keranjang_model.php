@@ -12,118 +12,69 @@ class Keranjang_model
 
     public function tambah($data)
     {
-        $this->db->query("INSERT INTO peminjaman_buku (id_peminjaman, status, id_anggota) VALUES ('', 'disimpan', :id_anggota)");
-        $this->db->bind(':id_anggota', $this->user);
-        $this->db->execute();
-
-        $lastInsertedId = $this->db->lastInsertId();
-
-        $this->db->query('INSERT INTO detail_peminjaman (id_detail, id_buku, id_peminjaman) VALUES (NULL, :id_buku, :id_peminjaman)');
+        $this->db->query("SELECT * FROM keranjang WHERE id_buku = :id_buku AND username = :username");
         $this->db->bind(':id_buku', $data['id_buku']);
-        $this->db->bind(':id_peminjaman', $lastInsertedId);
+        $this->db->bind(':username', $this->user);
         $this->db->execute();
 
-        return true;
+        if ($this->db->rowCount() === 0) {
+            $this->db->query("INSERT INTO keranjang (id_keranjang, id_buku, username) VALUES ('', :id_buku, :username)");
+            $this->db->bind(':id_buku', $data['id_buku']);
+            $this->db->bind(':username', $this->user);
+            $this->db->execute();
+        } else {
+            echo "This book is already in your cart.";
+        }
     }
 
     public function getAllKeranjang()
     {
-        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar_buku, d.id_detail
+        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar_buku, ker.id_keranjang
                           FROM buku b 
-                          JOIN detail_peminjaman d ON b.id_buku = d.id_buku 
-                          JOIN peminjaman_buku p ON d.id_peminjaman = p.id_peminjaman 
-                          WHERE p.id_anggota = :id_anggota AND p.status = 'disimpan'");
-        $this->db->bind(':id_anggota', $this->user);
+                          JOIN keranjang ker ON ker.id_buku = b.id_buku 
+                          WHERE ker.username = :username");
+        $this->db->bind(':username', $this->user);
         return $this->db->resultSet();
     }
 
-    public function hapus($id)
+    public function hapus($data)
     {
-        $this->db->query("SELECT id_peminjaman FROM detail_peminjaman WHERE id_detail = :id_detail");
-        $this->db->bind(':id_detail', $id);
-        $result = $this->db->single();
-
-        if ($result) {
-            $id_peminjaman = $result['id_peminjaman'];
-
-            $this->db->query("DELETE FROM detail_peminjaman WHERE id_detail = :id_detail");
-            $this->db->bind(':id_detail', $id);
-            $this->db->execute();
-
-            $this->db->query("SELECT id_detail FROM detail_peminjaman WHERE id_peminjaman = :id_peminjaman");
-            $this->db->bind(':id_peminjaman', $id_peminjaman);
-            $remainingEntries = $this->db->resultSet();
-
-            if (empty($remainingEntries)) {
-                $this->db->query("DELETE FROM peminjaman_buku WHERE id_peminjaman = :id_peminjaman");
-                $this->db->bind(':id_peminjaman', $id_peminjaman);
-                $this->db->execute();
-            }
-            return true;
-        }
-        return false;
+        $this->db->query("DELETE FROM keranjang WHERE id_keranjang = :id_keranjang");
+        $this->db->bind(':id_keranjang', $data);
+        $this->db->execute();
     }
 
-    public function pinjam($id)
-    {
-        $this->db->query("SELECT id_peminjaman FROM detail_peminjaman WHERE id_detail = :id_detail");
-        $this->db->bind(':id_detail', $id);
-        $result = $this->db->single();
-
-        if ($result) {
-            $id_peminjaman = $result['id_peminjaman'];
-
-            $this->db->query("UPDATE peminjaman_buku SET status = 'diajukan', tgl_pengajuan = CURDATE() WHERE id_peminjaman = :id_peminjaman");
-            $this->db->bind(':id_peminjaman', $id_peminjaman);
-            $this->db->execute();
-        }
-    }
-
-    public function multiPinjam($detailIds)
+    public function multiPinjam($selectedBooks)
     {
         $success = true;
-    
-        $this->db->query("SELECT id_peminjaman FROM detail_peminjaman WHERE id_detail = :id_detail");
-        $this->db->bind(':id_detail', $detailIds[0]);
-        $result = $this->db->single();
-    
-        if ($result) {
-            $id_peminjaman = $result['id_peminjaman'];
-    
-            foreach ($detailIds as $detailId) {
-                // Update the id_peminjaman for each detail_peminjaman
-                $this->db->query("UPDATE detail_peminjaman SET id_peminjaman = :id_peminjaman WHERE id_detail = :id_detail");
+        $this->db->query("INSERT INTO peminjaman_buku (id_peminjaman, status, tgl_pengajuan, id_anggota) VALUES (NULL, 'diajukan', CURDATE(), :id_anggota)");
+        $this->db->bind(':id_anggota', $this->user);
+        $this->db->execute();
+
+        $id_peminjaman = $this->db->lastInsertId();
+
+        foreach ($selectedBooks as $bookId) {
+            $this->db->query("SELECT id_buku FROM keranjang WHERE id_keranjang = :id_keranjang AND username = :username");
+            $this->db->bind(':id_keranjang', $bookId);
+            $this->db->bind(':username', $this->user);
+            $result = $this->db->single();
+
+            if ($result) {
+                $id_buku = $result['id_buku'];
+                $this->db->query("INSERT INTO detail_peminjaman (id_detail, id_buku, id_peminjaman) VALUES (NULL, :id_buku, :id_peminjaman)");
+                $this->db->bind(':id_buku', $id_buku);
                 $this->db->bind(':id_peminjaman', $id_peminjaman);
-                $this->db->bind(':id_detail', $detailId);
-    
-                if (!$this->db->execute()) {
-                    $success = false;
-                }
-            }
-    
-            $this->db->query("UPDATE peminjaman_buku SET status = 'diajukan', tgl_pengajuan = CURDATE(), id_peminjaman = :id_peminjaman WHERE id_peminjaman = :id_peminjaman");
-            $this->db->bind(':id_peminjaman', $id_peminjaman);
-            if (!$this->db->execute()) {
+                $this->db->execute();
+                $this->db->query("DELETE FROM keranjang WHERE id_keranjang = :id_keranjang");
+                $this->db->bind(':id_keranjang', $bookId);
+                $this->db->execute();
+            } else {
                 $success = false;
             }
-        } else {
-            $success = false;
         }
         return $success;
     }
-    
-    public function read($id)
-    {
-        $this->db->query("SELECT b.nama_buku, b.gambar_buku, b.penulis, b.tahun_terbit, b.deskripsi, k.nama_kategori
-                          FROM buku b 
-                          JOIN peminjaman_buku p ON b.id_buku = p.id_buku
-                          JOIN kategori k ON b.id_kategori = k.id_ktgr
-                          WHERE b.id_buku = :id_buku AND p.id_anggota = :id_anggota AND p.status = 'disimpan'");
-        $this->db->bind(':id_buku', $id);
-        $this->db->bind(':id_anggota', $this->user);
-        return $this->db->single();
-    } 
-    
+
     public function getReadBukuById($id)
     {
         $this->db->query('
@@ -134,5 +85,16 @@ class Keranjang_model
     ');
         $this->db->bind(':id_buku', $id);
         return $this->db->single();
+    }
+    
+    public function hitung(){
+        $this->db->query("SELECT COUNT(*) AS total_books
+                        FROM detail_peminjaman dp
+                        JOIN peminjaman_buku pb ON dp.id_peminjaman = pb.id_peminjaman
+                        WHERE (pb.status = 'diajukan' OR pb.status = 'dipinjam') 
+                        AND pb.id_anggota = :id_anggota");
+        $this->db->bind(':id_anggota', $this->user);
+        $result = $this->db->single();
+        return $result['total_books'];
     }
 }
