@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/sistem_ruang_baca</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="sistem_ruang_baca@localhost [2]" uuid="ed5a5101-abe4-4093-b6ef-22df34bf5ef0">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/sistem_ruang_baca</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

@@ -21,10 +21,9 @@
         echo '<nav>';
         echo '<ul class="navigation hide">';
 
-        if (isset($_SESSION['username']) && isset($_SESSION['level']) && isset($_SESSION['id_user'])) {
+        if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
 
             if ($_SESSION['level'] == 'admin') {
-                echo $_SESSION['id_user'];
                 echo '    <li>';
                 echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
                 echo '    </li>';
@@ -70,7 +69,6 @@
                 echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Keluar</a>';
                 echo '</div>';
             } elseif ($_SESSION['level'] == 'anggota') {
-                echo $_SESSION['id_user'];
                 echo '    <li>';
                 echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
                 echo '    </li>';
