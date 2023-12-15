@@ -10,12 +10,13 @@
         </div><br>
         <style>
             .pinjamButton {
-                margin-top: 39vh;
+                margin-top: 15vh;
+                margin-left: 60vw;
             }
         </style>
         <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-md-4">
+          <div class="row g-0" style="height: 70vh;">
+                <div class="col-md-3">
                     <img src="<?= BASEURL; ?>/img/<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
@@ -23,15 +24,15 @@
                         <h2 class="card-title"><?= $data['buku']['nama_buku']; ?></h2>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><small class="text-muted">Kategori
-                                : <?= $data['buku']['nama_kategori']; ?></small></li>
-                        <li class="list-group-item"><small class="text-muted">Penulis
-                                : <?= $data['buku']['penulis']; ?></small></li>
-                        <li class="list-group-item"><small class="text-muted">Tahun Terbit
-                                : <?= $data['buku']['tahun_terbit']; ?></small></li>
-                        <li class="list-group-item"><small class="text-muted">Stock Tersedia
-                                : <?= $data['buku']['jumlah_tersedia']; ?></small></li>
-                        <li class="list-group-item"><small class="text-muted">Deskripsi<br><?= $data['buku']['deskripsi']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted"><strong>Kategori</strong>
+                                :&emsp;&emsp;&ensp;&nbsp; <?= $data['buku']['nama_kategori']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted"><strong>Penulis</strong>
+                                :&emsp;&emsp;&emsp;&ensp; <?= $data['buku']['penulis']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted"><strong>Tahun Terbit</strong>
+                                :&emsp; <?= $data['buku']['tahun_terbit']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted"><strong>Stock Tersedia</strong>
+                                :&nbsp; <?= $data['buku']['jumlah_tersedia']; ?></small></li>
+                        <li class="list-group-item"><small class="text-muted"><strong>Deskripsi</strong><br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
                         <!-- <div class="card-body text-end">
