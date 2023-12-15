@@ -5,6 +5,7 @@
     <div></div>
     <div></div>
 </div>
+
 <body>
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/profileStyle.css">
 
