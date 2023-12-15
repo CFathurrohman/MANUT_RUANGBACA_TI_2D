@@ -26,13 +26,13 @@
         </ol> -->
             <div class="carousel-inner">
                 <div class="carousel-item active fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel1.png" alt="First slide">
+                <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 1.png" alt="First slide">
                 </div>
                 <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel2.png" alt="Second slide">
+                <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 2.png" alt="Second slide">
                 </div>
                 <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel3.png" alt="Third slide">
+                <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 3.png" alt="Third slide">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
