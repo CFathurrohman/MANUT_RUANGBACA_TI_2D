@@ -16,20 +16,24 @@
                 $user = $loginModel->validateUser($username, $password);
     
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['id_user'] = $user['id_user'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['level'] = $user['level'];
-    
+
+                    $this->model('Login_model')->log_login($username, $user['id_user']);
+
                     if ($_SESSION['level'] === 'admin' || $_SESSION['level'] === 'anggota') {
                         $message = 'Anda berhasil Login!';
                         $type = 'success';
                         Flasher::setFlash($message, 'success', $type);
-                        exit(header('Location: ' . BASEURL . '/Home'));
+                        header('Location: ' . BASEURL . '/Home');
+                        exit();
                     } else {
                         $message = 'Anda Gagal Login!';
                         $type = 'error';
                         Flasher::setFlash($message, 'danger', $type);
-                        exit(header('Location: ' . BASEURL . '/Log'));
+                        header('Location: ' . BASEURL . '/Log');
+                        exit();
                     }
                     exit();
                 } else {
