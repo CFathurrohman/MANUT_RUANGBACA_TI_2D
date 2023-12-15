@@ -45,7 +45,6 @@
 //                    echo '    <button>Akses<i class="material-icons">expand_more</i>';
 //                    echo '    </button>';
 //                }
-
             echo '    <button>Akses<i class="material-icons">expand_more</i>';
             echo '    </button>';
             echo '        <div class="dropdown__wrapper">';
@@ -105,9 +104,41 @@
             echo '    <li>';
             echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
             echo '    </li>';
+            echo '    <li>';
+    echo '        <button>Akses<i class="material-icons">expand_more</i></button>';
+    echo '        <div class="dropdown__wrapper">';
+    echo '            <div class="dropdown">';
+    echo '                <ul class="list-items-with-description">';
+    echo '                    <li>';
+    echo '                        <div class="item-title">';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_diajukan"><h3>Buku Diajukan</h3></a>';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_diajukan"><p>Buku Yang Diajukan</p></a>';
+    echo '                        </div>';
+    echo '                    </li>';
+
+    echo '                    <li>';
+    echo '                        <div class="item-title">';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_dipinjam"><h3>Buku Dipinjam</h3></a>';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_dipinjam"><p>Buku Yang Sedang Dipinjam</p></a>';
+    echo '                        </div>';
+    echo '                    </li>';
+    echo '                    <li>';
+    echo '                        <div class="item-title">';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_riwayat"><h3>Riwayat</h3></a>';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_riwayat"><p>Riwayat Peminjaman</p></a>';
+    echo '                        </div>';
+    echo '                    </li>';
+    echo '                    <li>';
+    echo '                        <div class="item-title">';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_simpan"><h3>Buku Disimpan</h3></a>';
+    echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/buku_simpan"><p>Buku Disimpan</p></a>';
+    echo '                        </div>';
+    echo '                    </li>';
+
             echo '</ul>';
             echo '</nav>';
             echo '</div>';
+            
             echo '<div class="action-buttons hide">';
             echo '<nav>';
             echo '<ul class="navigation hide">';
