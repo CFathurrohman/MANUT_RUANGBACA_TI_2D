@@ -61,34 +61,54 @@
         </div>
     </div>
 
-
-    <div class="row row-cols-1 row-cols-md-6 g-4">
+    <div class="row row-cols-md-6 row-cols-2 gx-5 p-5">
         <?php foreach ($data['buku'] as $buku) : ?>
+        <div class="col">
+            <div class="card shadow">
+                <img style="width: fit-content(100px)" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
+                    <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li><br>
+                    <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
 
-            <div class="col">
-                <div class="card">
-                    <img src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px">
-
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $buku['nama_buku']; ?></h5>
-                        <!--                        <ul class="list-group list-group-flush">-->
-                        <!--                            <li class="list-group-item"><small class="text-muted">--><?php //= $buku['nama_kategori']; 
-                                                                                                                    ?><!--</small></li>-->
-                        <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li><br>
-                        <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
-
-                        <?php if ($buku['jumlah_tersedia'] == 0) : ?>
-                            <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>
-                        <?php else : ?>
-                            <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>
-                        <?php endif; ?>
-                        <!--                        </ul>-->
-                        <div class="card-body text-end">
-                            <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-outline-info">Lihat</a>
-                        </div>
-                    </div>
+                    <?php if ($buku['jumlah_tersedia'] == 0) : ?>
+                        <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>
+                    <?php else : ?>
+                        <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>
+                    <?php endif; ?>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
                 </div>
             </div>
+        </div>
         <?php endforeach; ?>
     </div>
+
+
+<!--    <div class="row row-cols-1 row-cols-md-6">-->
+<!--        --><?php //foreach ($data['buku'] as $buku) : ?>
+<!---->
+<!--            <div class="col">-->
+<!--                <div class="card">-->
+<!--                    <img src="--><?php //= BASEURL; ?><!--/img/--><?php //= $buku['gambar_buku']; ?><!--" class="card-img-top" alt="" style="width: 195px; height: 300px">-->
+<!---->
+<!--                    <div class="card-body">-->
+<!--                        <h5 class="card-title">--><?php //= $buku['nama_buku']; ?><!--</h5>-->
+<!--                        <li class="list-group-item"><small class="text-muted">--><?php //= $buku['penulis']; ?><!--</small></li><br>-->
+<!--                        <li class="list-group-item"><small class="text-muted">--><?php //= $buku['tahun_terbit']; ?><!--</small></li>-->
+<!---->
+<!--                        --><?php //if ($buku['jumlah_tersedia'] == 0) : ?>
+<!--                            <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>-->
+<!--                        --><?php //else : ?>
+<!--                            <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>-->
+<!--                        --><?php //endif; ?>
+<!--                        <div class="card-body text-end">-->
+<!--                            <a href="--><?php //= BASEURL; ?><!--/buku/read/--><?php //= $buku['id_buku']; ?><!--" class="btn btn-outline-info">Lihat</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        --><?php //endforeach; ?>
+<!--    </div>-->
 </div>
