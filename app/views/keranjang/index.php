@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <div class="transition-group">
     <div></div>
     <div></div>
@@ -5,6 +8,15 @@
     <div></div>
     <div></div>
 </div>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <form action="<?= BASEURL; ?>/keranjang/multiPinjam" method="post">
     <div class="container mt-5">
         <div class="row">
@@ -56,3 +68,24 @@
         </div>
     </div>
 </form>
+<script>
+    $(document).ready(function () {
+        $('form').submit(function (event) {
+            if ($('input[name="selected_books[]"]:checked').length > 0) {
+                event.preventDefault();
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Pinjam Terpilih',
+                    text: 'Peminjaman Success!',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                }).then(() => {
+                    $('form').get(0).submit();
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>

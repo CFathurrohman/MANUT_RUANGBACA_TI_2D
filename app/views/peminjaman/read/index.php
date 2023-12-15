@@ -25,5 +25,6 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
     </div>
 </div>

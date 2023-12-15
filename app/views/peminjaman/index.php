@@ -6,6 +6,8 @@
     <div></div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>
@@ -59,8 +61,8 @@
                         <td><?php echo $peminjaman['status']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/peminjaman/read/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Detail</a>
-                            <a href="<?= BASEURL; ?>/peminjaman/terima/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-success float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Terima</a>
-                            <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right" data-id="<?= $peminjaman['id_peminjaman'] ?>">Tolak</a>
+                            <a href="<?= BASEURL; ?>/peminjaman/terima/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-success float-right actionLink" data-id="<?= $peminjaman['id_peminjaman'] ?>" data-action="terima">Terima</a>
+                            <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right actionLink" data-id="<?= $peminjaman['id_peminjaman'] ?>" data-action="tolak">Tolak</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -68,3 +70,29 @@
         </table>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+    $(".actionLink").on("click", function (e) {
+        e.preventDefault();
+
+        const id = $(this).data("id");
+        const action = $(this).data("action");
+
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Iya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "<?= BASEURL; ?>/peminjaman/" + action + "/" + id;
+            }
+        });
+    });
+});
+</script>
