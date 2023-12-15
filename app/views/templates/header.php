@@ -35,7 +35,9 @@
                 echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Menuju Ke Daftar Anggota"><i class="fa fa-user"></i>&nbsp;Anggota</a>';
                 echo '    </li>';
                 echo '    <li>';
-                echo '        <button>Akses<i class="material-icons">expand_more</i>';
+                echo '        <button><span class="position-static top-0 start-0 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                 <span class="visually-hidden">New alerts</span>
+                                 </span>Akses<i class="material-icons">expand_more</i>';
                 echo '        </button>';
                 echo '        <div class="dropdown__wrapper">';
                 echo '            <div class="dropdown">';
