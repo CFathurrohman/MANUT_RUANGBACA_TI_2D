@@ -61,15 +61,15 @@
         </div>
     </div>
 
-    <div class="row row-cols-md-6 row-cols-2 gx-5 p-5">
+    <div class="row row-cols-md-6 row-cols-2 gx-4 p-5">
         <?php foreach ($data['buku'] as $buku) : ?>
-        <div class="col">
-            <div class="card shadow">
-                <img style="width: fit-content(100px)" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="">
+        <div class="col mb-3">
+            <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
+                <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="Book Cover">
                 <div class="card-body">
                     <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
-                    <li class="list-group-item"><small class="text-muted"><?= $buku['penulis']; ?></small></li><br>
-                    <li class="list-group-item"><small class="text-muted"><?= $buku['tahun_terbit']; ?></small></li>
+<!--                    <li class="list-group-item"><small class="text-muted">--><?php //= $buku['penulis']; ?><!--</small></li><br>-->
+<!--                    <li class="list-group-item"><small class="text-muted">--><?php //= $buku['tahun_terbit']; ?><!--</small></li>-->
 
                     <?php if ($buku['jumlah_tersedia'] == 0) : ?>
                         <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>

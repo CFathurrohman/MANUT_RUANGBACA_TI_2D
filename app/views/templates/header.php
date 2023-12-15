@@ -12,79 +12,109 @@
 </head>
 
 <body>
-    <header class="menu__wrapper">
-        <?php
-        echo '<div class="menu__bar">';
-        
-        echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Home" aria-label="home" class="logo">
+<header class="menu__wrapper">
+    <?php
+    echo '<div class="menu__bar">';
+
+    echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Home" aria-label="home" class="logo">
             <img src="http://localhost/manut_ruangbaca_ti_2d/public/img/Logo Bibliophile.png" alt="" style=" width:100px">
         </a>';
-        echo '<nav>';
-        echo '<ul class="navigation hide">';
+    echo '<nav>';
+    echo '<ul class="navigation hide">';
 
-        if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
+    if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
 
-            if ($_SESSION['level'] == 'admin') {
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
-                echo '    </li>';
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
-                echo '    </li>';
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Menuju Ke Daftar Anggota"><i class="fa fa-user"></i>&nbsp;Anggota</a>';
-                echo '    </li>';
-                echo '    <li>';
-                echo '        <button><span class="position-static top-0 start-0 translate-middle p-1 bg-danger border border-light rounded-circle">
-                                 <span class="visually-hidden">New alerts</span>
-                                 </span>Akses<i class="material-icons">expand_more</i>';
-                echo '        </button>';
-                echo '        <div class="dropdown__wrapper">';
-                echo '            <div class="dropdown">';
-                echo '                <ul class="list-items-with-description">';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><h3>Peminjaman</h3></a>';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>Akses Peminjaman</p></a>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Pengembalian"><h3>Pengembalian</h3></a>';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Pengembalian"><p>Akses Pengenmbalian</p></a>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><h3>Riwayat</h3></a>';
-                echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>Akses Riwayat</p>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                </ul>';
-                echo '            </div>';
-                echo '        </div>';
-                echo '    </li>';
-                echo '</ul>';
-                echo '</nav>';
-                echo '</div>';
-                echo '<div class="action-buttons hide">';
-                // echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
-                echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Keluar</a>';
-                echo '</div>';
-            } elseif ($_SESSION['level'] == 'anggota') {
-                echo '    <li>';
-                echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
-                echo '    </li>';
-                echo '</ul>';
-                echo '</nav>';
-                echo '</div>';
-                echo '<div class="action-buttons hide">';
-                echo '<nav>';
-                echo '<ul class="navigation hide">';
+        if ($_SESSION['level'] == 'admin') {
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+            echo '    </li>';
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Buku" title="Menuju Ke Daftar Buku"><i class="fa fa-book"></i>&nbsp;Buku</a>';
+            echo '    </li>';
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Menuju Ke Daftar Anggota"><i class="fa fa-user"></i>&nbsp;Anggota</a>';
+            echo '    </li>';
+            echo '    <li>';
+//                $notifStatus = mysqli_query("SELECT status FROM peminjaman_buku WHERE status = 'diajukan'");
+//                if ($notifStatus != null) {
+//                    echo '    <button><span class="position-static top-0 start-0 translate-middle p-1 bg-danger border border-light rounded-circle">
+//                                    <span class="visually-hidden">New alerts</span>
+//                                    </span>Akses<i class="material-icons">expand_more</i>';
+//                    echo '    </button>';
+//                } else {
+//                    echo '    <button>Akses<i class="material-icons">expand_more</i>';
+//                    echo '    </button>';
+//                }
+
+            echo '    <button>Akses<i class="material-icons">expand_more</i>';
+            echo '    </button>';
+            echo '        <div class="dropdown__wrapper">';
+            echo '            <div class="dropdown">';
+            echo '                <ul class="list-items-with-description">';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><h3>Peminjaman</h3></a>';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>Akses Peminjaman</p></a>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Pengembalian"><h3>Pengembalian</h3></a>';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Pengembalian"><p>Akses Pengenmbalian</p></a>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><h3>Riwayat</h3></a>';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>Akses Riwayat</p>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                </ul>';
+            echo '            </div>';
+            echo '        </div>';
+            echo '    </li>';
+            echo '</ul>';
+            echo '</nav>';
+            echo '</div>';
+            echo '<div class="action-buttons hide">';
+            echo '<nav>';
+            echo '<ul class="navigation hide">';
+            echo '    <li>';
+            echo ' 
+                       <button>
+                          <a class="" style="color: #fafafa"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                                <path fill="#fafafa" 
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>';
+            echo '       ' . $_SESSION['username'] . ' </a></button>';
+            echo '        <div class="dropdown__wrapper__akun">';
+            echo '            <div class="dropdown">';
+            echo '                <ul class="list-items-with-description">';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout"><h3>Keluar</h3></a>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                </ul>';
+            echo '            </div>';
+            echo '        </div>';
+            echo '    </li>';
+            echo '</ul>';
+            echo '</nav>';
+            echo '</div>';
+        } elseif ($_SESSION['level'] == 'anggota') {
+            echo '    <li>';
+            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+            echo '    </li>';
+            echo '</ul>';
+            echo '</nav>';
+            echo '</div>';
+            echo '<div class="action-buttons hide">';
+            echo '<nav>';
+            echo '<ul class="navigation hide">';
 
 
-                echo '    <li>';
-                echo '
+            echo '    <li>';
+            echo '
                 <div class="keranjang">
                     <a href="http://localhost/manut_ruangbaca_ti_2d/public/Keranjang">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="18" width="30" viewBox="0 0 576 512">
@@ -93,55 +123,55 @@
                         </svg>
                     </a>
                 </div>       ';
-                echo '    <li>';
-                echo ' 
+            echo '    <li>';
+            echo ' 
                        <button>
                           <a class="" style="color: #fafafa"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
                                 <path fill="#fafafa" 
                                     d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>';
 
-                echo '       ' . $_SESSION['username'] . ' </a></button>';
-                echo '        <div class="dropdown__wrapper__akun">';
-                echo '            <div class="dropdown">';
-                echo '                <ul class="list-items-with-description">';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Profil"><h3>Profil</h3></a>';
-                //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/edit_password"><h3>Ganti Kata Sandi</h3></a>';
-                //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                    <li>';
-                echo '                        <div class="item-title">';
-                echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout"><h3>Keluar</h3></a>';
-                //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
-                echo '                        </div>';
-                echo '                    </li>';
-                echo '                </ul>';
-                echo '            </div>';
-                echo '        </div>';
-                echo '    </li>';
-                echo '</ul>';
-                echo '</nav>';
-                //            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
-                echo '</div>';
-            }
-        } else {
-            echo '    <li>';
-            echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+            echo '       ' . $_SESSION['username'] . ' </a></button>';
+            echo '        <div class="dropdown__wrapper__akun">';
+            echo '            <div class="dropdown">';
+            echo '                <ul class="list-items-with-description">';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Profil"><h3>Profil</h3></a>';
+            //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/edit_password"><h3>Ganti Kata Sandi</h3></a>';
+            //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                    <li>';
+            echo '                        <div class="item-title">';
+            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout"><h3>Keluar</h3></a>';
+            //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
+            echo '                        </div>';
+            echo '                    </li>';
+            echo '                </ul>';
+            echo '            </div>';
+            echo '        </div>';
             echo '    </li>';
             echo '</ul>';
             echo '</nav>';
-            echo '</div>';
-            echo '<div class="action-buttons hide">';
-            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
+            //            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
             echo '</div>';
         }
-        ?>
-    </header>
-    <br>
+    } else {
+        echo '    <li>';
+        echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Home" title="Menuju Ke Katalog"><i class="fa fa-home"></i>&nbsp;Katalog</a>';
+        echo '    </li>';
+        echo '</ul>';
+        echo '</nav>';
+        echo '</div>';
+        echo '<div class="action-buttons hide">';
+        echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
+        echo '</div>';
+    }
+    ?>
+</header>
+<br>
