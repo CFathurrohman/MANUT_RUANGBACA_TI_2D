@@ -70,7 +70,7 @@
 
     public function hapusDataBuku($id)
     {
-        $deleteQuery = "UPDATE buku SET is_deleted = CURDATE() WHERE id_buku = :id_buku";
+        $deleteQuery = "UPDATE buku SET is_deleted = CURDATE() WHERE id_buku = :id_buku AND is_deleted IS NULL";
         $this->db->query($deleteQuery);
         $this->db->bind(":id_buku", $id);
         $this->db->execute();
