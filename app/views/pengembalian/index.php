@@ -13,6 +13,7 @@
         <div class="col-12"><br>
             <h3>Pengembalian Buku</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
+            <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
         </div>
     </div>
     <div class="row">

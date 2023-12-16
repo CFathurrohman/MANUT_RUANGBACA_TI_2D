@@ -3,9 +3,15 @@ class Anggota extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'List Anggota';
-        $data['anggota'] = $this->model('Anggota_model')->getAllAnggota();
-        $this->view('templates/header', $data);
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['anggota'] = $this->model('Anggota_model')->getAllAnggota($results_per_page, $offset);
+        $total_rows = $this->model('Anggota_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'Daftar Anggota';
+        $this->view('templates/header', $data);        
         $this->view('anggota/index', $data);
         $this->view('templates/footer');
     }

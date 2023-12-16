@@ -70,6 +70,17 @@
             </tbody>
         </table>
     </div>
+    <nav aria-label="Page navigation example">
+        <form action="<?= BASEURL; ?>/anggota" method="post">
+            <ul class="pagination justify-content-center">
+                <?php for ($i = 1; $i <= $data['total_pages']; $i++) : ?>
+                    <li class="page-item <?= ($i == $data['page']) ? 'active' : '' ?>">
+                        <button type="submit" name="page" value="<?= $i ?>" class="page-link"><?= $i ?></button>
+                    </li>
+                <?php endfor; ?>
+            </ul>
+        </form>
+    </nav>
 </div>
 
 <!-- Modal  -->

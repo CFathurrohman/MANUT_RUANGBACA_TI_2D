@@ -11,10 +11,19 @@ class Anggota_model
         $this->db = new Database();
     }
 
-    public function getAllAnggota()
+    public function getAllAnggota($limit, $offset)
     {
-        $this->db->query('SELECT * FROM anggota ORDER BY nama');
+        $this->db->query('SELECT * FROM anggota ORDER BY nama LIMIT :limit OFFSET :offset');
+        $this->db->bind(':limit', $limit);
+        $this->db->bind(':offset', $offset);
         return $this->db->resultSet();
+    }
+    
+    public function getTotalRows()
+    {
+        $this->db->query('SELECT COUNT(*) AS total FROM anggota');
+        $result = $this->db->single();
+        return $result['total'];
     }
 
     public function getAnggotaById($id)
