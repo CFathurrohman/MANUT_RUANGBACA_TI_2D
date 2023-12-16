@@ -45,7 +45,7 @@
                         <tr>
                             <td><?php echo $number;
                                 $number++ ?></td>
-                            <td><img src="<?= BASEURL; ?>/img/<?= $keranjang['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px"></td>
+                            <td><img src="<?= BASEURL; ?>/img/<?= $keranjang['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 98px; height: 150px"></td>
                             <td><?php echo $keranjang['nama_buku']; ?></td>
                             <td>
                                 <input type="checkbox" name="selected_books[]" value="<?= $keranjang['id_keranjang']; ?>">

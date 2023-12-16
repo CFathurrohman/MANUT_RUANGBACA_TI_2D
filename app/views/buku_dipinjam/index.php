@@ -6,6 +6,7 @@
     <div></div>
 </div>
 <br><br>
+<div class="col mb-3 mx-3">
 <div class="content-title">
     <h3>Daftar Buku Dipinjam</h3>
 </div>
@@ -24,4 +25,5 @@
             </div>
         </div>
     <?php endforeach; ?>
+</div>
 </div>
