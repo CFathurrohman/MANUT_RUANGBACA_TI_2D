@@ -3,7 +3,7 @@
         <br>
         <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
         <br><br>
-        <div class="card mb-3">
+        <div class="card mb-3 shadow">
             <?php foreach ( $data['buku'] as $book): ?>
                 <div class="row g-0">
                     <div class="col-md-4">

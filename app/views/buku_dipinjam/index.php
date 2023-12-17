@@ -11,7 +11,7 @@
     <h3>Daftar Buku Dipinjam</h3>
 </div>
 <br>
-<div class="row row-cols-md-6 row-cols-2 gx-4 p-5">
+<div class="row row-cols-md-6 row-cols-2 gx-4 p-5 shadow   ">
     <?php foreach ($data['buku'] as $buku) : ?>
         <div class="col mb-3">
             <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">

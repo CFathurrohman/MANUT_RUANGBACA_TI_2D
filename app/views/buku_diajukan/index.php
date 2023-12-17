@@ -6,7 +6,7 @@
     <div></div>
 </div>
 <br><br>
-<div class="col mb-3 mx-3">
+<div class="col mb-3 mx-3 shadow">
     <div class="content-title">
         <h3>Daftar Buku Diajukan</h3>
     </div>

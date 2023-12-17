@@ -20,20 +20,8 @@
         </div>
     </div>
 
-    <div class="row mb-3">
-        <div class="col-lg-12 d-flex justify-content-end">
-            <form action="<?= BASEURL; ?>/riwayat/cari" method="post" class="d-flex">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nama Anggota" name="keyword" id="keyword" autocomplete="off">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div class="table-responsive">
+ 
+    <div class="table-responsive shadow">
         <table class="table table-bordered">
             <thead class="thead-white">
                 <tr>
