@@ -26,6 +26,15 @@ class Anggota_model
         return $result['total'];
     }
 
+    public function getTotalRowsCari()
+    {
+        $keyword = $_POST['keyword'];
+        $this->db->query('SELECT COUNT(*) AS total FROM anggota WHERE nama LIKE :keyword');
+        $this->db->bind(':keyword', '%' . $keyword . '%');
+        $result = $this->db->single();
+        return $result['total'];
+    }
+
     public function getAnggotaById($id)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_anggota = :id_anggota');
@@ -104,12 +113,15 @@ class Anggota_model
         return $this->db->rowCount();
     }
     
-    public function cariDataAnggota()
+    public function cariDataAnggota($limit, $offset)
     {
+        $query = "SELECT * FROM anggota WHERE nama LIKE :keyword LIMIT :limit OFFSET :offset";
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM anggota WHERE nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind(':keyword', "%$keyword%");
+        $this->db->bind(':limit', $limit, PDO::PARAM_INT);
+        $this->db->bind(':offset', $offset, PDO::PARAM_INT);
+        
         return $this->db->resultSet();
     }
 }

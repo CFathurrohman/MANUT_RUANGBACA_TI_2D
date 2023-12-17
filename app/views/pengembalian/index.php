@@ -25,7 +25,7 @@
 
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
-            <form action="<?= BASEURL; ?>/riwayat/cari" method="post" class="d-flex">
+            <form action="<?= BASEURL; ?>/pengembalian/cari" method="post" class="d-flex">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nama Anggota" name="keyword" id="keyword" autocomplete="off">
                     <div class="input-group-append">
@@ -52,7 +52,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $number = 1 ?>
+                <?php $number = ((($data['page']-1)*10)+1) ?>
                 <?php foreach ($data['buku'] as $pengembalian) : ?>
                     <tr>
                         <td><?php echo $number;
@@ -84,6 +84,77 @@
         </table>
     </div>
 </div>
+
+<nav aria-label="Page navigation">
+    <form action="<?= BASEURL; ?>/pengembalian" method="post">
+        <ul class="pagination justify-content-center">
+            <?php
+            $totalPages = $data['total_pages'];
+            $currentPage = $data['page'];
+
+            // Previous Button
+            ?>
+            <li class="page-item <?= ($currentPage == 1) ? 'disabled' : '' ?>">
+                <button type="submit" name="page" value="<?= max(1, $currentPage - 1) ?>" class="page-link">&laquo;</button>
+            </li>
+            <?php
+
+            // First Button
+            ?>
+            <li class="page-item <?= ($currentPage == 1) ? 'active' : '' ?>">
+                <button type="submit" name="page" value="1" class="page-link">1</button>
+            </li>
+            <?php
+
+            // Ellipsis Before First
+            if ($currentPage > 3) {
+            ?>
+                <li class="page-item disabled">
+                    <button type="button" class="page-link">...</button>
+                </li>
+            <?php
+            }
+
+            // Numbered Buttons
+            $startPage = max(2, $currentPage - 1);
+            $endPage = min($startPage + 2, $totalPages);
+
+            for ($i = $startPage; $i <= $endPage; $i++) {
+            ?>
+                <li class="page-item <?= ($i == $currentPage) ? 'active' : '' ?>">
+                    <button type="submit" name="page" value="<?= $i ?>" class="page-link"><?= $i ?></button>
+                </li>
+            <?php
+            }
+
+            // Ellipsis Before Last
+            if ($totalPages - $currentPage > 2 && $totalPages > 5) {
+            ?>
+                <li class="page-item disabled">
+                    <button type="button" class="page-link">...</button>
+                </li>
+            <?php
+            }
+
+            // Last Button
+            if ($currentPage < $totalPages && $totalPages > 1 && ($totalPages > 4)) {
+            ?>
+                <li class="page-item">
+                    <button type="submit" name="page" value="<?= $totalPages ?>" class="page-link"><?= $totalPages ?></button>
+                </li>
+            <?php
+            }
+
+            // Next Button
+            ?>
+            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+                <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
+            </li>
+            <?php
+            ?>
+        </ul>
+    </form>
+</nav>
 
 <script>
     $(document).ready(function() {

@@ -11,20 +11,39 @@ class Peminjaman_model
         $this->db = new Database();
     }
 
-    public function getAllPeminjaman()
+    public function getAllPeminjaman($limit, $offset)
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
+        FROM peminjaman_buku p
+        JOIN detail_peminjaman d ON d.id_peminjaman = p.id_peminjaman
+        JOIN buku b ON d.id_buku = b.id_buku
+        JOIN anggota a ON p.id_anggota = a.id_anggota
+        WHERE p.status = 'diajukan'
+        GROUP BY p.id_peminjaman
+        LIMIT :limit OFFSET :offset;");    
+        $this->db->bind(':limit', $limit);
+        $this->db->bind(':offset', $offset);
         return $this->db->resultSet();
     }
 
-    public function getPeminjamanDiajukan()
+    public function getTotalRows()
     {
-        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
-        FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
-        WHERE p.status = 'diajukan' AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota
-        GROUP BY p.id_peminjaman");
-        return $this->db->resultSet();
+        $this->db->query("SELECT COUNT(*) AS total FROM peminjaman_buku WHERE status = 'diajukan'");
+        $result = $this->db->single();
+        return $result['total'];
     }
+
+    public function getTotalRowsCari()
+    {
+        $keyword = $_POST['keyword'];
+        $this->db->query("SELECT COUNT(*) AS total 
+        FROM peminjaman_buku pb
+        INNER JOIN anggota a ON pb.id_anggota = a.id_anggota
+        WHERE pb.status = 'diajukan' AND a.nama LIKE :keyword");
+        $this->db->bind(':keyword', '%' . $keyword . '%');
+        $result = $this->db->single();
+        return $result['total'];
+    }    
 
     public function terimaPeminjaman($data)
     {
@@ -55,7 +74,23 @@ class Peminjaman_model
                         JOIN kategori k ON b.id_kategori = k.id_ktgr
                         WHERE d.id_peminjaman IN ($id)
                         GROUP BY b.id_buku");
-        
         return $this->db->resultSet();
     }
+
+    public function cariDataPeminjaman($limit, $offset)
+    {   
+        $keyword = $_POST['keyword'];
+        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
+        FROM peminjaman_buku p
+        JOIN detail_peminjaman d ON d.id_peminjaman = p.id_peminjaman
+        JOIN buku b ON d.id_buku = b.id_buku
+        JOIN anggota a ON p.id_anggota = a.id_anggota
+        WHERE p.status = 'diajukan' AND a.nama LIKE :keyword
+        GROUP BY p.id_peminjaman
+        LIMIT :limit OFFSET :offset;");
+        $this->db->bind(':limit', $limit);
+        $this->db->bind(':keyword', '%' . $keyword . '%');
+        $this->db->bind(':offset', $offset);
+        return $this->db->resultSet();
+    }    
 }

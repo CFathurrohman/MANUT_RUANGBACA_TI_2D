@@ -12,14 +12,32 @@ class Buku_riwayat_model
         $this->user = isset($_SESSION['username']) ? $_SESSION['username'] : '';
     }
 
-    public function getBukuRiwayat()
+    public function getUserRiwayat($limit, $offset)
     {
-        $this->db->query("SELECT DISTINCT p.tgl_batas_kembali, p.tgl_pengajuan, p.id_peminjaman, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
-        FROM peminjaman_buku p, anggota a, buku b, detail_peminjaman d
-        WHERE (p.status = 'dikembalikan' OR p.status = 'ditolak') AND d.id_buku = b.id_buku AND d.id_peminjaman = p.id_peminjaman AND p.id_anggota=a.id_anggota AND p.id_anggota = :id_anggota
-        GROUP BY p.id_peminjaman DESC");
-        $this->db->bind('id_anggota', $this->user);
+        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
+        FROM peminjaman_buku p
+        JOIN anggota a ON p.id_anggota = a.id_anggota
+        JOIN detail_peminjaman d ON d.id_peminjaman = p.id_peminjaman
+        JOIN buku b ON d.id_buku = b.id_buku
+        WHERE ( p.status = 'dikembalikan' OR p.status = 'ditolak') AND a.id_anggota = :id_anggota
+        GROUP BY p.id_peminjaman
+        LIMIT :limit OFFSET :offset;");
+        $this->db->bind(':limit', $limit);
+        $this->db->bind(':offset', $offset);
+        $this->db->bind(':id_anggota', $this->user);
         return $this->db->resultSet();
+    }
+
+    public function getTotalRowsCari()
+    {
+        $keyword = $_POST['keyword'];
+        $this->db->query("SELECT COUNT(*) AS total FROM peminjaman_buku pb
+        INNER JOIN anggota a ON pb.id_anggota = a.id_anggota
+        WHERE ( pb.status = 'dikembalikan' OR pb.status = 'ditolak') AND a.nama LIKE :keyword AND a.id_anggota = :id_anggota");
+        $this->db->bind(':keyword', '%' . $keyword . '%');
+        $this->db->bind(':id_anggota', $this->user);
+        $result = $this->db->single();
+        return $result['total'];
     }
 
     public function read($id)
