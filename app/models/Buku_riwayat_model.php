@@ -30,11 +30,9 @@ class Buku_riwayat_model
 
     public function getTotalRowsCari()
     {
-        $keyword = $_POST['keyword'];
         $this->db->query("SELECT COUNT(*) AS total FROM peminjaman_buku pb
         INNER JOIN anggota a ON pb.id_anggota = a.id_anggota
-        WHERE ( pb.status = 'dikembalikan' OR pb.status = 'ditolak') AND a.nama LIKE :keyword AND a.id_anggota = :id_anggota");
-        $this->db->bind(':keyword', '%' . $keyword . '%');
+        WHERE ( pb.status = 'dikembalikan' OR pb.status = 'ditolak') AND a.id_anggota = :id_anggota");
         $this->db->bind(':id_anggota', $this->user);
         $result = $this->db->single();
         return $result['total'];
