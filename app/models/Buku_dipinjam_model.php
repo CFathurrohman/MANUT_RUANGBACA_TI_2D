@@ -14,7 +14,7 @@ class Buku_Dipinjam_model
 
     public function getBukuDipinjam()
     {
-        $query = "SELECT buku.* FROM buku
+        $query = "SELECT buku.*, pb.tgl_pinjam, pb.tgl_batas_kembali FROM buku
                   INNER JOIN detail_peminjaman dp ON buku.id_buku = dp.id_buku
                   INNER JOIN peminjaman_buku pb ON dp.id_peminjaman = pb.id_peminjaman
                   WHERE pb.id_anggota = :id_anggota AND pb.status = 'Dipinjam'";
