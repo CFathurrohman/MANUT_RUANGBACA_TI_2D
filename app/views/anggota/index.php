@@ -145,9 +145,9 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
-                <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
-            </li>
+                <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['anggota'])) ? 'disabled' : '' ?>">
+                    <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
+                </li>
             <?php
             ?>
         </ul>

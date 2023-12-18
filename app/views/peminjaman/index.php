@@ -157,7 +157,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php
@@ -175,7 +175,7 @@
             </div>
             <div class="modal-body">
                 <form id="upload-form" action="<?= BASEURL; ?>/peminjaman/tolak" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id_peminjaman" value="<?=$peminjaman['id_peminjaman']?>">
+                    <input type="hidden" name="id_peminjaman" value="<?= $peminjaman['id_peminjaman'] ?>">
                     <div class="mb-3">
                         <label for="keterangan" class="form-label">Keterangan</label>
                         <input type="text" name="keterangan" class="form-control" id="keterangan" required>

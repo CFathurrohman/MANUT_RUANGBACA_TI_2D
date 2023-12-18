@@ -53,7 +53,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php $number = ((($data['page']-1)*10)+1) ?>
+                        <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                         <?php foreach ($data['buku'] as $buku) : ?>
                             <tr style="text-align: left;">
                                 <td><?php echo $number;
@@ -170,7 +170,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php
