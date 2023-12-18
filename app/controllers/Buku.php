@@ -4,12 +4,17 @@ class Buku extends Controller
 {
     public function index()
     {
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Buku_model')->getAllBuku($results_per_page, $offset);
+        $total_rows = $this->model('Buku_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
         $data['judul'] = 'List Buku';
-        $data['buku'] = $this->model('Buku_model')->getAllBuku();
         $this->view('templates/header', $data);
         $this->view('buku/index', $data);
         $this->view('templates/footer');
-
     }
 
     public function read($id)
@@ -42,31 +47,31 @@ class Buku extends Controller
     {
         $namaFile = $_FILES['gambar_buku']['name'];
         $ukuranFile = $_FILES['gambar_buku']['size'];
-        $error = $_FILES['gambar_buku']['error'];
+//        $error = $_FILES['gambar_buku']['error'];
         $tmpName = $_FILES['gambar_buku']['tmp_name'];
 
-        if ($error === 4) {
-            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
-            return false;
-        }
+//        if ($error === 4) {
+//            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
+//            return false;
+//        }
 
         $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            echo "<script> alert('yang anda upload bukan gambar')</script>";
+//            echo "<script> alert('yang anda upload bukan gambar')</script>";
             return false;
         }
 
         if ($ukuranFile > 10000000) {
-            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
+//            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
             return false;
         }
 
         $namaFileBaru = uniqid();
         $namaFileBaru .= '.';
         $namaFileBaru .= $ekstensiGambar;
-        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/puhsepuh_inventory_2d/public/img/' . $namaFileBaru;
+        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/MANUT_RUANGBACA_TI_2D/public/img/' . $namaFileBaru;
         //gambar siap diupload
         exec("find /opt/lampp/htdocs/MANUT_RUANGBACA_TI_2D/public/img -type d -exec chmod 0755 {} +");
         move_uploaded_file($tmpName, $dirUpload);
@@ -109,12 +114,17 @@ class Buku extends Controller
 
     public function cari()
     {
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Buku_model')->cariDataBuku($results_per_page, $offset);
+        $total_rows = $this->model('Buku_model')->getTotalRowsCari();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
         $data['judul'] = 'List Buku';
-        $data['buku'] = $this->model('Buku_model')->cariDataBuku();
         $this->view('templates/header', $data);
         $this->view('buku/index', $data);
         $this->view('templates/footer');
-
     }
 
     public function getUbah()

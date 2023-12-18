@@ -1,11 +1,14 @@
 <div class="objtransition">
     <div class="container mt-5">
         <br>
+        <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
+        <br><br>
         <div class="card mb-3">
+            
             <?php foreach ( $data['buku'] as $book): ?>
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="<?= $book['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
+                    <td><img src="<?= BASEURL; ?>/img/<?= $book['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px"></td>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -23,7 +26,9 @@
                         </ul>
                     </div>
                 </div>
+                <br><br>
             <?php endforeach; ?>
         </div>
+        
     </div>
 </div>

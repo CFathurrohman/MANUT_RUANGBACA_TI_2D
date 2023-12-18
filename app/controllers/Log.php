@@ -16,25 +16,37 @@
                 $user = $loginModel->validateUser($username, $password);
     
                 if ($user) {
-                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['id_user'] = $user['id_user'];
                     $_SESSION['username'] = $user['username'];
-
                     $_SESSION['level'] = $user['level'];
-    
-                    if ($_SESSION['level'] === 'admin') {
+
+                    $this->model('Login_model')->log_login($username, $user['id_user']);
+
+                    if ($_SESSION['level'] === 'admin' || $_SESSION['level'] === 'anggota') {
+                        $message = 'Anda berhasil Login!';
+                        $type = 'success';
+                        Flasher::setFlash($message, 'success', $type);
                         header('Location: ' . BASEURL . '/Home');
-                    } elseif ($_SESSION['level'] === 'anggota') {
-                        header('Location: ' . BASEURL . '/Home');
+                        exit();
                     } else {
-                        header('Location: ' . BASEURL . '/Home');
+                        $message = 'Anda Gagal Login!';
+                        $type = 'error';
+                        Flasher::setFlash($message, 'danger', $type);
+                        header('Location: ' . BASEURL . '/Log');
+                        exit();
                     }
                     exit();
                 } else {
-                    Flasher::setFlash('Login failed. Invalid username or password.', 'danger', 'danger');
+                    $message = 'Gagal Login! Username dan Password salah.';
+                    $type = 'error';
+                    Flasher::setFlash($message, 'danger', $type);
                     header('Location: ' . BASEURL . '/Log');
                     exit();
                 }
             } else {
+                $message = 'Gagal Login! Username dan Password salah.';
+                $type = 'error';
+                Flasher::setFlash($message, 'danger', $type);
                 header('Location: ' . BASEURL . '/Log');
                 exit();
             }

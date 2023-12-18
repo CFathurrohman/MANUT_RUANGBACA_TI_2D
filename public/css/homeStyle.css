@@ -32,3 +32,29 @@
     width: 300px;
     height: 180px;
 }
+.carousel{
+    width: 84.5vw;
+    height: 40vh;
+   
+    aspect-ratio: 16/9;
+    
+}
+
+.carousel-item img {
+    height: 300px; 
+    width: auto; 
+    max-width: 100%; 
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

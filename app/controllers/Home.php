@@ -2,30 +2,34 @@
 class Home extends Controller
 {
     public function index()
-    {
+    {   
+        $results_per_page = 24;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Home_model')->getAllBuku($results_per_page, $offset);
+        $total_rows = $this->model('Home_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
         $data['judul'] = 'Home';
-        $data['buku'] = $this->model('Home_model')->getAllBuku();
         $this->view('templates/header', $data);
         $this->view('home/index', $data);
         $this->view('templates/footer');
     }
-
-    //    public function read($id)
-    //    {
-    //        $data['judul'] = 'Detail Buku';
-    //        $data['buku'] = $this->model('Buku_model')->getReadBukuById($id);
-    //        $this->view('templates/header', $data);
-    //        $this->view('buku/read', $data);
-    //        $this->view('templates/footer');
-    //
-    //    }
 
     public function cari()
     {
-        $data['judul'] = 'Home';
-        $data['buku'] = $this->model('Home_model')->cariDataBuku();
+        $results_per_page = 24;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Home_model')->cariDataBuku($results_per_page, $offset);
+        $total_rows = $this->model('Home_model')->getTotalRowsCari();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'List Buku';
         $this->view('templates/header', $data);
-        $this->view('home/index', $data);
+        $this->view('Home/index', $data);
         $this->view('templates/footer');
     }
+
+
 }

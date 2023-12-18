@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +11,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-
+    transition: background 0.8s, color 0.8s;
 }
 
 .menu__wrapper {
@@ -152,13 +154,7 @@ body {
     padding-top: 60px;
 }
 
-.dropdown__wrapper__keranjang {
-    position: absolute;
-    top: 0;
-    /*left: 0;*/
-    right: 0;
-    padding-top: 60px;
-}
+
 
 .dropdown__wrapper__akun {
     position: absolute;
@@ -180,6 +176,7 @@ body {
     0 30px 60px -30px rgba(0, 0, 0, .15);
     z-index: 2;
     animation: fadeIn 0.2s ease-in-out;
+    flex-direction: column;
 }
 
 .list-items-with-description {
@@ -216,7 +213,7 @@ body {
 
 .action-buttons {
     display: flex;
-    gap: 15px;
+    gap: 30px;
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -244,10 +241,9 @@ body {
 }
 
 .keranjang {
-    background-color: #ffffff;
+    background-color:  #444eff;
     color: #171717;
     outline: none;
-    border: 1px solid #E6E6E6;
     border-radius: 6px;
 }
 
@@ -259,10 +255,11 @@ body {
 }
 
 .keranjang .icon-path {
-    fill: #000000;
+
+    background-color: #0d6efd;
 }
 
 .keranjang:hover .icon-path {
-    fill: #0d6efd;
-}
+    fill: #4c67ff;
 
+}

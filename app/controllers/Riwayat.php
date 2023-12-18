@@ -4,19 +4,31 @@ class Riwayat extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'Riwayat buku';
-        $data['riwayat'] = $this->model('Riwayat_model')->getRiwayatAll();
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Riwayat_model')->getAllRiwayat($results_per_page, $offset);
+        $total_rows = $this->model('Riwayat_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'Riwayat Buku';
         $this->view('templates/header', $data);
         $this->view('riwayat/index', $data);
         $this->view('templates/footer');
     }
 
     public function cari()
-    {
-        $data['judul'] = 'Riwayat buku';
-        $data['riwayat'] = $this->model('Riwayat_model')->cariDataAnggota();
+    {   
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Riwayat_model')->cariDataRiwayat($results_per_page, $offset);
+        $total_rows = $this->model('Riwayat_model')->getTotalRowsCari();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'Riwayat Buku';
         $this->view('templates/header', $data);
-        $this->view('riwayat/index', $data);
+        $this->view('Riwayat/index', $data);
         $this->view('templates/footer');
     }
 

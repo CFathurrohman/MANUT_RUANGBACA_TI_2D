@@ -3,9 +3,15 @@
 class Peminjaman extends Controller
 {
     public function index()
-    {
-        $data['judul'] = 'peminjaman buku';
-        $data['buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
+    {   
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Peminjaman_model')->getAllPeminjaman($results_per_page, $offset);
+        $total_rows = $this->model('Peminjaman_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'Peminjaman Buku';
         $this->view('templates/header', $data);
         $this->view('peminjaman/index', $data);
         $this->view('templates/footer');
@@ -14,16 +20,28 @@ class Peminjaman extends Controller
     public function terima($idPeminjaman)
     {
         $data = ['id_peminjaman' => $idPeminjaman];
+    
+        try {
+            if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+            } else {
+                Flasher::setFlash('gagal', 'diubah', 'danger');
+            }
+    
+            header('Location: ' . BASEURL . '/peminjaman');
+            exit;
+        } catch (PDOException $e) {
+            if ($e->getCode() == '45000') {
+                echo '<script>';
+                echo 'alert("Buku tidak tersedia");';
+                echo 'window.location.href = "' . BASEURL . '/peminjaman";';
+                echo '</script>';
+                exit;
+            } else {
 
-        if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
-        } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            }
         }
-
-        header('Location: ' . BASEURL . '/peminjaman');
-        exit;
-    }
+    }    
 
     public function tolak($idPeminjaman)
     {
@@ -40,9 +58,15 @@ class Peminjaman extends Controller
     }
 
     public function cari()
-    {
-        $data['judul'] = 'peminjaman buku';
-        $data['buku'] = $this->model('Peminjaman_model')->getPeminjamanDiajukan();
+    {   
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Peminjaman_model')->cariDataPeminjaman($results_per_page, $offset);
+        $total_rows = $this->model('Peminjaman_model')->getTotalRowsCari();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
+        $data['judul'] = 'Peminjaman Buku';
         $this->view('templates/header', $data);
         $this->view('peminjaman/index', $data);
         $this->view('templates/footer');

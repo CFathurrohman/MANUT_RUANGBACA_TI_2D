@@ -19,39 +19,20 @@ class Keranjang extends Controller
         ];
 
         $keranjangModel = $this->model('Keranjang_model');
-        if ($keranjangModel->tambah($data)) {
-            $data['keranjang'] = $keranjangModel->getAllKeranjang();
-            $data['buku'] = $this->model('Buku_model')->getReadBukuById($id_buku);
-            $this->view('templates/header', $data);
-            $this->view('buku/read', $data);
-            $this->view('templates/footer');
-        } else {
-            echo "Failed to add item to cart.";
-        }
+        $keranjangModel->tambah($data);
+        $data['keranjang'] = $keranjangModel->getAllKeranjang();
+        $data['buku'] = $this->model('Buku_model')->getReadBukuById($id_buku);
+        $this->view('templates/header', $data);
+        $this->view('buku/read', $data);
+        $this->view('templates/footer');
     }
-
 
     public function hapus($id)
     {
         if ($this->model('Keranjang_model')->hapus($id)) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/keranjang');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
-            header('Location: ' . BASEURL . '/keranjang');
-            exit;
-        }
-    }
-
-    public function pinjam($id)
-    {
-        if ($this->model('Keranjang_model')->pinjam($id)) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
-            header('Location: ' . BASEURL . '/keranjang');
-            exit;
-        } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
             header('Location: ' . BASEURL . '/keranjang');
             exit;
         }
@@ -62,26 +43,32 @@ class Keranjang extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['selected_books'])) {
             $selectedBooks = $_POST['selected_books'];
             $keranjangModel = $this->model('Keranjang_model');
-
+    
+            $countBooks = $this->model('Keranjang_model')->hitung();
+    
+            $totalCountBooks = $countBooks + count($selectedBooks);
+    
+            if ($totalCountBooks > 3) {
+                echo "<script>alert('Maaf, batas peminjaman buku telah tercapai.')</script>";
+                echo "<script>window.location.href='" . BASEURL . "/keranjang';</script>";
+                exit;
+            }
+    
             if ($keranjangModel->multiPinjam($selectedBooks)) {
-                Flasher::setFlash('berhasil', 'dipinjam', 'success');
                 header('Location: ' . BASEURL . '/keranjang');
                 exit;
             } else {
-                Flasher::setFlash('gagal', 'dipinjam', 'danger');
                 header('Location: ' . BASEURL . '/keranjang');
                 exit;
             }
         } else {
-            // Handle if no books are selected
-            Flasher::setFlash('gagal', 'Tidak ada buku dipilih', 'warning');
             header('Location: ' . BASEURL . '/keranjang');
             exit;
         }
-    }
+    }    
 
-    public function read($id)
-    {   
+        public function read($id)
+    {
         $data['judul'] = 'Detail Buku';
         $data['buku'] = $this->model('Keranjang_model')->getReadBukuById($id);
         $this->view('templates/header', $data);
