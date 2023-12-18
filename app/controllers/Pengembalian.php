@@ -3,7 +3,7 @@
 class Pengembalian extends Controller
 {
     public function index()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
@@ -18,7 +18,7 @@ class Pengembalian extends Controller
     }
 
     public function cari()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
@@ -32,15 +32,16 @@ class Pengembalian extends Controller
         $this->view('templates/footer');
     }
 
-    public function kembali($idPeminjaman){
+    public function kembali($idPeminjaman)
+    {
         $data = ['id_peminjaman' => $idPeminjaman];
-    
+
         if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dikembalikan.');
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            $this->showAlert('error', 'Gagal', 'Data Buku gagal dikembalikan.');
         }
-    
+
         header('Location: ' . BASEURL . '/pengembalian');
         exit;
     }

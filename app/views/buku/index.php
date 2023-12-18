@@ -5,17 +5,12 @@
     <div></div>
     <div></div>
 </div>
+<?php Flasher::flash() ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>
             <h3>Daftar Buku</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <?php Flasher::flashBuku(); ?>
         </div>
     </div>
 
@@ -53,7 +48,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php $number = ((($data['page']-1)*10)+1) ?>
+                        <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                         <?php foreach ($data['buku'] as $buku) : ?>
                             <tr style="text-align: left;">
                                 <td><?php echo $number;
@@ -233,7 +228,11 @@
         </div>
     </div>
 </div>
+
 <script src="<?= BASEURL; ?>/js/scriptBuku.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     document.getElementById('gambar_buku').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');

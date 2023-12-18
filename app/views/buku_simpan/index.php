@@ -9,6 +9,7 @@
     <div></div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -71,7 +72,7 @@
                 </tbody>
             </table>
         </div>
-                        <br><br>
+        <br><br>
         <div class="row">
             <div class="col-md-12 text-right">
                 <button type="submit" class="btn btn-primary">Tambahkan Ke Keranjang</button>
@@ -80,22 +81,81 @@
         </div>
     </div>
 </form>
+
 <script>
     $(document).ready(function() {
         $('form').submit(function(event) {
-            if ($('input[name="selected_books[]"]:checked').length > 0) {
+            if ($('input[name="selected_books[]"]:checked').length === 0) {
+                event.preventDefault();
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Gagal Memasukkan Keranjang',
+                    text: 'Tandai buku terlebih dahulu!',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            } else {
                 event.preventDefault();
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Pinjam Terpilih',
-                    text: 'Peminjaman Success!',
+                    title: 'Keranjang Success!',
+                    text: 'Berhasil Memasukkan Keranjang',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 }).then(() => {
                     $('form').get(0).submit();
                 });
             }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.deleteWishlist').click(function(event) {
+            event.preventDefault();
+
+            var deleteUrl = $(this).attr('href');
+
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: 'Anda akan menghapus wishlist ini.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: deleteUrl,
+                        method: 'GET',
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil Menghapus Wishlist',
+                                text: 'Wishlist telah dihapus.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                location.reload();
+                            });
+                        },
+                        error: function(error) {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Gagal Menghapus Wishlist',
+                                text: 'Terjadi kesalahan saat menghapus wishlist. Silakan coba lagi.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    });
+                }
+            });
         });
     });
 </script>

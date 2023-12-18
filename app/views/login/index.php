@@ -8,12 +8,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/css/loginStyle.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASEURL ?>/js/loginJs.js">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
-    <?php Flasher::flashLogin(); ?>
+    <?php Flasher::flash(); ?>
     <main class="main">
         <div class="container mt-5">
             <div class="row justify-content-center align-items-center">
@@ -25,7 +23,7 @@
                         <input class="form__input" type="password" placeholder="Kata Sandi" name="password" required>
                         <button type="submit" class="btn btn-primary">Masuk</button>
                         <a href="<?= BASEURL ?> /Home">
-                            <button type="button" class="btn btn-secondary back-button" >Ke Katalog</button>
+                            <button type="button" class="btn btn-secondary back-button">Ke Katalog</button>
                         </a>
                     </form>
                 </div>
@@ -35,6 +33,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        <?php if (isset($_SESSION['sweetalert'])) : ?>
+            Swal.fire({
+                icon: '<?php echo $_SESSION['sweetalert']['icon']; ?>',
+                title: '<?php echo $_SESSION['sweetalert']['title']; ?>',
+                text: '<?php echo $_SESSION['sweetalert']['text']; ?>',
+            });
+            <?php unset($_SESSION['sweetalert']); ?>
+        <?php endif; ?>
+    </script>
 </body>
 
 </html>

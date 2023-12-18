@@ -3,7 +3,7 @@
 class Peminjaman extends Controller
 {
     public function index()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
@@ -20,14 +20,14 @@ class Peminjaman extends Controller
     public function terima($idPeminjaman)
     {
         $data = ['id_peminjaman' => $idPeminjaman];
-    
+
         try {
             if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
-                Flasher::setFlash('berhasil', 'diubah', 'success');
+                $this->showAlert('success', 'Berhasil', 'Data Buku berhasil diterima.');
             } else {
-                Flasher::setFlash('gagal', 'diubah', 'danger');
+                $this->showAlert('error', 'Gagal', 'Data Buku gagal diterima.');
             }
-    
+
             header('Location: ' . BASEURL . '/peminjaman');
             exit;
         } catch (PDOException $e) {
@@ -38,29 +38,28 @@ class Peminjaman extends Controller
                 echo '</script>';
                 exit;
             } else {
-
             }
         }
-    }    
+    }
     public function tolak()
     {
         $data = [
             'id_peminjaman' => $_POST['id_peminjaman'],
             'keterangan' => $_POST['keterangan']
         ];
-    
+
         if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditolak.');
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            $this->showAlert('error', 'Gagal', 'Data Buku gagal ditolak.');
         }
-    
+
         header('Location: ' . BASEURL . '/peminjaman');
         exit;
     }
 
     public function cari()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;

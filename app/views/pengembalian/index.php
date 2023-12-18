@@ -6,6 +6,7 @@
     <div></div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container mt-5">
@@ -14,12 +15,6 @@
             <h3>Pengembalian Buku</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
             <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?php //Flasher::flashPeminjaman(); 
-            ?>
         </div>
     </div>
 
@@ -52,7 +47,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $number = ((($data['page']-1)*10)+1) ?>
+                <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                 <?php foreach ($data['buku'] as $pengembalian) : ?>
                     <tr>
                         <td><?php echo $number;
