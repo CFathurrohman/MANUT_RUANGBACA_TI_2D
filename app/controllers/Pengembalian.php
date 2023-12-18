@@ -32,9 +32,14 @@ class Pengembalian extends Controller
         $this->view('templates/footer');
     }
 
-    public function kembali($idPeminjaman)
+    public function kembali()
     {
-        $data = ['id_peminjaman' => $idPeminjaman];
+        $data = [
+            'id_peminjaman' => $_POST['id_peminjaman'],
+            'keterangan' => $_POST['keterangan'],
+            'denda' => $_POST['denda'],
+            'kondisi' => $_POST['kondisi']
+        ];
 
         if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
             $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dikembalikan.');

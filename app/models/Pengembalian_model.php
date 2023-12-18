@@ -63,8 +63,11 @@ class Pengembalian_model
 
     public function terimaPengembalian($data)
     {
-        $this->db->query("UPDATE peminjaman_buku SET status='dikembalikan', tgl_kembali=CURDATE() WHERE id_peminjaman = :id_peminjaman");
+        $this->db->query("UPDATE peminjaman_buku SET status='dikembalikan', tgl_kembali=CURDATE(), kondisi = :kondisi, keterangan = :keterangan, denda = :denda WHERE id_peminjaman = :id_peminjaman");
         $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
+        $this->db->bind(':keterangan', $data['keterangan']);
+        $this->db->bind(':denda', $data['denda']);
+        $this->db->bind(':kondisi', $data['kondisi']);
         return $this->db->execute();
     }
 

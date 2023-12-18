@@ -20,7 +20,7 @@
         </div>
     </div>
 
- 
+
     <div class="table-responsive shadow">
         <table class="table table-bordered">
             <thead class="thead-white">
@@ -31,11 +31,14 @@
                     <th>Batas Pengembalian</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Status</th>
+                    <th>Kondisi</th>
+                    <th>Denda</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php $number = ((($data['page']-1)*10)+1) ?>
+                <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                 <?php foreach ($data['buku'] as $buku) : ?>
                     <tr>
                         <td><?php echo $number;
@@ -45,6 +48,9 @@
                         <td><?php echo $buku['tgl_batas_kembali']; ?></td>
                         <td><?php echo $buku['tgl_kembali']; ?></td>
                         <td><?php echo $buku['status']; ?></td>
+                        <td><?php echo $buku['kondisi']; ?></td>
+                        <td><?php echo $buku['denda']; ?></td>
+                        <td><?php echo $buku['keterangan']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/buku_riwayat/read/<?= $buku['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $buku['id_peminjaman'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
@@ -65,7 +71,7 @@
 </div>
 
 <nav aria-label="Page navigation">
-    <form action="<?= BASEURL; ?>/"buku_riwayat method="post">
+    <form action="<?= BASEURL; ?>/" buku_riwayat method="post">
         <ul class="pagination justify-content-center">
             <?php
             $totalPages = $data['total_pages'];
@@ -126,7 +132,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php

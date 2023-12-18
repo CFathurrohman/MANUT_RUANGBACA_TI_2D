@@ -67,7 +67,7 @@
                                         </g>
                                     </g>
                                 </svg></a>
-                            <a href="<?= BASEURL; ?>/pengembalian/kembali/<?= $pengembalian['id_peminjaman']; ?>" class="badge btn btn-success float-right actionLink" data-id="<?= $pengembalian['id_peminjaman'] ?>">
+                            <a href="<?= BASEURL; ?>/pengembalian/kembali/<?= $pengembalian['id_peminjaman']; ?>" class="badge btn btn-success float-right actionLink" data-id="<?= $pengembalian['id_peminjaman'] ?>" data-bs-toggle="modal" data-bs-target="#terimaModal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                                     <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022" />
                                 </svg>
@@ -142,7 +142,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php
@@ -151,27 +151,37 @@
     </form>
 </nav>
 
-<script>
-    $(document).ready(function() {
-        $(".actionLink").on("click", function(e) {
-            e.preventDefault();
-
-            const id = $(this).data("id");
-
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Apakah anda yakin menerima pengembalian peminjaman?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Iya',
-                cancelButtonText: 'Tidak'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "<?= BASEURL; ?>/pengembalian/kembali/" + id;
-                }
-            });
-        });
-    });
-</script>
+<div class="modal fade" id="terimaModal" tabindex="-1" aria-labelledby="terimaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="terima-modal" id="formTerimaModalLabel">Keterangan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form" action="<?= BASEURL; ?>/pengembalian/kembali" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id_peminjaman" value="<?= $pengembalian['id_peminjaman'] ?>">
+                    <div class="mb-3">
+                        <label for="keterangan" class="form-label">Keterangan</label>
+                        <input type="text" name="keterangan" class="form-control" id="keterangan" value="-" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="denda" class="form-label">Denda</label>
+                        <input type="number" name="denda" class="form-control" id="denda" value="0" required>
+                    </div>
+                    <div class="form-group col-xl-3">
+                        <label for="kondisi" class="form-label">Kondisi Buku</label>
+                        <select class="form-control" id="kondisi" name="kondisi" required>
+                            <option value="baik" selected>Baik</option>
+                            <option value="rusak">Rusak</option>
+                            <option value="hilang">Hilang</option>
+                        </select>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary" id="button-terima">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
