@@ -6,6 +6,7 @@
     <div></div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container mt-5">
@@ -75,8 +76,8 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $(".actionLink").on("click", function (e) {
+    $(document).ready(function() {
+        $(".actionLink").on("click", function(e) {
             e.preventDefault();
 
             const id = $(this).data("id");

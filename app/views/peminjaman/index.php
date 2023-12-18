@@ -6,6 +6,7 @@
     <div></div>
 </div>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container mt-5">
@@ -13,12 +14,6 @@
         <div class="col-12"><br>
             <h3>Daftar Pengajuan Peminjaman</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?php //Flasher::flashPeminjaman(); 
-            ?>
         </div>
     </div>
 
@@ -72,27 +67,27 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $(".actionLink").on("click", function (e) {
-        e.preventDefault();
+    $(document).ready(function() {
+        $(".actionLink").on("click", function(e) {
+            e.preventDefault();
 
-        const id = $(this).data("id");
-        const action = $(this).data("action");
+            const id = $(this).data("id");
+            const action = $(this).data("action");
 
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Iya',
-            cancelButtonText: 'Tidak'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "<?= BASEURL; ?>/peminjaman/" + action + "/" + id;
-            }
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Iya',
+                cancelButtonText: 'Tidak'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "<?= BASEURL; ?>/peminjaman/" + action + "/" + id;
+                }
+            });
         });
     });
-});
 </script>

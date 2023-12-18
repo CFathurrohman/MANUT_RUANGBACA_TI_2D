@@ -1,6 +1,8 @@
 <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/homeStyle.css">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="transition-group">
     <div></div>
@@ -59,35 +61,77 @@
     </div>
 
     <div class="row row-cols-md-6 row-cols-2 gx-4 p-5">
-    <?php foreach ($data['buku'] as $buku) : ?>
-    <div class="col mb-3">
-        <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
-            <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="Book Cover">
-            <div class="card-body d-flex flex-column justify-content-between">
-                <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
+        <?php foreach ($data['buku'] as $buku) : ?>
+            <div class="col mb-3">
+                <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
+                    <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="Book Cover">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
 
-                <div>
-                    <?php if ($buku['jumlah_tersedia'] == 0) : ?>
-                        <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>
-                    <?php else : ?>
-                        <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>
+                        <div>
+                            <?php if ($buku['jumlah_tersedia'] == 0) : ?>
+                                <li class="list-group-item"><small class="text-danger"><strong>Tidak Tersedia</strong></small></li>
+                            <?php else : ?>
+                                <li class="list-group-item"><small class="text-success"><strong>Tersedia</strong></small></li>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
+                    </div>
+                    <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
+                        <div class="card-footer text-center">
+                            <a href="<?= BASEURL; ?>/buku_simpan/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block simpanWishlish">Simpan</a>
+                        </div>
+                    <?php elseif (!isset($_SESSION['level'])) : ?>
+                        <div class="card-footer text-center">
+                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-sm btn-outline-info d-block">Simpan</a>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="card-footer text-center">
-                <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
-            </div>
-            <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
-                <div class="card-footer text-center">
-                    <a href="<?= BASEURL; ?>/buku_simpan/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Simpan</a>
-                </div>
-            <?php elseif (!isset($_SESSION['level'])) : ?>
-                <div class="card-footer text-center">
-                    <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-sm btn-outline-info d-block">Simpan</a>
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-<?php endforeach; ?>
+        <?php endforeach; ?>
     </div>
 </div>
+
+<script>
+    <?php if (isset($_SESSION['sweetalert'])) : ?>
+        Swal.fire({
+            icon: '<?php echo $_SESSION['sweetalert']['icon']; ?>',
+            title: '<?php echo $_SESSION['sweetalert']['title']; ?>',
+            text: '<?php echo $_SESSION['sweetalert']['text']; ?>',
+        });
+        <?php unset($_SESSION['sweetalert']); ?>
+    <?php endif; ?>
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('.simpanWishlish').click(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: $(this).attr('href'),
+                method: 'GET',
+                success: function(response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil Menyimpan Wishlist',
+                        text: 'Buku telah ditambahkan ke wishlist.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                },
+                error: function(error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal Menyimpan Wishlist',
+                        text: 'Terjadi kesalahan saat menyimpan wishlist. Silakan coba lagi.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            });
+        });
+    });
+</script>

@@ -14,14 +14,18 @@ class Peminjaman extends Controller
     public function terima($idPeminjaman)
     {
         $data = ['id_peminjaman' => $idPeminjaman];
-    
+
         try {
             if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
-                Flasher::setFlash('berhasil', 'diubah', 'success');
+                Flasher::setFlash('Berhasil', 'diterima', 'success', 'peminjaman');
+                header('Location: ' . BASEURL . '/peminjaman');
+                exit;
             } else {
-                Flasher::setFlash('gagal', 'diubah', 'danger');
+                Flasher::setFlash('Gagal', 'diterima', 'danger', 'peminjaman');
+                header('Location: ' . BASEURL . '/peminjaman');
+                exit;
             }
-    
+
             header('Location: ' . BASEURL . '/peminjaman');
             exit;
         } catch (PDOException $e) {
@@ -32,19 +36,20 @@ class Peminjaman extends Controller
                 echo '</script>';
                 exit;
             } else {
-
             }
         }
-    }    
+    }
 
     public function tolak($idPeminjaman)
     {
         $data = ['id_peminjaman' => $idPeminjaman];
 
         if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            Flasher::setFlash('Berhasil', 'ditolak', 'success', 'Peminjaman Behasil ditolak!');
+            header('Location: ' . BASEURL . '/peminjaman');
+            exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            Flasher::setFlash('Gagal', 'ditolak', 'danger', 'Peminjaman ditolak!');
         }
 
         header('Location: ' . BASEURL . '/peminjaman');

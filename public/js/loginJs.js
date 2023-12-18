@@ -35,34 +35,3 @@ let mainF = (e) => {
 }
 
 window.addEventListener("load", mainF);
-
-document.querySelector('#login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const username = document.querySelector('#username').value.trim();
-    const password = document.querySelector('#password').value.trim();
-
-    if (username && password) {
-        const response = fetch('/Log/cek_login', {
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-
-        response.then(function(data) {
-            return data.json();
-        }).then(function(json) {
-            if (json.status == 'success') {
-                document.location.replace('/');
-                Swal.fire({
-                    title: 'Berhasil',
-                    text: 'Anda berhasil login',
-                    icon: 'success',
-                    timer: 1500
-                });
-            } else {
-                alert('Failed to log in.');
-            }
-        });
-    }
-});

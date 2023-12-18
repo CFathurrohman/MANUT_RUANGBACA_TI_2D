@@ -5,6 +5,7 @@
     <div></div>
     <div></div>
 </div>
+<?php Flasher::flash() ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>
@@ -13,24 +14,16 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <?php Flasher::flashBuku(); ?>
-        </div>
-    </div>
-
     <div class="row mb-3">
         <div class="col-lg-6  d-flex justify-content-start">
-            <button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal"
-                    data-bs-target="#tambahBukuModal">
+            <button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal" data-bs-target="#tambahBukuModal">
                 Tambah
             </button>
         </div>
         <div class="col-lg-6 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/buku/cari" method="post" class="d-flex">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nama Buku" name="keyword" id="keyword"
-                           autocomplete="off">
+                    <input type="text" class="form-control" placeholder="Nama Buku" name="keyword" id="keyword" autocomplete="off">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="submit" id="tombolCari">Cari</button>
                     </div>
@@ -55,39 +48,34 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <?php $number = 1 ?>
-                    <?php foreach ($data['buku'] as $buku) : ?>
-                    <tr style="text-align: left;">
-                        <td><?php echo $number;
-                            $number++ ?></td>
-                        <td style="max-width: 240px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['nama_buku']; ?></td>
-                        <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['penulis']; ?></td>
-                        <td style="text-align: center;"><?= $buku['tahun_terbit']; ?></td>
-                        <td style="text-align: center;"><?= $buku['jumlah_total']; ?></td>
-                        <td style="text-align: center;"><?= $buku['jumlah_tersedia']; ?></td>
-                        <td style="text-align: left"><?php if (substr($buku['deskripsi'], 0, 42)) {
-                                echo substr($buku['deskripsi'], 0, 42) . '...';
-                            } else {
-                                echo $buku['deskripsi'];
-                            } ?></td>
-                        <td style="text-align: center;"><?= $buku['nama_kategori']; ?></td>
-                        <td style="text-align: center;">
-                            <div class="d-flex justify-content-between">
-                                <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>"
-                                   class="badge btn btn-primary">
-                                    <i class="fa " aria-hidden="true"></i>Buka</a>
-                                <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>"
-                                   class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal"
-                                   data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
-                                    <i class="fa " aria-hidden="true"></i>Ubah</a>
-                                <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>"
-                                   onclick="javascript:return confirm('Hapus Data Buku ?');"
-                                   class="badge btn btn-danger">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
-                            </div>
-                        </td>
-                        <?php endforeach; ?>
-                    </tr>
+                        <?php $number = 1 ?>
+                        <?php foreach ($data['buku'] as $buku) : ?>
+                            <tr style="text-align: left;">
+                                <td><?php echo $number;
+                                    $number++ ?></td>
+                                <td style="max-width: 240px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['nama_buku']; ?></td>
+                                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?= $buku['penulis']; ?></td>
+                                <td style="text-align: center;"><?= $buku['tahun_terbit']; ?></td>
+                                <td style="text-align: center;"><?= $buku['jumlah_total']; ?></td>
+                                <td style="text-align: center;"><?= $buku['jumlah_tersedia']; ?></td>
+                                <td style="text-align: left"><?php if (substr($buku['deskripsi'], 0, 42)) {
+                                                                    echo substr($buku['deskripsi'], 0, 42) . '...';
+                                                                } else {
+                                                                    echo $buku['deskripsi'];
+                                                                } ?></td>
+                                <td style="text-align: center;"><?= $buku['nama_kategori']; ?></td>
+                                <td style="text-align: center;">
+                                    <div class="d-flex justify-content-between">
+                                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary">
+                                            <i class="fa " aria-hidden="true"></i>Buka</a>
+                                        <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
+                                            <i class="fa " aria-hidden="true"></i>Ubah</a>
+                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" class="badge btn btn-danger deleteBuku" data-id="<?= $buku['id_buku']; ?>">
+                                            <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
+                                    </div>
+                                </td>
+                            <?php endforeach; ?>
+                            </tr>
                     </tbody>
                 </table>
             </div>
@@ -143,14 +131,18 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
+                <button type="submit" class="btn btn-primary" id="simpanBuku">Simpan</button>
             </div>
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="<?= BASEURL; ?>/js/scriptBuku.js"></script>
+
 <script>
-    document.getElementById('gambar_buku').addEventListener('change', function (e) {
+    document.getElementById('gambar_buku').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');
         preview.src = URL.createObjectURL(e.target.files[0]);
     });
@@ -179,4 +171,17 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
+</script>
+
+<script>
+    // Simpan untuk Tambah dan Ubah
+    $("#tombolSimpan").on("click", function() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Berhasil!',
+            text: 'Data berhasil disimpan.',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    });
 </script>

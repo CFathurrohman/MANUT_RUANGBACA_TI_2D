@@ -20,15 +20,20 @@ class Pengembalian extends Controller
         $this->view('templates/footer');
     }
 
-    public function kembali($idPeminjaman){
+    public function kembali($idPeminjaman)
+    {
         $data = ['id_peminjaman' => $idPeminjaman];
-    
+
         if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
+            Flasher::setFlash('Berhasil', 'diterima', 'success', 'Pengembalian');
+            header('Location: ' . BASEURL . '/pengembalian');
+            exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
+            Flasher::setFlash('Gagal', 'menerima', 'success', 'Pengembalian');
+            header('Location: ' . BASEURL . '/pengembalian');
+            exit;
         }
-    
+
         header('Location: ' . BASEURL . '/pengembalian');
         exit;
     }

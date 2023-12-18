@@ -13,11 +13,6 @@
             <hr style="height: 1px;color: black;background-color: black;">
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?php Flasher::flashAnggota(); ?>
-        </div>
-    </div>
 
     <div class="row mb-3">
         <div class="col-lg-6">
@@ -62,7 +57,7 @@
                         <td>
                             <div class="d-flex justify-content-between">
                                 <a href="<?= BASEURL; ?>/anggota/ubah/<?= $anggota['id_anggota']; ?>" class="badge btn btn-success tampilModalUbah" data-bs-toggle="modal" data-bs-target="#tambahModal" data-id="<?= $anggota['id_anggota'] ?>">Ubah</a>
-                                <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id_anggota']; ?>" class="badge btn btn-danger" onclick="return confirm('Konfirmasi');">hapus</a>
+                                <a href="<?= BASEURL; ?>/anggota/hapus/<?= $anggota['id_anggota']; ?>" class="badge btn btn-danger deleteAnggota" data-id="<?= $anggota['id_anggota']; ?>">hapus</a>
                             </div>
                         </td>
                     </tr>
@@ -111,4 +106,7 @@
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="<?= BASEURL; ?>/js/scriptAnggota.js"></script>
