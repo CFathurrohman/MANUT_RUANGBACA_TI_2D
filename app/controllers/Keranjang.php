@@ -1,7 +1,6 @@
 <?php
 class Keranjang extends Controller
 {
-    //Done
     public function index()
     {
         $data['judul'] = 'Keranjang';
@@ -12,7 +11,6 @@ class Keranjang extends Controller
         $this->view('templates/footer');
     }
 
-    //Done
     public function tambah($id_buku)
     {
         $data = [
@@ -48,9 +46,11 @@ class Keranjang extends Controller
     
             $countBooks = $this->model('Keranjang_model')->hitung();
     
-            if ($countBooks >= 3) {
+            $totalCountBooks = $countBooks + count($selectedBooks);
+    
+            if ($totalCountBooks > 3) {
                 echo "<script>alert('Maaf, batas peminjaman buku telah tercapai.')</script>";
-                echo "<script>window.location.href='".BASEURL."/keranjang';</script>";
+                echo "<script>window.location.href='" . BASEURL . "/keranjang';</script>";
                 exit;
             }
     
@@ -67,8 +67,7 @@ class Keranjang extends Controller
         }
     }    
 
-    //Done
-    public function read($id)
+        public function read($id)
     {
         $data['judul'] = 'Detail Buku';
         $data['buku'] = $this->model('Keranjang_model')->getReadBukuById($id);

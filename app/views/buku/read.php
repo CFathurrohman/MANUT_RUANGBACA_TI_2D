@@ -14,8 +14,13 @@
                 margin-left: 60vw;
             }
         </style>
+<<<<<<< HEAD
         <div class="card mb-3">
             <div class="row g-0" style="height: 70vh;">
+=======
+        <div class="card mb-3 shadow">
+          <div class="row g-0" style="height: 70vh;">
+>>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                 <div class="col-md-3">
                     <img src="<?= BASEURL; ?>/img/<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
                 </div>
@@ -36,8 +41,8 @@
                     </ul>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
                         <!-- <div class="card-body text-end">
-        <a href="#" class="btn btn-warning col-1">Edit</a>
-    </div> -->
+          <a href="#" class="btn btn-warning col-1">Edit</a>
+         </div> -->
                     <?php elseif (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">

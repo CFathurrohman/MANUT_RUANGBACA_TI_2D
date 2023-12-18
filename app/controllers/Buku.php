@@ -4,8 +4,14 @@ class Buku extends Controller
 {
     public function index()
     {
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Buku_model')->getAllBuku($results_per_page, $offset);
+        $total_rows = $this->model('Buku_model')->getTotalRows();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
         $data['judul'] = 'List Buku';
-        $data['buku'] = $this->model('Buku_model')->getAllBuku();
         $this->view('templates/header', $data);
         $this->view('buku/index', $data);
         $this->view('templates/footer');
@@ -101,8 +107,14 @@ class Buku extends Controller
 
     public function cari()
     {
+        $results_per_page = 10;
+        $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
+        $offset = ($page - 1) * $results_per_page;
+        $data['buku'] = $this->model('Buku_model')->cariDataBuku($results_per_page, $offset);
+        $total_rows = $this->model('Buku_model')->getTotalRowsCari();
+        $data['total_pages'] = ceil($total_rows / $results_per_page);
+        $data['page'] = $page;
         $data['judul'] = 'List Buku';
-        $data['buku'] = $this->model('Buku_model')->cariDataBuku();
         $this->view('templates/header', $data);
         $this->view('buku/index', $data);
         $this->view('templates/footer');

@@ -6,7 +6,7 @@
     <div></div>
 </div>
 <br><br>
-<div class="col mb-3 mx-3">
+<div class="col mb-3 mx-3 shadow">
     <div class="content-title">
         <h3>Daftar Buku Diajukan</h3>
     </div>
@@ -18,6 +18,10 @@
                     <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="Book Cover">
                     <div class="card-body">
                         <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Tanggal Pengajuan : </h6>
+                        <h5 style="font-size: medium" class="card-title"><?= $buku['tgl_pengajuan']; ?></h5>
                     </div>
                     <div class="card-footer text-center">
                         <a href="<?= BASEURL; ?>/buku_diajukan/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>

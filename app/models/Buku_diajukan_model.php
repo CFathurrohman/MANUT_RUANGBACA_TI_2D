@@ -14,7 +14,7 @@ class Buku_diajukan_model
 
     public function getBukuDiajukan()
     {
-        $query = "SELECT buku.* FROM buku
+        $query = "SELECT buku.*, tgl_pengajuan FROM buku
                   INNER JOIN detail_peminjaman dp ON buku.id_buku = dp.id_buku
                   INNER JOIN peminjaman_buku pb ON dp.id_peminjaman = pb.id_peminjaman
                   WHERE pb.id_anggota = :id_anggota AND pb.status = 'diajukan'";

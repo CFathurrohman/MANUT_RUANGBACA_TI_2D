@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +11,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    
+    transition: background 0.8s, color 0.8s;
 }
 
 .menu__wrapper {
@@ -174,6 +176,7 @@ body {
     0 30px 60px -30px rgba(0, 0, 0, .15);
     z-index: 2;
     animation: fadeIn 0.2s ease-in-out;
+    flex-direction: column;
 }
 
 .list-items-with-description {
@@ -210,7 +213,7 @@ body {
 
 .action-buttons {
     display: flex;
-    gap: 15px;
+    gap: 30px;
     align-items: center;
     flex-wrap: nowrap;
 }
@@ -252,11 +255,11 @@ body {
 }
 
 .keranjang .icon-path {
-  
+
     background-color: #0d6efd;
 }
 
 .keranjang:hover .icon-path {
-    fill: #000000;
- 
+    fill: #4c67ff;
+
 }
