@@ -9,7 +9,6 @@
     <div></div>
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -49,10 +48,6 @@
                                 <input type="checkbox" name="selected_books[]" value="<?= $buku['id_simpan']; ?>">
                             </td>
                             <td>
-<<<<<<< HEAD
-                                <a href="<?= BASEURL; ?>/buku_simpan/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary float-right" data-id="<?= $buku['id_buku'] ?>">Detail</a>
-                                <a href="<?= BASEURL; ?>/buku_simpan/hapus/<?= $buku['id_simpan']; ?>" class="badge btn btn-danger float-right deleteWishlist" data-id="<?= $buku['id_simpan'] ?>">Hapus</a>
-=======
                                 <a href="<?= BASEURL; ?>/buku_simpan/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary float-right" data-id="<?= $buku['id_buku'] ?>">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
@@ -70,7 +65,6 @@
                                     </svg>
 
                                 </a>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -89,81 +83,19 @@
 <script>
     $(document).ready(function() {
         $('form').submit(function(event) {
-<<<<<<< HEAD
-            if ($('input[name="selected_books[]"]:checked').length === 0) {
-                event.preventDefault();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal Memasukkan Keranjang',
-                    text: 'Tandai buku terlebih dahulu!',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-=======
             if ($('input[name="selected_books[]"]:checked').length > 0) {
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                 event.preventDefault();
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Keranjang Success!',
-                    text: 'Berhasil Memasukkan Keranjang',
+                    title: 'Pinjam Terpilih',
+                    text: 'Peminjaman Success!',
                     confirmButtonColor: '#3085d6',
                     confirmButtonText: 'OK'
                 }).then(() => {
                     $('form').get(0).submit();
                 });
             }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.deleteWishlist').click(function(event) {
-            event.preventDefault();
-
-            var deleteUrl = $(this).attr('href');
-
-            Swal.fire({
-                title: 'Apakah Anda Yakin?',
-                text: 'Anda akan menghapus wishlist ini.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: deleteUrl,
-                        method: 'GET',
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Berhasil Menghapus Wishlist',
-                                text: 'Wishlist telah dihapus.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function(error) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Gagal Menghapus Wishlist',
-                                text: 'Terjadi kesalahan saat menghapus wishlist. Silakan coba lagi.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                    });
-                }
-            });
         });
     });
 </script>

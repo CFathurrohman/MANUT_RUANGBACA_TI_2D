@@ -13,7 +13,7 @@ class Riwayat_model
 
     public function getAllRiwayat($limit, $offset)
     {
-        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status
+        $this->db->query("SELECT p.id_peminjaman, p.tgl_batas_kembali, p.tgl_pengajuan, a.nama, a.no_telp, a.id_anggota, b.nama_buku, p.tgl_pinjam, p.tgl_kembali, p.status, p.keterangan
         FROM peminjaman_buku p
         JOIN anggota a ON p.id_anggota = a.id_anggota
         JOIN detail_peminjaman d ON d.id_peminjaman = p.id_peminjaman

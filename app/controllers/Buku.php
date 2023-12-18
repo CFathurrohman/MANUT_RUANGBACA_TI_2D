@@ -24,17 +24,20 @@ class Buku extends Controller
         $this->view('templates/header', $data);
         $this->view('buku/read', $data);
         $this->view('templates/footer');
+
     }
 
     public function tambah()
     {
         $gambar_buku = $this->upload();
-        //        $validasi = $_POST['tersedia'] <= $_POST['jumlah'];
+//        $validasi = $_POST['tersedia'] <= $_POST['jumlah'];
 
         if ($this->model('Buku_model')->tambahDataBuku($_POST, $gambar_buku) > 0) {
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }
@@ -44,24 +47,24 @@ class Buku extends Controller
     {
         $namaFile = $_FILES['gambar_buku']['name'];
         $ukuranFile = $_FILES['gambar_buku']['size'];
-        //        $error = $_FILES['gambar_buku']['error'];
+//        $error = $_FILES['gambar_buku']['error'];
         $tmpName = $_FILES['gambar_buku']['tmp_name'];
 
-        //        if ($error === 4) {
-        //            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
-        //            return false;
-        //        }
+//        if ($error === 4) {
+//            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
+//            return false;
+//        }
 
         $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            //            echo "<script> alert('yang anda upload bukan gambar')</script>";
+//            echo "<script> alert('yang anda upload bukan gambar')</script>";
             return false;
         }
 
         if ($ukuranFile > 10000000) {
-            //            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
+//            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
             return false;
         }
 
@@ -78,9 +81,11 @@ class Buku extends Controller
     public function hapus($id)
     {
         if ($this->model('Buku_model')->hapusDataBuku($id) > 0) {
+            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }
@@ -97,9 +102,11 @@ class Buku extends Controller
         }
 
         if ($this->model('Buku_model')->ubahDataBuku($_POST, $gambar_buku) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }

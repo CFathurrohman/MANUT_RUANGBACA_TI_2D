@@ -47,6 +47,7 @@
                     <th>Batas Pengembalian</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Status</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -64,6 +65,7 @@
                         <td><?php echo $riwayat['tgl_batas_kembali']; ?></td>
                         <td><?php echo $riwayat['tgl_kembali']; ?></td>
                         <td><?php echo $riwayat['status']; ?></td>
+                        <td><?php echo $riwayat['keterangan']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/riwayat/read/<?= $riwayat['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $riwayat['id_peminjaman'] ?>"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
                                                 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">

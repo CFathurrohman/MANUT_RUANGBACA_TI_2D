@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <div class="transition-group">
     <div></div>
     <div></div>
@@ -6,21 +9,6 @@
     <div></div>
 </div>
 
-<<<<<<< HEAD
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<form action="<?= BASEURL; ?>/keranjang/multiPinjam" method="post">
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12">
-                <br>
-                <h3>Keranjang </h3>
-                <br>
-                <hr style="height: 1px;color: black;background-color: black;">
-=======
 <head>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -38,32 +26,17 @@
                     <br>
                     <hr style="height: 1px;color: black;background-color: black;">
                 </div>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
             </div>
 
             <div class="table-responsive shadow">
                 <table class="table table-bordered">
                     <thead class="thead-white">
                         <tr>
-<<<<<<< HEAD
-                            <td><?php echo $number;
-                                $number++ ?></td>
-                            <td><img src="<?= BASEURL; ?>/img/<?= $keranjang['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px"></td>
-                            <td><?php echo $keranjang['nama_buku']; ?></td>
-                            <td>
-                                <input type="checkbox" name="selected_books[]" value="<?= $keranjang['id_keranjang']; ?>">
-                            </td>
-                            <td>
-                                <a href="<?= BASEURL; ?>/keranjang/read/<?= $keranjang['id_buku']; ?>" class="badge btn btn-primary float-right" data-id="<?= $keranjang['id_buku'] ?>">Detail</a>
-                                <a href="<?= BASEURL; ?>/keranjang/hapus/<?= $keranjang['id_keranjang']; ?>" class="badge btn btn-danger float-right deleteKeranjang" data-id="<?= $keranjang['id_keranjang'] ?>">Hapus</a>
-                            </td>
-=======
                             <th>No.</th>
                             <th>Gambar Buku</th>
                             <th>Nama</th>
                             <th>Tandai</th>
                             <th>Aksi</th>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                         </tr>
                     </thead>
                     <tbody>
@@ -80,93 +53,6 @@
                                 <td>
                                     <a href="<?= BASEURL; ?>/keranjang/read/<?= $keranjang['id_buku']; ?>" class="badge btn btn-primary float-right" data-id="<?= $keranjang['id_buku'] ?>">
 
-<<<<<<< HEAD
-        <div class="row">
-            <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">Pinjam</button>
-                <button type="button" class="btn btn-secondary back-button" onclick="<?php BASEURL ?>">Kembali</button>
-            </div>
-        </div>
-    </div>
-</form>
-<script>
-    $(document).ready(function() {
-        $('form').submit(function(event) {
-            if ($('input[name="selected_books[]"]:checked').length === 0) {
-                event.preventDefault();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal Pinjam',
-                    text: 'Tandai buku yang mau dipinjam!',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-                event.preventDefault();
-
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Pinjam Terpilih',
-                    text: 'Peminjaman Success!',
-                    showConfirmButton: false,
-                    timer: 1500
-                }).then(() => {
-                    $('form').get(0).submit();
-                });
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.deleteKeranjang').click(function(event) {
-            event.preventDefault();
-
-            var deleteUrl = $(this).attr('href');
-
-            Swal.fire({
-                title: 'Apakah Anda Yakin?',
-                text: 'Anda akan menghapus buku dari keranjang.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: deleteUrl,
-                        method: 'GET',
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Buku telah dihapus!',
-                                text: 'Berhasil Menghapus Buku dari Keranjang',
-                                showConfirmButton: false,
-                                timer: 1500
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function(error) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Gagal Menghapus Buku!',
-                                text: 'Terjadi kesalahan saat menghapus buku dari keranjang.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                    });
-                }
-            });
-        });
-    });
-</script>
-=======
                                         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
                                             <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                 <g transform="scale(8.53333,8.53333)">
@@ -217,4 +103,3 @@
 </body>
 
 </html>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e

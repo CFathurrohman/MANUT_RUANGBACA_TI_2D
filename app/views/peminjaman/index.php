@@ -6,7 +6,6 @@
     <div></div>
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container mt-5">
@@ -16,6 +15,12 @@
             <h3>Daftar Pengajuan Peminjaman</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
             <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <?php //Flasher::flashPeminjaman(); 
+            ?>
         </div>
     </div>
 
@@ -46,7 +51,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $number = ((($data['page']-1)*10)+1) ?>
+                <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                 <?php foreach ($data['buku'] as $peminjaman) : ?>
                     <tr>
                         <td><?php echo $number;
@@ -72,7 +77,7 @@
                                     <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022" />
                                 </svg>
                             </a>
-                            <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right actionLink" data-id="<?= $peminjaman['id_peminjaman'] ?>" data-action="tolak">
+                            <a href="<?= BASEURL; ?>/peminjaman/tolak/<?= $peminjaman['id_peminjaman']; ?>" class="badge btn btn-danger float-right actionLink" data-id="<?= $peminjaman['id_peminjaman'] ?>" data-action="tolak" data-bs-toggle="modal" data-bs-target="#tolakModal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ban" viewBox="0 0 16 16">
                                     <path d="M15 8a6.973 6.973 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0" />
                                 </svg>
@@ -83,23 +88,13 @@
             </tbody>
         </table>
         <style>
-              .aksi {
-        width: 11% !important;
-    }
+            .aksi {
+                width: 11% !important;
+            }
         </style>
     </div>
 </div>
 
-<<<<<<< HEAD
-<script>
-    $(document).ready(function() {
-        $(".actionLink").on("click", function(e) {
-            e.preventDefault();
-
-            const id = $(this).data("id");
-            const action = $(this).data("action");
-
-=======
 <nav aria-label="Page navigation">
     <form action="<?= BASEURL; ?>/peminjaman" method="post">
         <ul class="pagination justify-content-center">
@@ -171,29 +166,25 @@
     </form>
 </nav>
 
-<script>
-    $(document).ready(function() {
-        $(".actionLink").on("click", function(e) {
-            e.preventDefault();
-
-            const id = $(this).data("id");
-            const action = $(this).data("action");
-
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Iya',
-                cancelButtonText: 'Tidak'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "<?= BASEURL; ?>/peminjaman/" + action + "/" + id;
-                }
-            });
-        });
-    });
-</script>
+<div class="modal fade" id="tolakModal" tabindex="-1" aria-labelledby="tolakModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="tolak-modal" id="formTolakModalLabel">Keterangan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form" action="<?= BASEURL; ?>/peminjaman/tolak" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id_peminjaman" value="<?=$peminjaman['id_peminjaman']?>">
+                    <div class="mb-3">
+                        <label for="keterangan" class="form-label">Keterangan</label>
+                        <input type="text" name="keterangan" class="form-control" id="keterangan" required>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="submit" class="btn btn-primary" id="button-tolak">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -58,13 +58,14 @@ class Peminjaman_model
         return $this->db->execute();
     }
 
-
     public function tolakPeminjaman($data)
     {
-        $this->db->query("UPDATE peminjaman_buku SET status='ditolak', tgl_kembali=NULL WHERE id_peminjaman = :id_peminjaman");
+        $query = "UPDATE peminjaman_buku SET status = 'ditolak', keterangan = :keterangan WHERE id_peminjaman = :id_peminjaman";
+        $this->db->query($query);
+        $this->db->bind(':keterangan', $data['keterangan']);
         $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
         return $this->db->execute();
-    }
+    }    
 
     public function readMulti($id)
     {        

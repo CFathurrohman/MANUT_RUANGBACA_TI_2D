@@ -14,13 +14,8 @@
                 margin-left: 60vw;
             }
         </style>
-<<<<<<< HEAD
-        <div class="card mb-3">
-            <div class="row g-0" style="height: 70vh;">
-=======
         <div class="card mb-3 shadow">
           <div class="row g-0" style="height: 70vh;">
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                 <div class="col-md-3">
                     <img src="<?= BASEURL; ?>/img/<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
                 </div>
@@ -46,15 +41,13 @@
                     <?php elseif (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">
-                                <form id="pinjamForm" action="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" method="post">
-                                    <button type="submit" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</button>
-                                </form>
+                                <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
                             </div>
                         </div>
                     <?php else : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">
-                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
+                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -64,20 +57,16 @@
     </div>
 </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
-    document.getElementById('pinjamBtn').addEventListener('click', function(event) {
-        event.preventDefault();
+    document.getElementById('pinjamBtn').addEventListener('click', function () {
         Swal.fire({
             icon: 'success',
             title: 'Success!',
             text: 'Buku berhasil dimasukkan ke keranjang.',
             showConfirmButton: false,
-            timer: 1500
-        }).then(() => {
-            document.getElementById('pinjamForm').submit();
+            timer: 3000 
         });
     });
 </script>

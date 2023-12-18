@@ -5,12 +5,17 @@
     <div></div>
     <div></div>
 </div>
-<?php Flasher::flash() ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>
             <h3>Daftar Buku</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <?php Flasher::flashBuku(); ?>
         </div>
     </div>
 
@@ -48,11 +53,7 @@
                     </tr>
                     </thead>
                     <tbody>
-<<<<<<< HEAD
-                        <?php $number = 1 ?>
-=======
                         <?php $number = ((($data['page']-1)*10)+1) ?>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                         <?php foreach ($data['buku'] as $buku) : ?>
                             <tr style="text-align: left;">
                                 <td><?php echo $number;
@@ -71,13 +72,6 @@
                                 <td style="text-align: center;">
                                     <div class="d-flex justify-content-between">
                                         <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="badge btn btn-primary">
-<<<<<<< HEAD
-                                            <i class="fa " aria-hidden="true"></i>Buka</a>
-                                        <a href="<?= BASEURL; ?>/buku/ubah/<?= $buku['id_buku']; ?>" class="badge btn btn-success float-right tampilBukuModalUbah" data-bs-toggle="modal" data-bs-target="#tambahBukuModal" data-id="<?= $buku['id_buku'] ?>">
-                                            <i class="fa " aria-hidden="true"></i>Ubah</a>
-                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" class="badge btn btn-danger deleteBuku" data-id="<?= $buku['id_buku']; ?>">
-                                            <i class="fa fa-trash-o" aria-hidden="true"></i>Hapus</a>
-=======
                                             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
                                                 <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
                                                     <g transform="scale(8.53333,8.53333)">
@@ -98,7 +92,6 @@
                                                 <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
                                             </svg>
                                         </a>
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
                                     </div>
                                 </td>
                             <?php endforeach; ?>
@@ -235,16 +228,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary" id="simpanBuku">Simpan</button>
+                <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
             </div>
         </div>
     </div>
 </div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="<?= BASEURL; ?>/js/scriptBuku.js"></script>
-
 <script>
     document.getElementById('gambar_buku').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');
@@ -275,20 +264,4 @@
         };
         reader.readAsDataURL(event.target.files[0]);
     }
-<<<<<<< HEAD
-</script>
-
-<script>
-    // Simpan untuk Tambah dan Ubah
-    $("#tombolSimpan").on("click", function() {
-        Swal.fire({
-            icon: 'success',
-            title: 'Berhasil!',
-            text: 'Data berhasil disimpan.',
-            showConfirmButton: false,
-            timer: 3000
-        });
-    });
-=======
->>>>>>> d52d0a625917de2b0993269927134d44b0a8624e
 </script>
