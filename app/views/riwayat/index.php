@@ -14,12 +14,6 @@
             <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <?php //Flasher::flashPeminjaman(); 
-            ?>
-        </div>
-    </div>
 
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
