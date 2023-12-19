@@ -5,6 +5,7 @@ class Buku_dipinjam extends Controller{
         $data['judul'] = 'Buku_dipinjam';
         $data['buku'] = $this->model('Buku_dipinjam_model')->getBukuDipinjam();
         $this->view('templates/header',$data);
+        $this->view('templates/subHeader');
         $this->view('Buku_dipinjam/index',$data);
         $this->view('templates/footer');
     }

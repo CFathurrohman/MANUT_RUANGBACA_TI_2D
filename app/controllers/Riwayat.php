@@ -13,6 +13,7 @@ class Riwayat extends Controller
         $data['page'] = $page;
         $data['judul'] = 'Riwayat Buku';
         $this->view('templates/header', $data);
+        $this->view('templates/subHeader');
         $this->view('riwayat/index', $data);
         $this->view('templates/footer');
     }

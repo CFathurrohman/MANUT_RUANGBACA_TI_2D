@@ -5,6 +5,7 @@ class Buku_diajukan extends Controller{
         $data['judul'] = 'Buku_diajukan';
         $data['buku'] = $this->model('Buku_diajukan_model')->getBukuDiajukan();
         $this->view('templates/header',$data);
+        $this->view('templates/subHeader');
         $this->view('buku_diajukan/index',$data);
         $this->view('templates/footer');
     }

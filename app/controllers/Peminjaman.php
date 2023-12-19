@@ -13,6 +13,7 @@ class Peminjaman extends Controller
         $data['page'] = $page;
         $data['judul'] = 'Peminjaman Buku';
         $this->view('templates/header', $data);
+        $this->view('templates/subHeader');
         $this->view('peminjaman/index', $data);
         $this->view('templates/footer');
     }
