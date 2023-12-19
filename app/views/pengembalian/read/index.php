@@ -18,14 +18,14 @@
                             <h2 class="card-title"><?= $book['nama_buku']; ?></h2>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><small class="text-muted">Kategori
-                                    : <?= $book['nama_kategori']; ?></small></li>
-                            <li class="list-group-item"><small class="text-muted">Penulis
-                                    : <?= $book['penulis']; ?></small></li>
-                            <li class="list-group-item"><small class="text-muted">Tahun Terbit
-                                    : <?= $book['tahun_terbit']; ?></small></li>
-                            <li class="list-group-item"><small class="text-muted">Deskripsi
-                                    : <?= $book['deskripsi']; ?></small></li>
+                            <li class="list-group-item"><small class="text-muted"><strong>Kategori</strong>
+                                    :&emsp;&emsp;&ensp;&nbsp; <?= $book['nama_kategori']; ?></small></li>
+                            <li class="list-group-item"><small class="text-muted"><strong>Penulis</strong>
+                                    :&emsp;&emsp;&emsp;&ensp; <?= $book['penulis']; ?></small></li>
+                            <li class="list-group-item"><small class="text-muted"><strong>Tahun Terbit</strong>
+                                    :&emsp; <?= $book['tahun_terbit']; ?></small></li>
+                            <li class="list-group-item"><small class="text-muted"><strong>Deskripsi</strong><br>
+                                    <?= $book['deskripsi']; ?></small></li>
                         </ul>
                     </div>
                 </div>
