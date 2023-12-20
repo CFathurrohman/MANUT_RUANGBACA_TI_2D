@@ -45,6 +45,20 @@
 //                    echo '    <button>Akses<i class="material-icons">expand_more</i>';
 //                    echo '    </button>';
 //                }
+
+            if (!empty($data['peminjaman_buku'])) {
+                $status = $data['peminjaman_buku'][0]['status'];
+                if ($status == 'diajukan') {
+                    echo '    <button><span class="position-static top-0 start-0 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                            </span>Akses<i class="material-icons">expand_more</i>';
+                    echo '    </button>';
+                } else {
+
+                    echo '    <button>Akses<i class="material-icons">expand_more</i>';
+                    echo '    </button>';
+                }
+            }
             echo '    <button>Akses<i class="material-icons">expand_more</i>';
             echo '    </button>';
             echo '        <div class="dropdown__wrapper">';

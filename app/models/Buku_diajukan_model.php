@@ -35,4 +35,16 @@ class Buku_diajukan_model
         $this->db->bind(':id_buku', $id);
         return $this->db->resultSet();
     }
+
+    public function get_status_diajukan($id_anggota)
+    {
+        $this->db->query("SELECT id_anggota FROM anggota WHERE id_anggota = :id_anggota");
+        $this->db->bind(':id_anggota', $id_anggota);
+        $this->db->execute();
+
+        $this->db->query("SELECT status, id_anggota FROM peminjaman_buku WHERE status = 'diajukan' AND id_anggota = '$id_anggota'");
+        $this->db->bind(':id_anggota', $id_anggota);
+
+        return $this->db->resultSet();
+    }
 }

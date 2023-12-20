@@ -17,5 +17,11 @@ class Buku_diajukan extends Controller{
         $this->view('buku_diajukan/read/index', $data);
         $this->view('templates/footer');
     }
-}
 
+    public function status_diajukan($id_anggota)
+    {
+        $data['peminjaman_buku'] = $this->model('Buku_diajukan_model')->get_status_diajukan($id_anggota);
+
+        $this->view('templates/header', $data);
+    }
+}
