@@ -13,6 +13,7 @@ class Pengembalian extends Controller
         $data['page'] = $page;
         $data['judul'] = 'Pengembalian buku';
         $this->view('templates/header', $data);
+        $this->view('templates/subHeader');
         $this->view('Pengembalian/index', $data);
         $this->view('templates/footer');
     }

@@ -187,7 +187,7 @@
             </div>
         </div>
     </div>
-
-    <script src="<?= BASEURL; ?>/js/scriptAnggota.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</div>
+<script src="<?= BASEURL; ?>/js/scriptAnggota.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
