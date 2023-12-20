@@ -7,7 +7,7 @@
 </div>
 <br><br>
 <div class="col mb-3 mx-3 shadow">
-    <div class="content-title">
+    <div class="content-title text-center">
         <h3>Daftar Buku Diajukan</h3>
     </div>
     <br>
