@@ -50,4 +50,16 @@ class Home_model
 
         return $this->db->resultSet();
     }
+
+    public function getTotalDiajukan()
+    {   
+        $this->db->query("SELECT COUNT(*) AS jumlah FROM peminjaman_buku WHERE status = 'diajukan'");
+        return $this->db->single();  
+    }
+
+    public function getTotalDipinjam()
+    {   
+        $this->db->query("SELECT COUNT(*) AS jumlah FROM peminjaman_buku WHERE status = 'dipinjam'");
+        return $this->db->single();  
+    }
 }
