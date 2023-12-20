@@ -79,7 +79,7 @@
                             id="flexSwitchCheckChecked"
                             onclick="toggleTheme()">
                             <label class="form-check-label" for="flexSwitchCheckChecked">
-                                <span id="themeIcon" class="theme-icon icon-path" data-feather="sun"></span>
+                                <span style="color: #fafafa" id="themeIcon" class="theme-icon icon-path" data-feather="sun"></span>
                                 <span class="visually-hidden" id="themeLabel"></span>
                             </label></input>
                     </div> 
