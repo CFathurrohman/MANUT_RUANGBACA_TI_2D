@@ -15,7 +15,7 @@
             }
         </style>
         <div class="card mb-3 shadow">
-            <div class="row g-0" style="height: 70vh;">
+            
                 <div class="col-md-3">
                     <img src="<?= BASEURL; ?>/img/<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
                 </div>
