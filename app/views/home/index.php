@@ -41,6 +41,12 @@
         </div>
     </div>
     <br>
+
+    <div>
+    <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
+    <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
+    </div>
+
     <hr style="height: 1px;color: black;background-color: black;">
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
