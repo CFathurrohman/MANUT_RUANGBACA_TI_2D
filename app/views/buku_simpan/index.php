@@ -9,6 +9,7 @@
     <div></div>
 </div>
 
+<script src="<?= BASEURL; ?>/js/bukuSimpan.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -72,7 +73,7 @@
                                         </svg>
 
                                     </a>
-                                    <a href="<?= BASEURL; ?>/buku_simpan/hapus/<?= $buku['id_simpan']; ?>" class="badge btn btn-danger float-right" data-id="<?= $buku['id_simpan'] ?>">
+                                    <a href="<?= BASEURL; ?>/buku_simpan/hapus/<?= $buku['id_simpan']; ?>" class="badge btn btn-danger float-right deleteWishlist" data-id="<?= $buku['id_simpan'] ?>">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ban" viewBox="0 0 16 16">
                                             <path d="M15 8a6.973 6.973 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0" />
                                         </svg>
@@ -95,81 +96,3 @@
         </div>
     </div>
 </form>
-
-<script>
-    $(document).ready(function() {
-        $('form').submit(function(event) {
-            if ($('input[name="selected_books[]"]:checked').length === 0) {
-                event.preventDefault();
-
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Gagal Memasukkan Keranjang',
-                    text: 'Tandai buku terlebih dahulu!',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'OK'
-                });
-            } else {
-                event.preventDefault();
-
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Keranjang Success!',
-                    text: 'Berhasil Memasukkan Keranjang',
-                    confirmButtonColor: '#3085d6',
-                    confirmButtonText: 'OK'
-                }).then(() => {
-                    $('form').get(0).submit();
-                });
-            }
-        });
-    });
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.deleteWishlist').click(function(event) {
-            event.preventDefault();
-
-            var deleteUrl = $(this).attr('href');
-
-            Swal.fire({
-                title: 'Apakah Anda Yakin?',
-                text: 'Anda akan menghapus wishlist ini.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, Hapus!',
-                cancelButtonText: 'Batal'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: deleteUrl,
-                        method: 'GET',
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Berhasil Menghapus Wishlist',
-                                text: 'Wishlist telah dihapus.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            }).then(() => {
-                                location.reload();
-                            });
-                        },
-                        error: function(error) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Gagal Menghapus Wishlist',
-                                text: 'Terjadi kesalahan saat menghapus wishlist. Silakan coba lagi.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                    });
-                }
-            });
-        });
-    });
-</script>

@@ -61,29 +61,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="<?= BASEURL; ?>/js/editPassword.js"></script>
 </body>
-<script>
-    $(document).ready(function() {
-        $('#changePasswordForm').submit(function(e) {
-            if ($('#newPassword').val() !== $('#confirmPassword').val()) {
-                e.preventDefault();
-                $('#passwordMismatch').show();
-            } else {
-                $('#passwordMismatch').hide();
 
-                Swal.fire({
-                    title: "Sukses!",
-                    text: "Password berhasil diubah!",
-                    icon: "success",
-                    confirmButtonText: "OK"
-                }).then(function(result) {
-                    if (result.isConfirmed) {
-                        window.location.href = "<?= BASEURL ?>/Home";
-                    }
-                });
-            }
+<script>
+    <?php if (isset($_SESSION['sweetalert'])) : ?>
+        Swal.fire({
+            icon: '<?php echo $_SESSION['sweetalert']['icon']; ?>',
+            title: '<?php echo $_SESSION['sweetalert']['title']; ?>',
+            text: '<?php echo $_SESSION['sweetalert']['text']; ?>',
         });
-    });
+        <?php unset($_SESSION['sweetalert']); ?>
+    <?php endif; ?>
 </script>
 
 </html>

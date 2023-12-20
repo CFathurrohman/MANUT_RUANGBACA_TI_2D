@@ -3,6 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?= BASEURL; ?>/js/home.js"></script>
 
 <div class="transition-group">
     <div></div>
@@ -43,8 +44,8 @@
     <br>
 
     <div>
-    <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
-    <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
+        <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
+        <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
     </div>
 
     <hr style="height: 1px;color: black;background-color: black;">
@@ -175,35 +176,4 @@
         });
         <?php unset($_SESSION['sweetalert']); ?>
     <?php endif; ?>
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('.simpanWishlish').click(function(event) {
-            event.preventDefault();
-
-            $.ajax({
-                url: $(this).attr('href'),
-                method: 'GET',
-                success: function(response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil Menyimpan Wishlist',
-                        text: 'Buku telah ditambahkan ke wishlist.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                },
-                error: function(error) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Gagal Menyimpan Wishlist',
-                        text: 'Terjadi kesalahan saat menyimpan wishlist. Silakan coba lagi.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            });
-        });
-    });
 </script>
