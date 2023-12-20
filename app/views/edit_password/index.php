@@ -25,7 +25,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header " style="background-color: #e3e3e3;">
                             <h4>Ganti Kata Sandi</h4>
                         </div>
                         <div class="card-body">

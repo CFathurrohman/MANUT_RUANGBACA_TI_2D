@@ -14,7 +14,7 @@
         <div class="col-12"><br>
             <h3>Daftar Pengajuan Peminjaman</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
-            <a href="javascript:history.go(-1)" class="btn btn-primary">Kembali</a>
+ 
         </div>
     </div>
 
@@ -45,7 +45,19 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
+            <?php
+                    if (empty($data['buku'])) : ?>
+                        <tr>
+                            <td colspan="10" style="text-align:center;">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50vw" height="50vh" fill="#e3e3e3" class="bi bi-x" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php else :
+                 $number = ((($data['page'] - 1) * 10) + 1) ?>
                 <?php foreach ($data['buku'] as $peminjaman) : ?>
                     <tr>
                         <td><?php echo $number;
@@ -78,7 +90,7 @@
                             </a>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach; endif ?>
             </tbody>
         </table>
         <style>
