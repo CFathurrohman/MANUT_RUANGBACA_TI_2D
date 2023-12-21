@@ -29,8 +29,6 @@ class Login_model
         } else {
             return null;
         }
-
-
     }
 
     public function getUserByUsername($username)
@@ -38,6 +36,13 @@ class Login_model
         $this->db->query('SELECT * FROM user WHERE username = :username');
         $this->db->bind(':username', $username);
 
+        return $this->db->single();
+    }
+
+    public function getAlertUsername($id_user)
+    {
+        $this->db->query('SELECT nama FROM anggota WHERE id_user = :id_user');
+        $this->db->bind(':id_user', $id_user);
         return $this->db->single();
     }
 
@@ -104,7 +109,7 @@ class Login_model
         return true;
     }
 
-//$ip_address = get_ip_address();
+    //$ip_address = get_ip_address();
 
 
 }

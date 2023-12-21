@@ -19,11 +19,9 @@ class Anggota extends Controller
     public function tambah()
     {
         if ($this->model('Anggota_model')->tambahDataAnggota($_POST) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Data Anggota berhasil ditambahkan.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Anggota gagal ditambahkan.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }
@@ -32,11 +30,9 @@ class Anggota extends Controller
     public function hapus($id)
     {
         if ($this->model('Anggota_model')->hapusDataAnggota($id)) {
-            $this->showAlert('success', 'Berhasil', 'Data Anggota berhasil dihapus.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Anggota gagal dihapus.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }
@@ -45,11 +41,9 @@ class Anggota extends Controller
     public function ubah()
     {
         if ($this->model('Anggota_model')->ubahDataAnggota($_POST) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Data Anggota berhasil diubah.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Anggota gagal diubah.');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }

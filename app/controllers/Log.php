@@ -24,8 +24,9 @@ class Log extends Controller
                 $this->model('Login_model')->log_login($username, $user['id_user']);
 
                 if ($_SESSION['level'] === 'admin' || $_SESSION['level'] === 'anggota') {
-                    $nama = $user["username"];
-                    $this->showAlert('success', 'Login Berhasil', "Selamat Datang $nama");
+                    $nama = $this->model('Login_model')->getAlertUsername($user['id_user']);
+                    $namaAdmin = $user["username"];
+                    $this->showAlert('success', 'Login Berhasil', "Selamat Datang " . ($nama['nama'] ?? $namaAdmin));
                     header('Location: ' . BASEURL . '/Home');
                     exit();
                 } else {

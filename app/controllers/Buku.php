@@ -32,11 +32,9 @@ class Buku extends Controller
         //        $validasi = $_POST['tersedia'] <= $_POST['jumlah'];
 
         if ($this->model('Buku_model')->tambahDataBuku($_POST, $gambar) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditambahkan.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Buku gagal ditambahkan.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }
@@ -51,7 +49,7 @@ class Buku extends Controller
         $tmpName = $_FILES['gambar']['tmp_name'];
         //cek apakah tidak ada gambar yang diupload
         if ($error === 4) {
-//            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
+            //            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
             return false;
         }
 
@@ -60,13 +58,13 @@ class Buku extends Controller
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-//            echo "<script> alert('yang anda upload bukan gambar')</script>";
+            //            echo "<script> alert('yang anda upload bukan gambar')</script>";
             return false;
         }
 
         //cek jika ukurannya terlalu besar
         if ($ukuranFile > 10000000) {
-//            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
+            //            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
             return false;
         }
         //generate nama gambar baru
@@ -83,11 +81,9 @@ class Buku extends Controller
     public function hapus($id)
     {
         if ($this->model('Buku_model')->hapusDataBuku($id) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dihapus.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Buku gagal dihapus.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }
@@ -104,11 +100,9 @@ class Buku extends Controller
         }
 
         if ($this->model('Buku_model')->ubahDataBuku($_POST, $gambar_buku) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil diubah.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Data Buku gagal diubah.');
             header('Location: ' . BASEURL . '/buku');
             exit;
         }

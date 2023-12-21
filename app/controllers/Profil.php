@@ -1,11 +1,12 @@
 <?php
-class Profil extends Controller{
+class Profil extends Controller
+{
     public function index()
     {
         $data['judul'] = 'Profil';
         $data['user'] = $this->model('Profil_model')->getUserData();
-        $this->view('templates/header',$data);
-        $this->view('profil/index',$data);
+        $this->view('templates/header', $data);
+        $this->view('profil/index', $data);
         $this->view('templates/footer');
     }
 
@@ -48,11 +49,9 @@ class Profil extends Controller{
         }
 
         if ($this->model('Profil_model')->editFotoProfil($fotoProfil) > 0) {
-            $this->showAlert('success', 'Berhasil', 'Foto Profil berhasil diubah.');
             header('Location: ' . BASEURL . '/profil/index');
             exit;
         } else {
-            $this->showAlert('error', 'Gagal', 'Foto Profil gagal diubah.');
             header('Location: ' . BASEURL . '/profil/index');
             exit;
         }

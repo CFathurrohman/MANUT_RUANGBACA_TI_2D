@@ -15,43 +15,43 @@
         cursor: pointer;
     }
 
-    [data-bs-theme = "light"] #card_ajukan {
+    [data-bs-theme="light"] #card_ajukan {
         background-color: #D8EB79;
     }
 
-    [data-bs-theme = "light"] #card_pinjam {
+    [data-bs-theme="light"] #card_pinjam {
         background-color: #D8EB79;
     }
 
-    [data-bs-theme = "light"] #card_ajukan:hover {
+    [data-bs-theme="light"] #card_ajukan:hover {
         background-color: papayawhip;
         cursor: pointer;
     }
 
-    [data-bs-theme = "light"] #card_pinjam:hover {
+    [data-bs-theme="light"] #card_pinjam:hover {
         background-color: papayawhip;
         cursor: pointer;
     }
 
-    [data-bs-theme = "dark"] #card_ajukan {
+    [data-bs-theme="dark"] #card_ajukan {
         background-color: #586669;
     }
 
-    [data-bs-theme = "dark"] #card_pinjam {
+    [data-bs-theme="dark"] #card_pinjam {
         background-color: #586669;
     }
 
-    [data-bs-theme = "dark"] #card_ajukan:hover {
+    [data-bs-theme="dark"] #card_ajukan:hover {
         background-color: #243447;
         cursor: pointer;
     }
 
-    [data-bs-theme = "dark"] #card_pinjam:hover {
+    [data-bs-theme="dark"] #card_pinjam:hover {
         background-color: #243447;
         cursor: pointer;
     }
 
-    [data-bs-theme = "dark"] .card:hover {
+    [data-bs-theme="dark"] .card:hover {
         background-color: #243447;
     }
 </style>
@@ -96,13 +96,13 @@
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
+                                        <img class="d-block w-100" src="' . BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
                                     </div>
                                     <div class="carousel-item fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
+                                        <img class="d-block w-100" src="' . BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
                                     </div>
                                     <div class="carousel-item fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
+                                        <img class="d-block w-100" src="' . BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -119,13 +119,13 @@
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
+                                        <img class="d-block w-100" src="' . BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
                                     </div>
                                     <div class="carousel-item fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
+                                        <img class="d-block w-100" src="' . BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
                                     </div>
                                     <div class="carousel-item fade-in">
-                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
+                                        <img class="d-block w-100" src="' . BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -158,7 +158,7 @@
         <?php foreach ($data['buku'] as $buku) : ?>
             <div class="col mb-3">
                 <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
-                       <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/imgBuku/<?= $buku['gambar']; ?>" class="card-img-top" alt="Book Cover">
+                    <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/imgBuku/<?= $buku['gambar']; ?>" class="card-img-top" alt="Book Cover">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
                         <div>
@@ -178,11 +178,11 @@
                             <a href="<?= BASEURL; ?>/buku_simpan/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block simpanWishlish">Simpan</a>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-success d-block simpanWishlish">Keranjang</a>
+                            <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-success d-block simpanKeranjang">Keranjang</a>
                         </div>
                     <?php elseif (!isset($_SESSION['level'])) : ?>
                         <div class="card-footer text-center">
-                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-sm btn-outline-info d-block">Simpan</a>
+                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-sm btn-outline-info d-block logSimpan">Simpan</a>
                         </div>
                     <?php endif; ?>
                 </div>
@@ -274,37 +274,6 @@
 </script>
 
 <script>
-    $(document).ready(function() {
-        $('.simpanWishlish').click(function(event) {
-            event.preventDefault();
-
-            $.ajax({
-                url: $(this).attr('href'),
-                method: 'GET',
-                success: function(response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil Menyimpan Wishlist',
-                        text: 'Buku telah ditambahkan ke wishlist.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                },
-                error: function(error) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Gagal Menyimpan Wishlist',
-                        text: 'Terjadi kesalahan saat menyimpan wishlist. Silakan coba lagi.',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            });
-        });
-    });
-</script>
-
-<script>
     function redirectToAnotherPage(url1, url2) {
         // url1 = 'http://localhost/manut_ruangbaca_ti_2d/public/pemi';
         // url2 = 'http://localhost/manut_ruangbaca_ti_2d/public/buku_dipinjam';
@@ -312,4 +281,15 @@
         let check = condition ? url1 : url2;
         window.location.href = check;
     }
+</script>
+
+<script>
+    <?php if (isset($_SESSION['sweetalert'])) : ?>
+        Swal.fire({
+            icon: '<?php echo $_SESSION['sweetalert']['icon']; ?>',
+            title: '<?php echo $_SESSION['sweetalert']['title']; ?>',
+            text: '<?php echo $_SESSION['sweetalert']['text']; ?>',
+        });
+        <?php unset($_SESSION['sweetalert']); ?>
+    <?php endif; ?>
 </script>
