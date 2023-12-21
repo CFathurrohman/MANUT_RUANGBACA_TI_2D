@@ -3,6 +3,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="<?= BASEURL; ?>/js/home.js"></script>
 
 <style>
     .card {
@@ -103,6 +104,34 @@
     }
 
     ?>
+
+    <div class="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active fade-in">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 1.png" alt="First slide">
+                </div>
+                <div class="carousel-item fade-in">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 2.png" alt="Second slide">
+                </div>
+                <div class="carousel-item fade-in">
+                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 3.png" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <br>
+
+    <div>
+        <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
+        <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
+    </div>
 
     <hr style="height: 1px;color: black;background-color: black;">
     <div class="row mb-3">
@@ -235,6 +264,7 @@
         });
         <?php unset($_SESSION['sweetalert']); ?>
     <?php endif; ?>
+<<<<<<< HEAD
 </script>
 
 <script>

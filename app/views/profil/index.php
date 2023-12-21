@@ -7,24 +7,24 @@
 </div>
 
 
-    <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/profileStyle.css">
+<link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/profileStyle.css">
 
-    <div class="profile-container">
-        <div class="profile">
-            <img alt="" src="<?= BASEURL; ?>/img/imgProfil/<?=$data['user']['foto_profil'];?>" class="rounded-circle profile-widget-picture" style="width: 150px; height: 150px">
-            <div class="profile-details">
-                <div class="profile-name"><?= $data['user']['nama']; ?></div>
-                <div class="profile-info">Status : <?= $data['user']['status']; ?> </div>
-                <div class="profile-info"> ID : <?= $data['user']['id_anggota']; ?> </div>
-                <div class="profile-info">No Telepon : <?= $data['user']['no_telp']; ?> </div>
-            </div>
+<div class="profile-container">
+    <div class="profile">
+        <img alt="" src="<?= BASEURL; ?>/img/imgProfil/<?= $data['user']['foto_profil']; ?>" class="rounded-circle profile-widget-picture" style="width: 150px; height: 150px">
+        <div class="profile-details">
+            <div class="profile-name"><?= $data['user']['nama']; ?></div>
+            <div class="profile-info">Status : <?= $data['user']['status']; ?> </div>
+            <div class="profile-info"> ID : <?= $data['user']['id_anggota']; ?> </div>
+            <div class="profile-info">No Telepon : <?= $data['user']['no_telp']; ?> </div>
         </div>
-
     </div>
 
-    <button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal" data-bs-target="#tambahBukuModal">
-        Edit Foto Profil
-    </button>
+</div>
+
+<button type="button" class="btn btn-primary tombolBukuTambahData" data-bs-toggle="modal" data-bs-target="#tambahBukuModal">
+    Edit Foto Profil
+</button>
 
 <div class="modal fade" id="tambahBukuModal" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -57,7 +57,7 @@
     });
 </script>
 
-    <!-- <div class="container">
+<!-- <div class="container">
         <div class="row">
         <div class="col-md-6">
             <div class="content">

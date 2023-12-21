@@ -7,7 +7,7 @@
 
             <?php foreach ($data['buku'] as $book) : ?>
                 <div class="row g-0">
-                    <div class="col-md-4">
+                    <div class="col-md-4 text-center mt-3">
                         <td><img src="<?= BASEURL; ?>/img/<?= $book['gambar_buku']; ?>" class="card-img-top" alt="" style="width: 195px; height: 300px"></td>
                     </div>
                     <div class="col-md-8">

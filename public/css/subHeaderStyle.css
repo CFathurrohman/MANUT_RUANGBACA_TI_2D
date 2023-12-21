@@ -1,0 +1,4 @@
+.nav-tabs .nav-link.active {
+    color: #000000; /* white text */
+    background-color: #007bff; /* blue background */
+}

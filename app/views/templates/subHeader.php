@@ -1,16 +1,25 @@
 <br><br><br>
-<div class="container text-center">
-    <div class="row justify-content-center">
-        <?php
-        if ($_SESSION['level'] == 'admin') {
-            echo "<div class='col-md-4'><h3>Peminjaman</h3></div>";
-            echo "<div class='col-md-4'><h3>Pengembalian</h3></div>";
-            echo "<div class='col-md-4'><h3>Riwayat</h3></div>";
-        } elseif ($_SESSION['level'] == 'anggota') {
-            echo "<div class='col-md-4'><h3>Buku Diajukan</h3></div>";
-            echo "<div class='col-md-4'><h3>Buku Dipinjam</h3></div>";
-            echo "<div class='col-md-4'><h3>Riwayat</h3></div>";
-        }
-        ?>
-    </div>
-</div>
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                <?php
+                $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+                if ($_SESSION['level'] == 'admin') {
+                    $urls = [
+                        'http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman' => 'Peminjaman',
+                        'http://localhost/manut_ruangbaca_ti_2d/public/Pengembalian' => 'Pengembalian',
+                        'http://localhost/manut_ruangbaca_ti_2d/public/Riwayat' => 'Riwayat'
+                    ];
+                } elseif ($_SESSION['level'] == 'anggota') {
+                    $urls = [
+                        'http://localhost/manut_ruangbaca_ti_2d/public/buku_diajukan' => 'Buku Diajukan',
+                        'http://localhost/manut_ruangbaca_ti_2d/public/buku_dipinjam' => 'Buku Dipinjam',
+                        'http://localhost/manut_ruangbaca_ti_2d/public/buku_riwayat' => 'Riwayat'
+                    ];
+                }
+                foreach ($urls as $url => $name) {
+                    $active = ($currentUrl == $url) ? 'active' : '';
+                    echo "<li class='nav-item'><a class='nav-link $active' href='$url'>$name</a></li>";
+                }
+                ?>
+            </ul>

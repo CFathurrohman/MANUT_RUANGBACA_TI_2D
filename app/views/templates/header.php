@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
 <!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= BASEURL; ?>/img/logoTab.ico" />
 </head>
 
 <body>

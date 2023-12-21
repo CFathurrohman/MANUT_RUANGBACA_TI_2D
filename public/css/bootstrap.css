@@ -1107,9 +1107,12 @@ progress {
   }
   .col-md-3 {
     flex: 0 0 auto;
+    width: 50%;
     width: 25%;
   }
   .col-md-4 {
+    text-align: center;
+    margin-top: 3%;
     flex: 0 0 auto;
     width: 33.33333333%;
   }
