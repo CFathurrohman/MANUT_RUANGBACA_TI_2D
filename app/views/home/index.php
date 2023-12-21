@@ -16,43 +16,43 @@
     }
 
     [data-bs-theme="light"] #card_ajukan {
-        background-color: #D8EB79;
+        background-color: #afdcfb;
     }
 
     [data-bs-theme="light"] #card_pinjam {
-        background-color: #D8EB79;
+        background-color: #afdcfb;
     }
 
     [data-bs-theme="light"] #card_ajukan:hover {
-        background-color: papayawhip;
-        cursor: pointer;
+        background-color: #76b1ed
+    ;    cursor: pointer;
     }
 
     [data-bs-theme="light"] #card_pinjam:hover {
-        background-color: papayawhip;
+        background-color: #76b1ed;
         cursor: pointer;
     }
 
     [data-bs-theme="dark"] #card_ajukan {
-        background-color: #586669;
+        background-color: #0002A1;
     }
 
     [data-bs-theme="dark"] #card_pinjam {
-        background-color: #586669;
+        background-color: #0002A1;
     }
 
     [data-bs-theme="dark"] #card_ajukan:hover {
-        background-color: #243447;
+        background-color: #332FD0;
         cursor: pointer;
     }
 
     [data-bs-theme="dark"] #card_pinjam:hover {
-        background-color: #243447;
+        background-color: #332FD0;
         cursor: pointer;
     }
 
     [data-bs-theme="dark"] .card:hover {
-        background-color: #243447;
+        background-color: #332FD0;
     }
 </style>
 
