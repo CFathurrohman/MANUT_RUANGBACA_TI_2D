@@ -29,7 +29,7 @@ class Buku_simpan_model
 
     public function getAllSimpan()
     {
-        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar_buku, sb.id_simpan
+        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar, sb.id_simpan
                     FROM buku b
                     JOIN simpan_buku sb ON sb.id_buku = b.id_buku 
                     WHERE sb.username = :username

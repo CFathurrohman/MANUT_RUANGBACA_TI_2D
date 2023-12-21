@@ -27,7 +27,7 @@ class Buku_Dipinjam_model
 
     public function read($id)
     {
-        $this->db->query("SELECT b.nama_buku, b.penulis, b.tahun_terbit, b.deskripsi, b.gambar_buku, k.nama_kategori
+        $this->db->query("SELECT b.nama_buku, b.penulis, b.tahun_terbit, b.deskripsi, b.gambar, k.nama_kategori
                         FROM buku b 
                         JOIN kategori k ON b.id_kategori = k.id_ktgr
                         WHERE b.id_buku = :id_buku
