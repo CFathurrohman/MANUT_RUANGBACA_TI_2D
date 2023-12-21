@@ -282,14 +282,3 @@
         window.location.href = check;
     }
 </script>
-
-<script>
-    <?php if (isset($_SESSION['sweetalert'])) : ?>
-        Swal.fire({
-            icon: '<?php echo $_SESSION['sweetalert']['icon']; ?>',
-            title: '<?php echo $_SESSION['sweetalert']['title']; ?>',
-            text: '<?php echo $_SESSION['sweetalert']['text']; ?>',
-        });
-        <?php unset($_SESSION['sweetalert']); ?>
-    <?php endif; ?>
-</script>

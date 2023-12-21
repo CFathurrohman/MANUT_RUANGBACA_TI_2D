@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $("#gambar_buku").change(function() {
       const file = this.files[0];
       if (file) {
@@ -53,46 +54,51 @@ $(document).ready(function() {
     });
   });
 
-  // Simpan Data Tambah dan Ubah
-  $(".modal-footer button[type=submit]").on("click", function (e) {
+  $("#upload-form").submit(function(e) {
+    const url = $("#upload-form").prop('action');
+    console.log(url);
     e.preventDefault();
-    const form = $(".modal-body form");
-    const simpanUrl = $('#upload-form').prop('action');
-    console.log(simpanUrl);
-
-    if (form[0].checkValidity()) {
-      $.ajax({
-        url: simpanUrl,
-        method: form.attr("method"),
-        data: form.serialize(),
-        success: function (data) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Berhasil!',
-            text: 'Data Buku berhasil disimpan.',
-            showConfirmButton: false,
-            timer: 2000,
-          }).then(function() {
-            location.reload();
-          });
-        },
-        error: function (error) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Gagal!',
-            text: 'Gagal menyimpan data Buku.',
-            showConfirmButton: true,
-          });
+    Swal.fire({
+        title: 'Konfirmasi',
+        text: 'Apakah Anda yakin ingin menyimpan data Buku?',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, simpan!',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            var formData = new FormData(this);
+            $.ajax({
+                url: url,
+                method: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log(response);
+                    $("#tambahBukuModal").modal("hide");
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: 'Data Buku berhasil disimpan.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        location.reload();
+                    });
+                },
+                error: function(error) {
+                    console.error(error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Gagal menyimpan Data Buku. Silakan coba lagi.',
+                    });
+                }
+            });
         }
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error!',
-        text: 'Isikan data terlebih dahulu!',
-        showConfirmButton: true,
-      });
-    }
+    });
   });
 
   // Hapus Data
