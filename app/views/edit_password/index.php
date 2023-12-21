@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
     <title><?= $data['judul'] ?></title>
     <style>
         .error-message {
@@ -25,7 +25,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header " style="background-color: #e3e3e3;">
                             <h4>Ganti Kata Sandi</h4>
                         </div>
                         <div class="card-body">
@@ -60,30 +60,8 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?= BASEURL; ?>/js/editPassword.js"></script>
 </body>
-<script>
-    $(document).ready(function() {
-        $('#changePasswordForm').submit(function(e) {
-            if ($('#newPassword').val() !== $('#confirmPassword').val()) {
-                e.preventDefault();
-                $('#passwordMismatch').show();
-            } else {
-                $('#passwordMismatch').hide();
-
-                Swal.fire({
-                    title: "Sukses!",
-                    text: "Password berhasil diubah!",
-                    icon: "success",
-                    confirmButtonText: "OK"
-                }).then(function(result) {
-                    if (result.isConfirmed) {
-                        window.location.href = "<?= BASEURL ?>/Home";
-                    }
-                });
-            }
-        });
-    });
-</script>
 
 </html>

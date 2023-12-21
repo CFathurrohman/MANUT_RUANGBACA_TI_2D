@@ -11,6 +11,7 @@ class Buku_riwayat extends Controller{
         $data['page'] = $page;
         $data['judul'] = 'Riwayat Buku';
         $this->view('templates/header', $data);
+        $this->view('templates/subHeader');
         $this->view('buku_riwayat/index', $data);
         $this->view('templates/footer');
     }

@@ -5,17 +5,12 @@
     <div></div>
     <div></div>
 </div>
+<?php Flasher::flash() ?>
 <div class="container mt-5">
     <div class="row">
         <div class="col-12"><br>
             <h3>Daftar Buku</h3><br>
             <hr style="height: 1px;color: black;background-color: black;">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-            <?php Flasher::flashBuku(); ?>
         </div>
     </div>
 
@@ -53,7 +48,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <?php $number = ((($data['page']-1)*10)+1) ?>
+                        <?php $number = ((($data['page'] - 1) * 10) + 1) ?>
                         <?php foreach ($data['buku'] as $buku) : ?>
                             <tr style="text-align: left;">
                                 <td><?php echo $number;
@@ -85,7 +80,7 @@
                                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                             </svg>
                                         </a>
-                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" onclick="javascript:return confirm('Hapus Data Buku ?');" class="badge btn btn-danger">
+                                        <a href="<?= BASEURL; ?>/buku/hapus/<?= $buku['id_buku']; ?>" class="badge btn btn-danger deleteBuku">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                                 <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
@@ -170,7 +165,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php
@@ -194,8 +189,8 @@
                         <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
                     </div>
                     <div class="mb-3">
-                        <label for="gambar_buku" class="form-label">Gambar Buku</label>
-                        <input type="file" name="gambar_buku" class="form-control" id="gambar_buku"><br>
+                        <label for="gambar" class="form-label">Gambar Buku</label>
+                        <input type="file" name="gambar" class="form-control" id="gambar"><br>
                         <img id="preview" src="#" alt="Upload Gambar" width="200px">
                     </div>
                     <div class="mb-3">
@@ -204,15 +199,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                        <input type="text" name="tahun_terbit" class="form-control" id="tahun_terbit" required>
+                        <input type="number" name="tahun_terbit" class="form-control" id="tahun_terbit" required>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah_total" class="form-label">Jumlah total</label>
-                        <input type="text" name="jumlah_total" class="form-control" id="jumlah_total" required>
+                        <input type="number" name="jumlah_total" class="form-control" id="jumlah_total" required>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah_tersedia" class="form-label">Jumlah tersedia</label>
-                        <input type="text" name="jumlah_tersedia" class="form-control" id="jumlah_tersedia" required>
+                        <input type="number" name="jumlah_tersedia" class="form-control" id="jumlah_tersedia" required>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -228,40 +223,19 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                <button type="submit" class="btn btn-primary" id="button-buku">Simpan</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>
 </div>
+
 <script src="<?= BASEURL; ?>/js/scriptBuku.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-    document.getElementById('gambar_buku').addEventListener('change', function(e) {
+    document.getElementById('gambar').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');
         preview.src = URL.createObjectURL(e.target.files[0]);
     });
-</script>
-<script>
-    function loadFile(event) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var img = new Image();
-            img.src = e.target.result;
-            img.onload = function() {
-                var canvas = document.createElement('canvas');
-                var ctx = canvas.getContext('2d');
-                var maxWidth = 200;
-                var scale = Math.min(maxWidth / img.width, 1);
-
-                canvas.width = img.width * scale;
-                canvas.height = img.height * scale;
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-                var resizedImg = new Image();
-                resizedImg.src = canvas.toDataURL('image/jpeg');
-                document.getElementById('preview').innerHTML = '';
-                document.getElementById('preview').appendChild(resizedImg);
-            };
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
 </script>

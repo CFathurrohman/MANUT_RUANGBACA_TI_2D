@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/headerStyle.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/css/transition.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= BASEURL; ?>/img/logoTab.ico" />
 </head>
 
-<body data-bs-theme="light">
+<body>
 <header class="menu__wrapper">
     <?php
     echo '<div class="menu__bar">';
@@ -35,16 +36,6 @@
             echo '        <a href="http://localhost/manut_ruangbaca_ti_2d/public/Anggota" title="Menuju Ke Daftar Anggota"><i class="fa fa-user"></i>&nbsp;Anggota</a>';
             echo '    </li>';
             echo '    <li>';
-//                $notifStatus = mysqli_query("SELECT status FROM peminjaman_buku WHERE status = 'diajukan'");
-//                if ($notifStatus != null) {
-//                    echo '    <button><span class="position-static top-0 start-0 translate-middle p-1 bg-danger border border-light rounded-circle">
-//                                    <span class="visually-hidden">New alerts</span>
-//                                    </span>Akses<i class="material-icons">expand_more</i>';
-//                    echo '    </button>';
-//                } else {
-//                    echo '    <button>Akses<i class="material-icons">expand_more</i>';
-//                    echo '    </button>';
-//                }
             echo '    <button>Akses<i class="material-icons">expand_more</i>';
             echo '    </button>';
             echo '        <div class="dropdown__wrapper">';
@@ -81,16 +72,18 @@
             echo '<div class="action-buttons hide">';
             echo '<nav>';
             echo '<ul class="navigation hide">';
-            echo '    <li>';
-            echo '  <div class="form-check form-switch mx-4">
+            echo '  <div class="form-check form-switch mx-4" xmlns="http://www.w3.org/1999/html">
                         <input 
                             class="form-check-input p-2"
                             type="checkbox"
                             role="switch"
                             id="flexSwitchCheckChecked"
-                            checked
-                            onclick="myFunction()"/>
-                    </div> </li>
+                            onclick="toggleTheme()">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">
+                                <span style="color: #fafafa" id="themeIcon" class="theme-icon icon-path" data-feather="sun"></span>
+                                <span class="visually-hidden" id="themeLabel"></span>
+                            </label></input>
+                    </div> 
                     
                        <li><button>
                           <a class="" style="color: #fafafa"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
@@ -148,7 +141,18 @@
             echo '<div class="action-buttons hide">';
             echo '<nav>';
             echo '<ul class="navigation hide">';
-
+            echo '  <div class="form-check form-switch mx-4" xmlns="http://www.w3.org/1999/html">
+                        <input 
+                            class="form-check-input p-2"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckChecked"
+                            onclick="toggleTheme()">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">
+                                <span style="color: #fafafa" id="themeIcon" class="theme-icon icon-path" data-feather="sun"></span>
+                                <span class="visually-hidden" id="themeLabel"></span>
+                            </label></input>
+                    </div>';
             echo '    <li>';
             echo '
                 <button class="keranjang">
@@ -192,19 +196,16 @@
             echo '                    <li>';
             echo '                        <div class="item-title">';
             echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Profil"><h3>Profil</h3></a>';
-            //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
             echo '                        </div>';
             echo '                    </li>';
             echo '                    <li>';
             echo '                        <div class="item-title">';
             echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/edit_password"><h3>Ganti Kata Sandi</h3></a>';
-            //            echo '                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Peminjaman"><p>...</p></a>';
             echo '                        </div>';
             echo '                    </li>';
             echo '                    <li>';
             echo '                        <div class="item-title">';
             echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout"><h3>Keluar</h3></a>';
-            //            echo '                            <a href="http://localhost/manut_ruangbaca_ti_2d/public/Riwayat"><p>...</p>';
             echo '                        </div>';
             echo '                    </li>';
             echo '                </ul>';
@@ -213,7 +214,6 @@
             echo '    </li>';
             echo '</ul>';
             echo '</nav>';
-            //            echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/log/logout" title="Log out" class="login">Nama Anggota</a>';
             echo '</div>';
         }
     } else {
@@ -224,6 +224,18 @@
         echo '</nav>';
         echo '</div>';
         echo '<div class="action-buttons hide">';
+        echo '  <div class="form-check form-switch mx-4" xmlns="http://www.w3.org/1999/html">
+                        <input 
+                            class="form-check-input p-2"
+                            type="checkbox"
+                            role="switch"
+                            id="flexSwitchCheckChecked"
+                            onclick="toggleTheme()">
+                            <label class="form-check-label" for="flexSwitchCheckChecked">
+                                <span style="color: #fafafa" id="themeIcon" class="theme-icon icon-path" data-feather="sun"></span>
+                                <span class="visually-hidden" id="themeLabel"></span>
+                            </label></input>
+                    </div>';
         echo '<a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" title="Log in" class="login">Masuk</a>';
         echo '</div>';
     }
@@ -231,10 +243,56 @@
 </header>
 <br>
 
+<script src="https://unpkg.com/feather-icons"></script>
+
 <script>
-    function myFunction() {
-        var element = document.body;
-        element.dataset.bsTheme =
-            element.dataset.bsTheme === "light" ? "dark" : "light";
+    document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi Feather icons
+        feather.replace();
+
+        // Set tema dari localStorage saat halaman dimuat
+        setInitialTheme();
+    });
+
+    function setInitialTheme() {
+        let HTMLelement = document.documentElement;
+        let savedTheme = localStorage.getItem("theme");
+
+        // Jika tema tersimpan, atur tema sesuai dengan nilai yang disimpan
+        if (savedTheme) {
+            HTMLelement.dataset.bsTheme = savedTheme;
+        } else {
+            // Jika tidak ada tema tersimpan, atur tema default (light)
+            HTMLelement.dataset.bsTheme = "light";
+        }
+
+        // Perbarui status checkbox sesuai dengan tema saat ini
+        updateCheckboxAndIcon();
+    }
+
+    function toggleTheme() {
+        let HTMLelement = document.documentElement;
+        HTMLelement.dataset.bsTheme = HTMLelement.dataset.bsTheme === "light" ? "dark" : "light";
+
+        // Simpan tema ke localStorage
+        localStorage.setItem("theme", HTMLelement.dataset.bsTheme);
+
+        // Perbarui status checkbox sesuai dengan tema yang baru diubah
+        updateCheckboxAndIcon();
+    }
+
+    function updateCheckboxAndIcon() {
+        let checkbox = document.getElementById("flexSwitchCheckChecked");
+        let themeIcon = document.getElementById("themeIcon");
+        let themeLabel = document.getElementById("themeLabel");
+        let currentTheme = document.documentElement.dataset.bsTheme;
+
+        // Perbarui status checkbox sesuai dengan tema saat ini
+        checkbox.checked = currentTheme === "dark";
+
+        // Perbarui ikon dan label sesuai dengan tema saat ini
+        themeIcon.setAttribute("data-feather", currentTheme === "dark" ? "moon" : "sun");
+        feather.replace(); // Perbarui ikon menggunakan Feather
+        themeLabel.textContent = currentTheme === "dark" ? "Dark Mode" : "Light Mode";
     }
 </script>

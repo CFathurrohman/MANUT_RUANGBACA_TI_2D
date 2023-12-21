@@ -7,12 +7,7 @@
 </div>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12"><br>
-            <h3>Riwayat</h3><br>
-            <hr style="height: 1px;color: black;background-color: black;">
-        </div>
-    </div>
+   
     <div class="row">
         <div class="col-md-6">
             <?php //Flasher::flashPeminjaman(); 
@@ -20,8 +15,8 @@
         </div>
     </div>
 
- 
-    <div class="table-responsive shadow">
+
+    <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="thead-white">
                 <tr>
@@ -31,11 +26,26 @@
                     <th>Batas Pengembalian</th>
                     <th>Tanggal Pengembalian</th>
                     <th>Status</th>
+                    <th>Kondisi</th>
+                    <th>Denda</th>
+                    <th>Keterangan</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php $number = ((($data['page']-1)*10)+1) ?>
+            <?php
+                    if (empty($data['buku'])) : ?>
+                        <tr>
+                            <td colspan="10" style="text-align:center;">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50vw" height="50vh" fill="#e3e3e3" class="bi bi-x" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php else :
+                $number = ((($data['page'] - 1) * 10) + 1) ?>
                 <?php foreach ($data['buku'] as $buku) : ?>
                     <tr>
                         <td><?php echo $number;
@@ -45,6 +55,9 @@
                         <td><?php echo $buku['tgl_batas_kembali']; ?></td>
                         <td><?php echo $buku['tgl_kembali']; ?></td>
                         <td><?php echo $buku['status']; ?></td>
+                        <td><?php echo $buku['kondisi']; ?></td>
+                        <td><?php echo $buku['denda']; ?></td>
+                        <td><?php echo $buku['keterangan']; ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/buku_riwayat/read/<?= $buku['id_peminjaman']; ?>" class="badge btn btn-primary float-right" data-id="<?= $buku['id_peminjaman'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
@@ -58,14 +71,14 @@
                             </a>
                         </td>
                     </tr>
-                <?php endforeach; ?>
+                <?php endforeach; endif ?>
             </tbody>
         </table>
     </div>
 </div>
-
+<br><br>
 <nav aria-label="Page navigation">
-    <form action="<?= BASEURL; ?>/"buku_riwayat method="post">
+    <form action="<?= BASEURL; ?>/" buku_riwayat method="post">
         <ul class="pagination justify-content-center">
             <?php
             $totalPages = $data['total_pages'];
@@ -126,7 +139,7 @@
 
             // Next Button
             ?>
-            <li class="page-item <?= ($currentPage == $totalPages) ? 'disabled' : '' ?>">
+            <li class="page-item <?= ($currentPage == $totalPages || $currentPage <= 0 || empty($data['buku'])) ? 'disabled' : '' ?>">
                 <button type="submit" name="page" value="<?= min($totalPages, $currentPage + 1) ?>" class="page-link"> &raquo;</button>
             </li>
             <?php

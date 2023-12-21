@@ -9,8 +9,17 @@
 <!-- // Jquery & js -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<style>
+    [data-bs-theme = 'dark'] .wave{
+        background-color: rgba(33,37,41,255);
+        transition: background 0.8s, color 0.8s;
+    }
+</style>
 
 <footer>
+</div>
+    </div>
+</div>
   <section>
     <div class="wave wave1"></div>
     <!-- <div class="wave wave2"></div> -->

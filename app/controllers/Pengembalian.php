@@ -3,7 +3,7 @@
 class Pengembalian extends Controller
 {
     public function index()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
@@ -13,12 +13,13 @@ class Pengembalian extends Controller
         $data['page'] = $page;
         $data['judul'] = 'Pengembalian buku';
         $this->view('templates/header', $data);
+        $this->view('templates/subHeader');
         $this->view('Pengembalian/index', $data);
         $this->view('templates/footer');
     }
 
     public function cari()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
@@ -32,15 +33,21 @@ class Pengembalian extends Controller
         $this->view('templates/footer');
     }
 
-    public function kembali($idPeminjaman){
-        $data = ['id_peminjaman' => $idPeminjaman];
-    
-        if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
-        } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
-        }
-    
+    public function kembali()
+    {
+        $data = [
+            'id_peminjaman' => $_POST['id_peminjaman'],
+            'keterangan' => $_POST['keterangan'],
+            'denda' => $_POST['denda'],
+            'kondisi' => $_POST['kondisi']
+        ];
+
+        // if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
+        //     $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dikembalikan.');
+        // } else {
+        //     $this->showAlert('error', 'Gagal', 'Data Buku gagal dikembalikan.');
+        // }
+
         header('Location: ' . BASEURL . '/pengembalian');
         exit;
     }

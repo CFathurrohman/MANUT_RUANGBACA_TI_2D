@@ -15,9 +15,9 @@
             }
         </style>
         <div class="card mb-3 shadow">
-          <div class="row g-0" style="height: 70vh;">
-                <div class="col-md-3">
-                    <img src="<?= BASEURL; ?>/img/<?= $data['buku']['gambar_buku']; ?>" class="img-fluid rounded-start" alt="...">
+            <div class="row g-0" style="height: 70vh;">
+                <div class="col-md-3 text-center mt-4 mb-4 ps-5 pe-3">
+                    <img src="<?= BASEURL; ?>/img/imgBuku/<?= $data['buku']['gambar']; ?>" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -41,13 +41,15 @@
                     <?php elseif (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">
-                                <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
+                                <form id="pinjamForm" action="<?= BASEURL; ?>/keranjang/tambah/<?= $data['buku']['id_buku']; ?>" method="post">
+                                    <button type="submit" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</button>
+                                </form>
                             </div>
                         </div>
                     <?php else : ?>
                         <div class="pinjamButton">
                             <div class="card-body d-flex justify-content-end">
-                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" id="pinjamBtn" style="margin-top: 20px;">Pinjam</a>
+                                <a href="http://localhost/manut_ruangbaca_ti_2d/public/Log" class="btn btn-warning" style="margin-top: 20px;">Pinjam</a>
                             </div>
                         </div>
                     <?php endif; ?>
@@ -57,16 +59,21 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.getElementById('pinjamBtn').addEventListener('click', function () {
+    document.getElementById('pinjamBtn').addEventListener('click', function(event) {
+        event.preventDefault();
         Swal.fire({
             icon: 'success',
             title: 'Success!',
             text: 'Buku berhasil dimasukkan ke keranjang.',
             showConfirmButton: false,
-            timer: 3000 
+            timer: 1500
+        }).then(() => {
+            document.getElementById('pinjamForm').submit();
         });
     });
 </script>

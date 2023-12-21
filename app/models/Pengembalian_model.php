@@ -63,14 +63,17 @@ class Pengembalian_model
 
     public function terimaPengembalian($data)
     {
-        $this->db->query("UPDATE peminjaman_buku SET status='dikembalikan', tgl_kembali=CURDATE() WHERE id_peminjaman = :id_peminjaman");
+        $this->db->query("UPDATE peminjaman_buku SET status='dikembalikan', tgl_kembali=CURDATE(), kondisi = :kondisi, keterangan = :keterangan, denda = :denda WHERE id_peminjaman = :id_peminjaman");
         $this->db->bind(':id_peminjaman', $data['id_peminjaman']);
+        $this->db->bind(':keterangan', $data['keterangan']);
+        $this->db->bind(':denda', $data['denda']);
+        $this->db->bind(':kondisi', $data['kondisi']);
         return $this->db->execute();
     }
 
     public function readMulti($id)
     {
-        $this->db->query("SELECT b.nama_buku, b.penulis, b.tahun_terbit, b.deskripsi, b.gambar_buku, k.nama_kategori
+        $this->db->query("SELECT b.nama_buku, b.penulis, b.tahun_terbit, b.deskripsi, b.gambar, k.nama_kategori
                         FROM buku b 
                         JOIN detail_peminjaman d ON b.id_buku = d.id_buku 
                         JOIN kategori k ON b.id_kategori = k.id_ktgr

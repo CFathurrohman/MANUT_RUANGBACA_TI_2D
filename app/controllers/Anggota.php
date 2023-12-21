@@ -3,7 +3,7 @@ class Anggota extends Controller
 {
     public function index()
     {
-        $results_per_page = 10  ;
+        $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
         $data['anggota'] = $this->model('Anggota_model')->getAllAnggota($results_per_page, $offset);
@@ -11,7 +11,7 @@ class Anggota extends Controller
         $data['total_pages'] = ceil($total_rows / $results_per_page);
         $data['page'] = $page;
         $data['judul'] = 'Daftar Anggota';
-        $this->view('templates/header', $data);        
+        $this->view('templates/header', $data);
         $this->view('anggota/index', $data);
         $this->view('templates/footer');
     }
@@ -19,11 +19,9 @@ class Anggota extends Controller
     public function tambah()
     {
         if ($this->model('Anggota_model')->tambahDataAnggota($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }
@@ -32,29 +30,27 @@ class Anggota extends Controller
     public function hapus($id)
     {
         if ($this->model('Anggota_model')->hapusDataAnggota($id)) {
-            Flasher::setFlash('berhasil', 'dihapus', 'success');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'dihapus', 'danger');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }
     }
 
-    public function ubah(){
+    public function ubah()
+    {
         if ($this->model('Anggota_model')->ubahDataAnggota($_POST) > 0) {
-            Flasher::setFlash('berhasil', 'diubah', 'success');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         } else {
-            Flasher::setFlash('gagal', 'diubah', 'danger');
             header('Location: ' . BASEURL . '/anggota');
             exit;
         }
     }
 
-    public function getUbah(){
+    public function getUbah()
+    {
         echo json_encode($this->model('Anggota_model')->getAnggotaById($_POST['id_anggota']));
     }
 
@@ -68,7 +64,7 @@ class Anggota extends Controller
         $data['total_pages'] = ceil($total_rows / $results_per_page);
         $data['page'] = $page;
         $data['judul'] = 'Daftar Anggota';
-        $this->view('templates/header', $data);        
+        $this->view('templates/header', $data);
         $this->view('anggota/index', $data);
         $this->view('templates/footer');
     }
