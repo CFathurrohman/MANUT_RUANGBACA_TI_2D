@@ -5,10 +5,9 @@
     <div></div>
     <div></div>
 </div>
-<br><br>
 <div class="col mb-3 mx-3">
     <br>
-    <div class="row row-cols-md-6 row-cols-2 gx-4 p-5 shadow   ">
+    <div class="row row-cols-md-6 row-cols-2 gx-4 p-5    ">
         <?php if (empty($data['buku'])) : ?>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="50vw" height="50vh" fill="#e3e3e3" class="bi bi-x" viewBox="0 0 16 16">

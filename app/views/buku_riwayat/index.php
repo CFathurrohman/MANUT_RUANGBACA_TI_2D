@@ -16,7 +16,7 @@
     </div>
 
 
-    <div class="table-responsive shadow">
+    <div class="table-responsive">
         <table class="table table-bordered">
             <thead class="thead-white">
                 <tr>
