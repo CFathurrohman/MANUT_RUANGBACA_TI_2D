@@ -49,7 +49,7 @@
                             <tr>
                                 <td><?php echo $number;
                                     $number++ ?></td>
-                                <td><img src="<?= BASEURL; ?>/img/<?= $buku['gambar']; ?>" class="card-img-top" alt="" style="width: 98px; height: 150px"></td>
+                                <td><img src="<?= BASEURL; ?>/img/imgBuku<?= $buku['gambar']; ?>" class="card-img-top" alt="" style="width: 98px; height: 150px"></td>
                                 <td><?php echo $buku['nama_buku']; ?></td>
                                 <td>
                                     <input type="checkbox" name="selected_books[]" value="<?= $buku['id_simpan']; ?>">

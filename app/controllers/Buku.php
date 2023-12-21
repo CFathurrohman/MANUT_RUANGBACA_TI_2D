@@ -28,8 +28,6 @@ class Buku extends Controller
 
     public function tambah()
     {
-//        var_dump($_POST);
-
         $gambar = $this->upload();
         //        $validasi = $_POST['tersedia'] <= $_POST['jumlah'];
 
@@ -47,10 +45,10 @@ class Buku extends Controller
     function upload()
     {
 
-        $namaFile = $_FILES['gambar']['nama'];
+        $namaFile = $_FILES['gambar']['name'];
         $ukuranFile = $_FILES['gambar']['size'];
         $error = $_FILES['gambar']['error'];
-        $tmpName = $_FILES['gambar']['tmp_nama'];
+        $tmpName = $_FILES['gambar']['tmp_name'];
         //cek apakah tidak ada gambar yang diupload
         if ($error === 4) {
 //            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
@@ -75,9 +73,9 @@ class Buku extends Controller
         $namaFileBaru = uniqid();
         $namaFileBaru .= '.';
         $namaFileBaru .= $ekstensiGambar;
-        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/manut_ruangbaca_ti_2d/public/img/imgBuku' . $namaFileBaru;
+        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/manut_ruangbaca_ti_2d/public/img/imgBuku/' . $namaFileBaru;
         //gambar siap diupload
-        exec("find /opt/lampp/htdocs/manut_ruangbaca_ti_2d/public/img/Buku -type d -exec chmod 0755 {} +");
+        exec("find /opt/lampp/htdocs/manut_ruangbaca_ti_2d/public/img/imgBuku -type d -exec chmod 0755 {} +");
         move_uploaded_file($tmpName, $dirUpload);
         return $namaFileBaru;
     }

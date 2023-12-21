@@ -55,9 +55,10 @@ $(document).ready(function() {
 
   // Simpan Data Tambah dan Ubah
   $(".modal-footer button[type=submit]").on("click", function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
     const form = $(".modal-body form");
-    const simpanUrl = form.attr("action");
+    const simpanUrl = $('#upload-form').prop('action');
+    console.log(simpanUrl);
 
     if (form[0].checkValidity()) {
       $.ajax({
