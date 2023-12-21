@@ -42,11 +42,11 @@ class Pengembalian extends Controller
             'kondisi' => $_POST['kondisi']
         ];
 
-        if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
-            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dikembalikan.');
-        } else {
-            $this->showAlert('error', 'Gagal', 'Data Buku gagal dikembalikan.');
-        }
+        // if ($this->model('Pengembalian_model')->terimaPengembalian($data)) {
+        //     $this->showAlert('success', 'Berhasil', 'Data Buku berhasil dikembalikan.');
+        // } else {
+        //     $this->showAlert('error', 'Gagal', 'Data Buku gagal dikembalikan.');
+        // }
 
         header('Location: ' . BASEURL . '/pengembalian');
         exit;

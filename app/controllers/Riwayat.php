@@ -19,7 +19,7 @@ class Riwayat extends Controller
     }
 
     public function cari()
-    {   
+    {
         $results_per_page = 10;
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;

@@ -24,9 +24,9 @@ class Peminjaman extends Controller
 
         try {
             if ($this->model('Peminjaman_model')->terimaPeminjaman($data)) {
-                $this->showAlert('success', 'Berhasil', 'Data Buku berhasil diterima.');
+                // $this->showAlert('success', 'Berhasil', 'Data Buku berhasil diterima.');
             } else {
-                $this->showAlert('error', 'Gagal', 'Data Buku gagal diterima.');
+                // $this->showAlert('error', 'Gagal', 'Data Buku gagal diterima.');
             }
 
             header('Location: ' . BASEURL . '/peminjaman');
@@ -49,11 +49,11 @@ class Peminjaman extends Controller
             'keterangan' => $_POST['keterangan']
         ];
 
-        if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
-            $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditolak.');
-        } else {
-            $this->showAlert('error', 'Gagal', 'Data Buku gagal ditolak.');
-        }
+        // if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
+        // $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditolak.');
+        // } else {
+        // $this->showAlert('error', 'Gagal', 'Data Buku gagal ditolak.');
+        // }
 
         header('Location: ' . BASEURL . '/peminjaman');
         exit;

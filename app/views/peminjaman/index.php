@@ -8,10 +8,9 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <div class="container mt-5">
- 
-
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
             <form action="<?= BASEURL; ?>/peminjaman/cari" method="post" class="d-flex">
@@ -209,7 +208,29 @@
                 cancelButtonText: 'Tidak'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "<?= BASEURL; ?>/peminjaman/" + action + "/" + id;
+                    $.ajax({
+                        url: "<?= BASEURL; ?>/peminjaman/" + action + "/" + id,
+                        type: "GET",
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: 'Peminjaman berhasil diajukan.',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                window.location.href = response.redirectUrl;
+                            });
+                        },
+                        error: function(error) {
+                            console.error(error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'Gagal peminjaman Data Buku. Silakan coba lagi.',
+                            });
+                        }
+                    });
                 }
             });
         });
