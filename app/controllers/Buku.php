@@ -99,8 +99,8 @@ class Buku extends Controller
     {
         $buku = $this->model('Buku_model')->getBukuById($_POST['id_buku']);
 
-        if ($_FILES['gambar_buku']['error'] === 4) {
-            $gambar_buku = $buku['gambar_buku'];
+        if ($_FILES['gambar']['error'] === 4) {
+            $gambar_buku = $buku['gambar'];
         } else {
             $gambar_buku = $this->upload();
         }
