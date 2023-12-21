@@ -1,6 +1,12 @@
-<div class="card text-center" style="margin-top: 4vh;">
-    <div class="card-header" style="background-color: white;">
-        <ul class="nav nav-tabs card-header-tabs justify-content-around" style="background-color: #e3e3e3; display: flex; padding: 0;">
+<style>
+    [data-bs-theme = 'dark'] {
+
+    }
+</style>
+
+<div class="card text-center mt-5" style="margin-top: 4vh;">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs justify-content-around" style="display: flex; padding: 0;">
             <?php
             $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             if ($_SESSION['level'] == 'admin') {
@@ -20,7 +26,7 @@
             $width = 100 / $count; 
             foreach ($urls as $url => $name) {
                 $active = ($currentUrl == $url) ? 'active' : '';
-                $color = ($currentUrl == $url) ? 'blue' : 'black';
+                $color = ($currentUrl == $url) ? 'light' : 'dark';
                 echo "<li class='nav-item' style='width: $width%;'><a class='nav-link $active' href='$url' style='color: $color;'>$name</a></li>";
             }
             ?>
