@@ -199,15 +199,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="tahun_terbit" class="form-label">Tahun Terbit</label>
-                        <input type="text" name="tahun_terbit" class="form-control" id="tahun_terbit" required>
+                        <input type="number" name="tahun_terbit" class="form-control" id="tahun_terbit" required>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah_total" class="form-label">Jumlah total</label>
-                        <input type="text" name="jumlah_total" class="form-control" id="jumlah_total" required>
+                        <input type="number" name="jumlah_total" class="form-control" id="jumlah_total" required>
                     </div>
                     <div class="mb-3">
                         <label for="jumlah_tersedia" class="form-label">Jumlah tersedia</label>
-                        <input type="text" name="jumlah_tersedia" class="form-control" id="jumlah_tersedia" required>
+                        <input type="number" name="jumlah_tersedia" class="form-control" id="jumlah_tersedia" required>
                     </div>
                     <div class="mb-3">
                         <label for="deskripsi" class="form-label">Deskripsi</label>
