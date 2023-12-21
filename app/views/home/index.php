@@ -15,9 +15,44 @@
         cursor: pointer;
     }
 
-    [data-bs-theme = "dark"] .card:hover {
+    [data-bs-theme = "light"] #card_ajukan {
+        background-color: #D8EB79;
+    }
+
+    [data-bs-theme = "light"] #card_pinjam {
+        background-color: #D8EB79;
+    }
+
+    [data-bs-theme = "light"] #card_ajukan:hover {
+        background-color: papayawhip;
+        cursor: pointer;
+    }
+
+    [data-bs-theme = "light"] #card_pinjam:hover {
+        background-color: papayawhip;
+        cursor: pointer;
+    }
+
+    [data-bs-theme = "dark"] #card_ajukan {
+        background-color: #586669;
+    }
+
+    [data-bs-theme = "dark"] #card_pinjam {
+        background-color: #586669;
+    }
+
+    [data-bs-theme = "dark"] #card_ajukan:hover {
         background-color: #243447;
         cursor: pointer;
+    }
+
+    [data-bs-theme = "dark"] #card_pinjam:hover {
+        background-color: #243447;
+        cursor: pointer;
+    }
+
+    [data-bs-theme = "dark"] .card:hover {
+        background-color: #243447;
     }
 </style>
 
@@ -40,7 +75,7 @@
         if ($_SESSION['level'] == 'admin') {
             echo '<div class="row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div style="width: 18rem" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/peminjaman\')">
+                        <div id="card_ajukan" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/peminjaman\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Pengajuan</h5>
                             <p class="card-text">' . $data["jumlah_diajukan"]["jumlah"] . ' Pengajuan</p>
@@ -48,7 +83,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <div style="width: 18rem" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/pengembalian\')">
+                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/pengembalian\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Peminjaman</h5>
                             <p class="card-text">' . $data["jumlah_dipinjam"]["jumlah"] . ' Peminjaman</p>
@@ -104,34 +139,6 @@
     }
 
     ?>
-
-    <div class="carousel">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 1.png" alt="First slide">
-                </div>
-                <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 2.png" alt="Second slide">
-                </div>
-                <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 3.png" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <br>
-
-    <div>
-        <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
-        <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
-    </div>
 
     <hr style="height: 1px;color: black;background-color: black;">
     <div class="row mb-3">
