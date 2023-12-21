@@ -13,6 +13,7 @@ class Profil extends Controller{
     {
         $namaFoto = $_FILES['foto_profil']['name'];
         $ukuranFoto = $_FILES['foto_profil']['size'];
+
         $tmpProfil = $_FILES['foto_profil']['tmp_name'];
 
         $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
@@ -48,12 +49,17 @@ class Profil extends Controller{
 
         if ($this->model('Profil_model')->editFotoProfil($fotoProfil) > 0) {
             $this->showAlert('success', 'Berhasil', 'Foto Profil berhasil diubah.');
-            header('Location: ' . BASEURL . '/profil');
+            header('Location: ' . BASEURL . '/profil/index');
             exit;
         } else {
             $this->showAlert('error', 'Gagal', 'Foto Profil gagal diubah.');
-            header('Location: ' . BASEURL . '/profil');
+            header('Location: ' . BASEURL . '/profil/index');
             exit;
         }
+    }
+
+    public function getUbah()
+    {
+        echo json_encode($this->model('Profil_model')->getUserData());
     }
 }

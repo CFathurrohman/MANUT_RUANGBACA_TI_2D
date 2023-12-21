@@ -55,8 +55,8 @@
 
     public function tambahDataBuku($data, $gambar)
     {
-        $bukuInsertQuery = "INSERT INTO buku (gambar_buku, nama_buku, penulis, tahun_terbit, jumlah_total, jumlah_tersedia, deskripsi, id_kategori) 
-                        VALUES (:gambar_buku, :nama_buku, :penulis, :tahun_terbit, :jumlah_total, :jumlah_tersedia, :deskripsi, :id_kategori)";
+        $bukuInsertQuery = "INSERT INTO buku (gambar, nama_buku, penulis, tahun_terbit, jumlah_total, jumlah_tersedia, deskripsi, id_kategori) 
+                        VALUES (:gambar, :nama_buku, :penulis, :tahun_terbit, :jumlah_total, :jumlah_tersedia, :deskripsi, :id_kategori)";
         $this->db->query($bukuInsertQuery);
         $this->db->bind(':nama_buku', $data['nama_buku']);
         $this->db->bind(':penulis', $data['penulis']);
@@ -65,7 +65,7 @@
         $this->db->bind(':jumlah_tersedia', $data['jumlah_tersedia']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
-        $this->db->bind(':gambar_buku', $gambar);
+        $this->db->bind(':gambar', $gambar);
 
         $this->db->execute();
         return $this->db->rowCount();
@@ -107,7 +107,7 @@
             jumlah_total = :jumlah_total,
             jumlah_tersedia = :jumlah_tersedia,
             id_kategori = :id_kategori,
-            gambar_buku = :gambar_buku
+            gambar = :gambar
         WHERE id_buku = :id_buku
     ";
 
@@ -120,7 +120,7 @@
         $this->db->bind(':jumlah_tersedia', $data['jumlah_tersedia']);
         $this->db->bind(':deskripsi', $data['deskripsi']);
         $this->db->bind(':id_kategori', $data['id_kategori']);
-        $this->db->bind(':gambar_buku', $gambar);
+        $this->db->bind(':gambar', $gambar);
 
         $this->db->execute();
 

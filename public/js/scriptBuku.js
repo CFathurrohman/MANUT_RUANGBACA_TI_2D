@@ -16,7 +16,7 @@ $(document).ready(function() {
     $("#id_buku").val("");
     $("#penulis").val("");
     $("#nama_buku").val("");
-    $("#gambar_buku").val("");
+    $("#gambar").val("");
     $("#tahun_terbit").val("");
     $("#jumlah_total").val("");
     $("#jumlah_tersedia").val("");
@@ -47,7 +47,7 @@ $(document).ready(function() {
         $("#jumlah_tersedia").val(data.jumlah_tersedia);
         $("#id_kategori").val(data.id_kategori);
         $("#deskripsi").val(data.deskripsi);
-        $("#gambar_buku_preview").attr("src", data.gambar_buku);
+        $("#gambar").attr("src", data.gambar);
         console.log(data)
       }
     });

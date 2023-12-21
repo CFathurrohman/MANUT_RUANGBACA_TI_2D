@@ -28,10 +28,12 @@ class Buku extends Controller
 
     public function tambah()
     {
-        $gambar_buku = $this->upload();
+//        var_dump($_POST);
+
+        $gambar = $this->upload();
         //        $validasi = $_POST['tersedia'] <= $_POST['jumlah'];
 
-        if ($this->model('Buku_model')->tambahDataBuku($_POST, $gambar_buku) > 0) {
+        if ($this->model('Buku_model')->tambahDataBuku($_POST, $gambar) > 0) {
             $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditambahkan.');
             header('Location: ' . BASEURL . '/buku');
             exit;
@@ -42,37 +44,40 @@ class Buku extends Controller
         }
     }
 
-    public function upload()
+    function upload()
     {
-        $namaFile = $_FILES['gambar_buku']['name'];
-        $ukuranFile = $_FILES['gambar_buku']['size'];
-        //        $error = $_FILES['gambar_buku']['error'];
-        $tmpName = $_FILES['gambar_buku']['tmp_name'];
 
-        //        if ($error === 4) {
-        //            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
-        //            return false;
-        //        }
+        $namaFile = $_FILES['gambar']['nama'];
+        $ukuranFile = $_FILES['gambar']['size'];
+        $error = $_FILES['gambar']['error'];
+        $tmpName = $_FILES['gambar']['tmp_nama'];
+        //cek apakah tidak ada gambar yang diupload
+        if ($error === 4) {
+//            echo "<script> alert('pilih gambar terlebih dahulu!')</script>";
+            return false;
+        }
 
+        //cek apakah yang diupload adalah gambar
         $ekstensiGambarValid = ['jpg', 'jpeg', 'png'];
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            //            echo "<script> alert('yang anda upload bukan gambar')</script>";
+//            echo "<script> alert('yang anda upload bukan gambar')</script>";
             return false;
         }
 
+        //cek jika ukurannya terlalu besar
         if ($ukuranFile > 10000000) {
-            //            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
+//            echo "<script> alert('Ukuran gambar terlalu besar!')</script>";
             return false;
         }
-
+        //generate nama gambar baru
         $namaFileBaru = uniqid();
         $namaFileBaru .= '.';
         $namaFileBaru .= $ekstensiGambar;
-        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/MANUT_RUANGBACA_TI_2D/public/img/' . $namaFileBaru;
+        $dirUpload = $_SERVER['DOCUMENT_ROOT'] . '/manut_ruangbaca_ti_2d/public/img/imgBuku' . $namaFileBaru;
         //gambar siap diupload
-        exec("find /opt/lampp/htdocs/MANUT_RUANGBACA_TI_2D/public/img -type d -exec chmod 0755 {} +");
+        exec("find /opt/lampp/htdocs/manut_ruangbaca_ti_2d/public/img/Buku -type d -exec chmod 0755 {} +");
         move_uploaded_file($tmpName, $dirUpload);
         return $namaFileBaru;
     }

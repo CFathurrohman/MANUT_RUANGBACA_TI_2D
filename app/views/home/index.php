@@ -4,6 +4,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<style>
+    .card {
+        transition: background-color 0.3s ease;
+    }
+
+    .card:hover {
+        background-color: #f0f0f0;
+        cursor: pointer;
+    }
+
+    [data-bs-theme = "dark"] .card:hover {
+        background-color: #243447;
+        cursor: pointer;
+    }
+</style>
+
 <div class="transition-group">
     <div></div>
     <div></div>
@@ -18,34 +34,75 @@
             <h3>Katalog buku</h3><br>
         </div>
     </div>
+    <?php
+    if (isset($_SESSION['username']) && isset($_SESSION['level'])) {
+        if ($_SESSION['level'] == 'admin') {
+            echo '<div class="row">
+                      <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div style="width: 18rem" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/peminjaman\')">
+                          <div class="card-body text-start">
+                            <h5 class="card-title">Jumlah Pengajuan</h5>
+                            <p class="card-text">' . $data["jumlah_diajukan"]["jumlah"] . ' Pengajuan</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div style="width: 18rem" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/pengembalian\')">
+                          <div class="card-body text-start">
+                            <h5 class="card-title">Jumlah Peminjaman</h5>
+                            <p class="card-text">' . $data["jumlah_dipinjam"]["jumlah"] . ' Peminjaman</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>';
+        } else {
+            echo '      <div class="carousel">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>';
+        }
+    } else {
+        echo '      <div class="carousel">
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . ' /img/Carousel Slide 1.png" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 2.png" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item fade-in">
+                                        <img class="d-block w-100" src="' .BASEURL . '/img/Carousel Slide 3.png" alt="Third slide">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
+                            </div>
+                        </div>';
+    }
 
-    <div class="carousel">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 1.png" alt="First slide">
-                </div>
-                <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 2.png" alt="Second slide">
-                </div>
-                <div class="carousel-item fade-in">
-                    <img class="d-block w-100" src="<?= BASEURL; ?>/img/Carousel Slide 3.png" alt="Third slide">
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
-    <br>
-
-    <div>
-    <h3>Jumlah Buku Diajukan <?= $data['jumlah_diajukan']['jumlah']; ?></h3>
-    <h3>Jumlah Buku Dipinjam <?= $data['jumlah_dipinjam']['jumlah']; ?></h3>
-    </div>
+    ?>
 
     <hr style="height: 1px;color: black;background-color: black;">
     <div class="row mb-3">
@@ -65,7 +122,7 @@
         <?php foreach ($data['buku'] as $buku) : ?>
             <div class="col mb-3">
                 <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
-                    <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar_buku']; ?>" class="card-img-top" alt="Book Cover">
+                    <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar']; ?>" class="card-img-top" alt="Book Cover">
                     <div class="card-body d-flex flex-column justify-content-between">
                         <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
                         <div>
@@ -78,11 +135,14 @@
                     </div>
 
                     <div class="card-footer text-center">
-                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
+                        <a href="<?= BASEURL; ?>/buku/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-warning d-block">Lihat</a>
                     </div>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'anggota') : ?>
                         <div class="card-footer text-center">
                             <a href="<?= BASEURL; ?>/buku_simpan/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block simpanWishlish">Simpan</a>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="<?= BASEURL; ?>/keranjang/tambah/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-success d-block simpanWishlish">Keranjang</a>
                         </div>
                     <?php elseif (!isset($_SESSION['level'])) : ?>
                         <div class="card-footer text-center">
@@ -206,4 +266,14 @@
             });
         });
     });
+</script>
+
+<script>
+    function redirectToAnotherPage(url1, url2) {
+        // url1 = 'http://localhost/manut_ruangbaca_ti_2d/public/pemi';
+        // url2 = 'http://localhost/manut_ruangbaca_ti_2d/public/buku_dipinjam';
+        let condition = true;
+        let check = condition ? url1 : url2;
+        window.location.href = check;
+    }
 </script>

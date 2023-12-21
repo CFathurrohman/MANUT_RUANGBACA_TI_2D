@@ -29,7 +29,7 @@ class Keranjang_model
 
     public function getAllKeranjang()
     {
-        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar_buku, ker.id_keranjang
+        $this->db->query("SELECT b.id_buku, b.nama_buku, b.gambar, ker.id_keranjang
                           FROM buku b 
                           JOIN keranjang ker ON ker.id_buku = b.id_buku 
                           WHERE ker.username = :username");

@@ -189,8 +189,8 @@
                         <input type="text" name="nama_buku" class="form-control" id="nama_buku" required>
                     </div>
                     <div class="mb-3">
-                        <label for="gambar_buku" class="form-label">Gambar Buku</label>
-                        <input type="file" name="gambar_buku" class="form-control" id="gambar_buku"><br>
+                        <label for="gambar" class="form-label">Gambar Buku</label>
+                        <input type="file" name="gambar" class="form-control" id="gambar"><br>
                         <img id="preview" src="#" alt="Upload Gambar" width="200px">
                     </div>
                     <div class="mb-3">
@@ -234,33 +234,8 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.getElementById('gambar_buku').addEventListener('change', function(e) {
+    document.getElementById('gambar').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');
         preview.src = URL.createObjectURL(e.target.files[0]);
     });
-</script>
-<script>
-    function loadFile(event) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var img = new Image();
-            img.src = e.target.result;
-            img.onload = function() {
-                var canvas = document.createElement('canvas');
-                var ctx = canvas.getContext('2d');
-                var maxWidth = 200;
-                var scale = Math.min(maxWidth / img.width, 1);
-
-                canvas.width = img.width * scale;
-                canvas.height = img.height * scale;
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-                var resizedImg = new Image();
-                resizedImg.src = canvas.toDataURL('image/jpeg');
-                document.getElementById('preview').innerHTML = '';
-                document.getElementById('preview').appendChild(resizedImg);
-            };
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
 </script>
