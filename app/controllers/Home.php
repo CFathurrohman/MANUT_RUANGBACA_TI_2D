@@ -24,6 +24,8 @@ class Home extends Controller
         $page = isset($_POST['page']) ? (int)$_POST['page'] : 1;
         $offset = ($page - 1) * $results_per_page;
         $data['buku'] = $this->model('Home_model')->cariDataBuku($results_per_page, $offset);
+        $data['jumlah_diajukan'] = $this->model('Home_model')->getTotalDiajukan();
+        $data['jumlah_dipinjam'] = $this->model('Home_model')->getTotalDipinjam();
         $total_rows = $this->model('Home_model')->getTotalRowsCari();
         $data['total_pages'] = ceil($total_rows / $results_per_page);
         $data['page'] = $page;

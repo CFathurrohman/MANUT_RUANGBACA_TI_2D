@@ -15,27 +15,6 @@
                     <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                 </svg>
             </div>
-<<<<<<< Updated upstream
-        <?php else : ?>
-            <?php foreach ($data['buku'] as $buku) : ?>
-                <div class="col mb-3">
-                    <div style="box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.25);" class="card h-100">
-                        <img style="box-sizing: border-box" src="<?= BASEURL; ?>/img/<?= $buku['gambar']; ?>" class="card-img-top" alt="Book Cover">
-                        <div class="card-body">
-                            <h5 style="font-size: medium" class="card-title"><?= $buku['nama_buku']; ?></h5>
-                        </div>
-                        <div class="card-body">
-                            <h6>Tanggal Dipinjam : </h6>
-                            <h5 style="font-size: medium" class="card-title"><?= $buku['tgl_pinjam']; ?></h5>
-                        </div>
-                        <div class="card-body">
-                            <h6>Tanggal Batas Pengembalian : </h6>
-                            <h5 style="font-size: medium" class="card-title"><?= $buku['tgl_batas_kembali']; ?></h5>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a href="<?= BASEURL; ?>/buku_diajukan/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
-                        </div>
-=======
         <?php else: ?>
         <?php foreach ($data['buku'] as $buku) : ?>
             <div class="col mb-3">
@@ -50,7 +29,6 @@
                     </div>
                     <div class="card-footer text-center">
                         <a href="<?= BASEURL; ?>/buku_diajukan/read/<?= $buku['id_buku']; ?>" class="btn btn-sm btn-outline-info d-block">Lihat</a>
->>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
