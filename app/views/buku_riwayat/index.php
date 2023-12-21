@@ -7,12 +7,7 @@
 </div>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12"><br>
-            <h3>Riwayat</h3><br>
-            <hr style="height: 1px;color: black;background-color: black;">
-        </div>
-    </div>
+   
     <div class="row">
         <div class="col-md-6">
             <?php //Flasher::flashPeminjaman(); 

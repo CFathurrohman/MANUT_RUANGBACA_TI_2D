@@ -10,13 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12"><br>
-            <h3>Daftar Pengajuan Peminjaman</h3><br>
-            <hr style="height: 1px;color: black;background-color: black;">
-
-        </div>
-    </div>
+ 
 
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">

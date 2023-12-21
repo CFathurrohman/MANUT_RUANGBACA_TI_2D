@@ -11,6 +11,9 @@
 
 
 <footer>
+</div>
+    </div>
+</div>
   <section>
     <div class="wave wave1"></div>
     <!-- <div class="wave wave2"></div> -->

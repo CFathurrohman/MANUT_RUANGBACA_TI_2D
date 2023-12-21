@@ -18,14 +18,7 @@
 
 <form action="<?= BASEURL; ?>/buku_simpan/multiPinjam" method="post">
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-12">
-                <br>
-                <h3>Daftar Buku Disimpan </h3>
-                <br>
-                <hr style="height: 1px;color: black;background-color: black;">
-            </div>
-        </div>
+       
 
         <div class="table-responsive shadow">
             <table class="table table-bordered">

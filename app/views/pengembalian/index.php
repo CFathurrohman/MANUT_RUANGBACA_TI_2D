@@ -11,13 +11,7 @@
 <script src="<?= BASEURL; ?>/js/pengembalian.js"></script>
 
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-12"><br>
-            <h3>Pengembalian Buku</h3><br>
-            <hr style="height: 1px;color: black;background-color: black;">
     
-        </div>
-    </div>
 
     <div class="row mb-3">
         <div class="col-lg-12 d-flex justify-content-end">
