@@ -1,7 +1,6 @@
-
 <div class="card text-center" style="margin-top: 4vh;">
     <div class="card-header" style="background-color: white;">
-        <ul class="nav nav-tabs card-header-tabs justify-content-around" style="background-color: #e3e3e3;"> <!-- or justify-content-between -->
+        <ul class="nav nav-tabs card-header-tabs justify-content-around" style="background-color: #e3e3e3; display: flex; padding: 0;">
             <?php
             $currentUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             if ($_SESSION['level'] == 'admin') {
@@ -17,10 +16,14 @@
                     'http://localhost/manut_ruangbaca_ti_2d/public/buku_riwayat' => 'Riwayat'
                 ];
             }
+            $count = count($urls);
+            $width = 100 / $count; 
             foreach ($urls as $url => $name) {
                 $active = ($currentUrl == $url) ? 'active' : '';
                 $color = ($currentUrl == $url) ? 'blue' : 'black';
-                echo "<li class='nav-item'><a class='nav-link $active' href='$url' style='color: $color;'>$name</a></li>";
+                echo "<li class='nav-item' style='width: $width%;'><a class='nav-link $active' href='$url' style='color: $color;'>$name</a></li>";
             }
             ?>
         </ul>
+    </div>
+</div>
