@@ -24,8 +24,8 @@
     }
 
     [data-bs-theme="light"] #card_ajukan:hover {
-        background-color: #76b1ed
-    ;    cursor: pointer;
+        background-color: #76b1ed;
+        cursor: pointer;
     }
 
     [data-bs-theme="light"] #card_pinjam:hover {
