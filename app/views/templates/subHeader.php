@@ -1,6 +1,3 @@
-<style>
-    [data-bs-theme='dark'] {}
-</style>
 
 <div class="card text-center mt-5" style="margin-top: 4vh;">
     <div class="card-header">

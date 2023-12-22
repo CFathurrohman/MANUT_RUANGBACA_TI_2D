@@ -52,7 +52,7 @@
     }
 
     [data-bs-theme="dark"] .card:hover {
-        background-color: #332FD0;
+        background-color: #243447;
     }
 </style>
 

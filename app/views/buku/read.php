@@ -10,7 +10,7 @@
         </div><br>
         <style>
             .pinjamButton {
-                margin-top: 15vh;
+                margin-top: 2%;
                 margin-left: 60vw;
             }
         </style>
