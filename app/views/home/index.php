@@ -75,7 +75,7 @@
         if ($_SESSION['level'] == 'admin') {
             echo '<div class="row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div id="card_ajukan" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/peminjaman\')">
+                        <div id="card_ajukan" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/Peminjaman\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Pengajuan</h5>
                             <p class="card-text">' . $data["jumlah_diajukan"]["jumlah"] . ' Pengajuan</p>
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/pengembalian\')">
+                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/P   engembalian\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Peminjaman</h5>
                             <p class="card-text">' . $data["jumlah_dipinjam"]["jumlah"] . ' Peminjaman</p>
