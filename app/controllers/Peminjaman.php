@@ -49,11 +49,11 @@ class Peminjaman extends Controller
             'keterangan' => $_POST['keterangan']
         ];
 
-        // if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
+        if ($this->model('Peminjaman_model')->tolakPeminjaman($data)) {
         // $this->showAlert('success', 'Berhasil', 'Data Buku berhasil ditolak.');
-        // } else {
+        } else {
         // $this->showAlert('error', 'Gagal', 'Data Buku gagal ditolak.');
-        // }
+        }
 
         header('Location: ' . BASEURL . '/peminjaman');
         exit;
