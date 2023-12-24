@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/P   engembalian\')">
+                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/Pengembalian\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Peminjaman</h5>
                             <p class="card-text">' . $data["jumlah_dipinjam"]["jumlah"] . ' Peminjaman</p>
