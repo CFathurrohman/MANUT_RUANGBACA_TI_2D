@@ -190,49 +190,50 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $(".actionLink").on("click", function(e) {
-            e.preventDefault();
+$(document).ready(function() {
+    $(".actionLink").on("click", function(e) {
+        e.preventDefault();
 
-            const id = $(this).data("id");
-            const action = $(this).data("action");
+        const id = $(this).data("id");
+        const action = $(this).data("action");
 
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
-                icon: 'question',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Iya',
-                cancelButtonText: 'Tidak'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: "<?= BASEURL; ?>/peminjaman/" + action + "/" + id,
-                        type: "GET",
-                        success: function(response) {
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Berhasil!',
-                                text: 'Peminjaman berhasil diajukan.',
-                                showConfirmButton: false,
-                                timer: 1500
-                            }).then(() => {
-                                window.location.href = response.redirectUrl;
-                            });
-                        },
-                        error: function(error) {
-                            console.error(error);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error!',
-                                text: 'Gagal peminjaman Data Buku. Silakan coba lagi.',
-                            });
-                        }
-                    });
-                }
-            });
+        Swal.fire({
+            title: 'Konfirmasi',
+            text: 'Apakah anda yakin ' + (action === 'terima' ? 'menerima' : 'menolak') + ' pengajuan peminjaman?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Iya',
+            cancelButtonText: 'Tidak'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "<?= BASEURL; ?>/peminjaman/" + action + "/" + id,
+                    type: "GET",
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: 'Peminjaman berhasil diajukan.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        }).then(() => {
+                            // Redirect to the 'Peminjaman' page after successful acceptance
+                            window.location.href = '<?= BASEURL; ?>/peminjaman'; // Check the correct URL here
+                        });
+                    },
+                    error: function(error) {
+                        console.error(error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error!',
+                            text: 'Gagal peminjaman Data Buku. Silakan coba lagi.',
+                        });
+                    }
+                });
+            }
         });
     });
+});
 </script>
