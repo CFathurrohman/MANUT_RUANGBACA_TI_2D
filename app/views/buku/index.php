@@ -191,7 +191,7 @@
                     <div class="mb-3">
                         <label for="gambar" class="form-label">Gambar Buku</label>
                         <input type="file" name="gambar" class="form-control" id="gambar"><br>
-                        <img id="preview" src="#" alt="Upload Gambar" width="200px">
+                        <img id="preview" src="#" alt="Upload Gambar" width="200px" style="display: none">
                     </div>
                     <div class="mb-3">
                         <label for="penulis" class="form-label">Penulis</label>
@@ -237,5 +237,6 @@
     document.getElementById('gambar').addEventListener('change', function(e) {
         var preview = document.getElementById('preview');
         preview.src = URL.createObjectURL(e.target.files[0]);
+        preview.style.display = 'block';
     });
 </script>

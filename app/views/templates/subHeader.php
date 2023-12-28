@@ -1,9 +1,3 @@
-<style>
-    [data-bs-theme = 'dark'] {
-
-    }
-</style>
-
 <div class="card text-center mt-5" style="margin-top: 4vh;">
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs justify-content-around" style="display: flex; padding: 0;">
@@ -23,7 +17,7 @@
                 ];
             }
             $count = count($urls);
-            $width = 100 / $count; 
+            $width = 100 / $count;
             foreach ($urls as $url => $name) {
                 $active = ($currentUrl == $url) ? 'active' : '';
                 $color = ($currentUrl == $url) ? 'light' : 'dark';
@@ -31,5 +25,5 @@
             }
             ?>
         </ul>
- </div>
+    </div>
 </div>

@@ -24,8 +24,8 @@
     }
 
     [data-bs-theme="light"] #card_ajukan:hover {
-        background-color: #76b1ed
-    ;    cursor: pointer;
+        background-color: #76b1ed;
+        cursor: pointer;
     }
 
     [data-bs-theme="light"] #card_pinjam:hover {
@@ -52,7 +52,7 @@
     }
 
     [data-bs-theme="dark"] .card:hover {
-        background-color: #332FD0;
+        background-color: #243447;
     }
 </style>
 
@@ -75,7 +75,7 @@
         if ($_SESSION['level'] == 'admin') {
             echo '<div class="row">
                       <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div id="card_ajukan" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/peminjaman\')">
+                        <div id="card_ajukan" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/Peminjaman\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Pengajuan</h5>
                             <p class="card-text">' . $data["jumlah_diajukan"]["jumlah"] . ' Pengajuan</p>
@@ -83,7 +83,7 @@
                         </div>
                       </div>
                       <div class="col-sm-6">
-                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/pengembalian\')">
+                        <div id="card_pinjam" class="card" onclick="redirectToAnotherPage(\'' . BASEURL . '/Pengembalian\')">
                           <div class="card-body text-start">
                             <h5 class="card-title">Jumlah Peminjaman</h5>
                             <p class="card-text">' . $data["jumlah_dipinjam"]["jumlah"] . ' Peminjaman</p>

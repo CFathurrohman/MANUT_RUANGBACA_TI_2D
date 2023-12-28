@@ -10,7 +10,7 @@
         </div><br>
         <style>
             .pinjamButton {
-                margin-top: 15vh;
+                margin-top: 2%;
                 margin-left: 60vw;
             }
         </style>
@@ -25,13 +25,13 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><small class="text-muted"><strong>Kategori</strong>
-                                :&emsp;&emsp;&ensp;&nbsp; <?= $data['buku']['nama_kategori']; ?></small></li>
+                                &emsp;&emsp;&ensp;&nbsp; :<?= $data['buku']['nama_kategori']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted"><strong>Penulis</strong>
-                                :&emsp;&emsp;&emsp;&ensp; <?= $data['buku']['penulis']; ?></small></li>
+                                &emsp;&emsp;&emsp;&ensp; :<?= $data['buku']['penulis']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted"><strong>Tahun Terbit</strong>
-                                :&emsp; <?= $data['buku']['tahun_terbit']; ?></small></li>
+                                &emsp; :<?= $data['buku']['tahun_terbit']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted"><strong>Stock Tersedia</strong>
-                                :&nbsp; <?= $data['buku']['jumlah_tersedia']; ?></small></li>
+                                &nbsp; :<?= $data['buku']['jumlah_tersedia']; ?></small></li>
                         <li class="list-group-item"><small class="text-muted"><strong>Deskripsi</strong><br><?= $data['buku']['deskripsi']; ?></small></li>
                     </ul>
                     <?php if (isset($_SESSION['level']) && $_SESSION['level'] == 'admin') : ?>
